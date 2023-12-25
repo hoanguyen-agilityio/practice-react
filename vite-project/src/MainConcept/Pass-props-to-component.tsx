@@ -1,20 +1,16 @@
-import { getImageUrl } from './utils';
+import { Avatar } from './avatar';
 
-const Avatar = ({ person, size }) => {
+const Card = ({ children }) => {
   return (
-    <img
-      className="avatar"
-      src={getImageUrl(person)}
-      alt={person.name}
-      width={size}
-      height={size}
-    />
+    <div className='card'>
+      {children}
+    </div>
   );
 }
 
 const Profile = () => {
   return (
-    <div>
+    <Card>
       <Avatar
         size={100}
         person={{
@@ -22,21 +18,7 @@ const Profile = () => {
           imageId: 'YfeOqp2'
         }}
       />
-      <Avatar
-        size={80}
-        person={{
-          name: 'Aklilu Lemma',
-          imageId: 'OKS67lh'
-        }}
-      />
-      <Avatar
-        size={50}
-        person={{
-          name: 'Lin Lanying',
-          imageId: '1bX5QH6'
-        }}
-      />
-    </div>
+    </Card>
   );
 }
 

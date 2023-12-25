@@ -1,4 +1,4 @@
-const getImageUrl = (person, size = 's') => {
+export const getImageUrl = (person, size = 's') => {
   return (
     'https://i.imgur.com/' +
     person.imageId +
@@ -7,4 +7,3 @@ const getImageUrl = (person, size = 's') => {
   );
 }
 
-export default getImageUrl
