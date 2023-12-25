@@ -1,4 +1,4 @@
-import { Avatar } from './avatar';
+import { Avatar } from "../App";
 
 const Card = ({ children }) => {
   return (

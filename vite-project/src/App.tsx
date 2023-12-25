@@ -1,14 +1,16 @@
 import './App.css'
+import Profile from './MainConcept/Pass-props-to-component.tsx'
+import GalleryMemory from './components/memory.tsx'
 
 function App() {
 
   return (
     <>
       <h1>Hedy Lamarr's Todos</h1>
-      <img 
-        src="https://i.imgur.com/yXOvdOSs.jpg" 
-        alt="Hedy Lamarr" 
-        className="photo" 
+      <img
+        src="https://i.imgur.com/yXOvdOSs.jpg"
+        alt="Hedy Lamarr"
+        className="photo"
       />
       <ul>
         <li>Invent new traffic lights</li>
@@ -17,6 +19,8 @@ function App() {
       </ul>
       <Avatar />
       <TodoList/>
+      <Profile />
+      <GalleryMemory />
     </>
   )
 }
