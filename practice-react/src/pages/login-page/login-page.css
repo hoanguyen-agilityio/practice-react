@@ -1,0 +1,123 @@
+/* START PAGE LOGIN */
+/* STYLE APPLIED TO THE MOBILE */
+.section-body-login {
+  background-image: linear-gradient(to right ,var(--primary-color-100), var(--primary-color-50));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0 20px;
+}
+
+.form-login {
+  width: 100%;
+  max-width: 475px;
+  background: var(--secondary-color-50);
+  border-radius: var(--border-radius-xl);
+  padding: 0 15px;
+}
+
+.form-login-heading {
+  font-size: var(--font-size-m);
+  padding-top: 20px;
+}
+
+.form-login-title {
+  font-size: var(--font-size-s);
+  padding-top: 25px;
+}
+
+.form-login-content {
+  padding-top: 9px;
+  color: var(--secondary-color-200);
+  font-size: var(--font-size-xs);
+  text-align: center;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  .error-message {
+    text-align: left;
+  }
+}
+
+.form-field:nth-child(2n) {
+  padding-top: 20px;
+}
+
+.input-label {
+  font-size: var(--font-size-xs);
+}
+
+.btn-login {
+  width: 100%;
+  padding: 15px 0;
+  margin: 15px 0;
+}
+
+.message-reset-password {
+  text-align: center;
+  font-size: var(--font-size-s);
+  padding: 27px 15px;
+}
+
+.message-reset-password a {
+  color: var(--primary-color-100);
+}
+
+.form-field .error-message {
+  padding: 10px 0;
+}
+
+/* STYLE APPLIED TO THE TABLET */
+@media (min-width: 769px) {
+  .form-login {
+    padding: 0 25px;
+  }
+
+  .form-login-heading {
+    font-size: var(--font-size-l);
+    padding-top: 30px;
+  }
+
+  .form-login-title {
+    font-size: var(--font-size-m);
+    padding-top: 30px;
+  }
+
+  .form-login-content {
+    font-size: var(--font-size-s);
+  }
+
+  .input-label {
+    font-size: var(--font-size-s);
+  }
+
+  .form-field {
+    padding-top: 25px;
+  }
+
+  .btn-login {
+    margin: 20px 0;
+  }
+
+  .message-reset-password {
+    padding: 27px 20px 41px;
+  }
+}
+
+/* STYLE APPLIED TO THE DESKTOP */
+@media (min-width: 1024px) {
+  .form-login-heading {
+    padding-top: 44px;
+    font-size: var(--font-size-xl);
+  }
+
+  .form-login-title {
+    font-size: var(--font-size-l);
+    padding-top: 43px;
+  }
+}
+/* END PAGE LOGIN */

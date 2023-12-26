@@ -1,0 +1,25 @@
+/* START TEXT */
+.heading {
+  text-align: center;
+  font-weight: var(--font-weight-xl);
+  &:before {
+    content: '| ';
+    color: var(--primary-color-50);
+    padding-right: 5px;
+  }
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-xl);
+}
+
+.error-message {
+  text-align: center;
+  padding: 10px 15px 0;
+  color: var(--warning-color-50);
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-l);
+}
+/* END TEXT */

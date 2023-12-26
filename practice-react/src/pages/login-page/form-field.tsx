@@ -1,16 +1,15 @@
-import Input from "../../components/input"
+import { ReactNode } from "react"
 
 interface IFormField {
-  name: string,
-  type: string,
-  placeholder?: string
+  title: string,
+  children: ReactNode
 }
 
-export const FormField = ({ name, type, placeholder } :IFormField) => {
+export const FormField = ({ title, children } :IFormField) => {
   return (
     <div className="form-field">
-      <label className="input-label">{name}</label>
-      <Input  type={type} placeholder={placeholder}/>
+      <label className="input-label">{title}</label>
+      {children}
     </div>
   )
 }
