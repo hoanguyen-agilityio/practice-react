@@ -1,6 +1,7 @@
 import './App.css'
 import Profile from './MainConcept/Pass-props-to-component.tsx'
 import GalleryMemory from './components/memory.tsx'
+import Video from './components/video.tsx'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <TodoList/>
       <Profile />
       <GalleryMemory />
+      <Video />
     </>
   )
 }
