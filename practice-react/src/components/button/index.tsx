@@ -8,12 +8,7 @@ interface IButton {
 
 const Button = ({ className, ariaLabel, name } :IButton) => {
   return (
-    <button
-      type='button'
-      className={className}
-      aria-label={ariaLabel}
-    >{name}
-    </button>
+    <button type='button' className={className} aria-label={ariaLabel}>{name}</button>
   )
 }
 

@@ -1,6 +1,6 @@
-import Button from "../../components/button";
-import Input from "../../components/input";
-import { FormField } from "./form-field";
+import Button from '../../components/button';
+import Input from '../../components/input';
+import { FormField } from './form-field';
 import './login-page.css'
 
 const LoginPage = () => {
@@ -19,10 +19,9 @@ const LoginPage = () => {
         <Input type='password' placeholder='Enter your password'></Input>
       </FormField>
       <Button className='btn btn-login' ariaLabel='Button sign in' name='Sign In' />
-      <p className="message-reset-password">
+      <p className='message-reset-password'>
         Forgot your password?
-        <a href="javascript:void(0);" aria-label="Reset password"
-          >Reset Password</a>
+        <a href='javascript:void(0);' aria-label='Reset password'>Reset Password</a>
       </p>
     </form>
   )
