@@ -1,0 +1,32 @@
+/* START PROFILE */
+/* Avatar user */
+.profile {
+  width: auto;
+  text-align: center;
+}
+
+.user-name {
+  margin: 20px 0 10px;
+  font-weight: var(--font-weight-xl);
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-m);
+}
+
+.user-rights {
+  font-weight: var(--font-weight-m);
+  color: var(--primary-color-100);
+  font-size: var(--font-size-s);
+}
+
+.avatar-user {
+  margin-top: 54px;
+  border-radius: 50%;
+}
+
+/* Avatar student */
+.avt-student {
+  width: 65px;
+  height: 55px;
+  border-radius: var(--border-radius-m);
+}
+/* END PROFILE */
