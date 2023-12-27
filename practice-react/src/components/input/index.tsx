@@ -7,7 +7,7 @@ interface IInput {
   ariaLabel: string
 }
 
-const Input = ( { type, placeholder, name, ariaLabel} :IInput ) => {
+const Input = ( { type, placeholder, name, ariaLabel } :IInput ) => {
   return (
     <input className='form-input' type={type} placeholder={placeholder} name={name} aria-label={ariaLabel} />
   )
