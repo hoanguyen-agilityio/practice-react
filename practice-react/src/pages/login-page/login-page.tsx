@@ -13,10 +13,10 @@ const LoginPage = () => {
       </p>
       <p className='error-message'></p>
       <FormField title='Email'>
-        <Input type='email' placeholder='Enter your email'></Input>
+        <Input type='email' placeholder='Enter your email' name='email' ariaLabel='Email'></Input>
       </FormField>
       <FormField title='Password'>
-        <Input type='password' placeholder='Enter your password'></Input>
+        <Input type='password' placeholder='Enter your password' name='password' ariaLabel='Password'></Input>
       </FormField>
       <Button className='btn btn-login' ariaLabel='Button sign in' name='Sign In' />
       <p className='message-reset-password'>
