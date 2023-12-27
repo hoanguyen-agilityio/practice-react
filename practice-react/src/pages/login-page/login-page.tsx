@@ -11,12 +11,12 @@ const LoginPage = () => {
       <p className='form-login-content'>
         Enter your credentials to access your account
       </p>
-      <p className='error-message'></p>
+      <p className='error-message' />
       <FormField title='Email'>
-        <Input type='email' placeholder='Enter your email' name='email' ariaLabel='Email'></Input>
+        <Input type='email' placeholder='Enter your email' name='email' ariaLabel='Email' />
       </FormField>
       <FormField title='Password'>
-        <Input type='password' placeholder='Enter your password' name='password' ariaLabel='Password'></Input>
+        <Input type='password' placeholder='Enter your password' name='password' ariaLabel='Password' />
       </FormField>
       <Button className='btn btn-login' ariaLabel='Button sign in' name='Sign In' />
       <p className='message-reset-password'>
