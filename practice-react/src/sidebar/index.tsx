@@ -1,4 +1,5 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
+import './sidebar.css'
 
 interface ISidebar {
   children: ReactNode
@@ -6,9 +7,11 @@ interface ISidebar {
 
 const Sidebar = ({children} :ISidebar) => {
   return (
-     <main>
-      {children}
-     </main>
+    <div className='container-sidebar'>
+      <main className='main-sidebar hide-sidebar' id='mainsidebar'>
+        {children}
+      </main>
+    </div>
   )
 }
 

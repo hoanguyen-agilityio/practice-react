@@ -1,1 +1,8 @@
 export { default as avatar } from './avatar.svg'
+export { default as course } from './course.svg'
+export { default as graduation } from './graduation.svg'
+export { default as home } from './home.svg'
+export { default as payment } from './payment.svg'
+export { default as report } from './report.svg'
+export { default as setting } from './setting.svg'
+export { default as logout } from './logout.svg'

@@ -10,7 +10,6 @@ interface IProfile {
 
 const Profile = ({ title, avatar, alt, userName, description } :IProfile) => {
   return (
-    // profile
     <div className='profile'>
       <h1 className='heading'>{title}</h1>
       <img
