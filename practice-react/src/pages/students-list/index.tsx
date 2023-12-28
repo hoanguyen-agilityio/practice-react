@@ -1,6 +1,6 @@
 import './students-list.css'
 import Profile from '../../components/profile'
-import Sidebar from '../../sidebar'
+import Sidebar from '../../components/sidebar'
 import {
   avatar,
   report,

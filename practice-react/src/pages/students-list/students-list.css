@@ -107,7 +107,7 @@
   cursor: pointer;
 }
 
-.scroll-y {
+.vertical-scroll {
   width: 100%;
   height: 80%;
   overflow-y: auto;
