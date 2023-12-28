@@ -3,12 +3,13 @@ interface IMenuItem {
   name: string
   alt: string
   ariaLabel: string
+  href: string
 }
 
-const MenuItem = ({ icon, name, alt, ariaLabel } :IMenuItem) => {
+const MenuItem = ({ icon, name, alt, ariaLabel, href } :IMenuItem) => {
   return (
     <li>
-        <a href='javascript:void(0);' aria-label={ariaLabel}>
+        <a href={href} aria-label={ariaLabel}>
           <img src={icon} alt={alt} />
           {name}
         </a>
