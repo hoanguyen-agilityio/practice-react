@@ -1,9 +1,13 @@
 import './sidebar.css'
-import Menu from '../menu'
-import ButtonLogout from '../button/button-logout'
-import { avatar, logout } from '../../assets/images'
-import Profile from '../profile'
-
+import {
+  Menu,
+  Profile,
+  Button
+} from '..'
+import {
+  avatar,
+  logout
+} from '../../assets/images'
 
 const Sidebar = () => {
   return (
@@ -18,11 +22,9 @@ const Sidebar = () => {
         />
         <aside className='sub-sidebar-content'>
           <Menu />
-          <ButtonLogout
-              icon={logout}
-              name='Logout'
-              ariaLabel='logout'
-            />
+          <div className='navigation'>
+            <Button className='btn-logout' ariaLabel='logout' name='Logout' icon={logout} />
+          </div>
         </aside>
       </main>
     </div>

@@ -1,5 +1,7 @@
-import { MENULIST } from '../constants/data'
-import MenuItem from './menu-item'
+import {
+  MenuItem,
+  MENULIST
+} from '..'
 
 const Menu = () => {
   return (

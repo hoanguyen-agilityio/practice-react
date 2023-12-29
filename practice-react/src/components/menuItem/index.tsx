@@ -9,7 +9,6 @@ interface IMenuList {
   menuList: IMenuItem[]
 }
 
-
 const MenuItem = ({menuList}: IMenuList) => {
   return (
     <>

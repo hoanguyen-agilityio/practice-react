@@ -1,5 +1,7 @@
-import Button from '../../components/button';
-import Input from '../../components/input';
+import {
+  Button,
+  Input
+} from '../../components';
 import { FormField } from './form-field';
 import './login-page.css'
 

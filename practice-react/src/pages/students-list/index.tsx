@@ -1,5 +1,5 @@
 import './students-list.css'
-import Sidebar from '../../components/sidebar'
+import { Sidebar } from '../../components'
 
 const StudentsList = () => {
   return (
