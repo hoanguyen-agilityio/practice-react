@@ -2,7 +2,7 @@
 export { default as Button } from './button'
 
 // Constant
-export { MENULIST } from './constant/data'
+export { MENU_LIST } from './constant/data'
 
 // Input
 export { default as Input } from './input'

@@ -1,12 +1,22 @@
 import {
   MenuItem,
-  MENULIST
+  MENU_LIST
 } from '..'
 
 const Menu = () => {
   return (
     <ul className='sub-sidebar-list'>
-      <MenuItem menuList={MENULIST}/>
+      {MENU_LIST.map(({icon, name, alt, ariaLabel, href}) => {
+        return (
+          <MenuItem
+            icon={icon}
+            name={name}
+            ariaLabel={ariaLabel}
+            alt={alt}
+            href={href}
+          />
+        )
+      })}
     </ul>
   )
 }

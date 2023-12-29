@@ -7,7 +7,7 @@ import {
   payment
 } from '../../assets/images'
 
-export const MENULIST = [
+export const MENU_LIST = [
   {
     icon:home,
     name:'Home',
