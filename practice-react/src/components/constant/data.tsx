@@ -30,11 +30,11 @@ export const MENU_LIST = [
     href: 'javascript:void(0);'
   },
   {
-    icon:payment,
-    name:'payment',
-    alt:'icon payment',
-    ariaLabel:'Go to payment page',
-    href:'javascript:void(0);'
+    icon: payment,
+    name: 'payment',
+    alt: 'icon payment',
+    ariaLabel: 'Go to payment page',
+    href: 'javascript:void(0);'
   },
   {
     icon: report,

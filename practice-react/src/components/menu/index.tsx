@@ -6,7 +6,13 @@ import {
 const Menu = () => {
   return (
     <ul className='sub-sidebar-list'>
-      {MENU_LIST.map(({ icon, name, alt, ariaLabel, href }) => {
+      {MENU_LIST.map(({
+        icon,
+        name,
+        alt,
+        ariaLabel,
+        href
+      }) => {
         return (
           <MenuItem
             icon={icon}

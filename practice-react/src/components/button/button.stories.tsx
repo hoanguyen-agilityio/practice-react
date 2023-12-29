@@ -1,4 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react'
+import {
+  Meta,
+  StoryObj
+} from '@storybook/react'
 
 // Components
 import Button from '.'

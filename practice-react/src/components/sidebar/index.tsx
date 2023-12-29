@@ -12,7 +12,9 @@ import {
 const Sidebar = () => {
   return (
     <div className='container-sidebar'>
-      <aside className='main-sidebar hide-sidebar' id='mainsidebar'>
+      <aside
+        className='main-sidebar hide-sidebar'
+        id='mainsidebar'>
         <Profile
           title='CRUD OPERATIONS'
           avatar= {avatar}
@@ -23,7 +25,12 @@ const Sidebar = () => {
         <div className='sub-sidebar-content'>
           <Menu />
           <div className='navigation'>
-            <Button className='btn-logout' ariaLabel='logout' name='Logout' icon={logout} />
+            <Button
+              className='btn-logout'
+              ariaLabel='logout'
+              name='Logout'
+              icon={logout}
+            />
           </div>
         </div>
       </aside>

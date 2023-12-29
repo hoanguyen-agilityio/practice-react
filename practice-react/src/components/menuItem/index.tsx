@@ -6,11 +6,23 @@ interface IMenuItem {
   href: string
 }
 
-const MenuItem = ({ icon, name, alt, ariaLabel, href } :IMenuItem ) => {
+const MenuItem = ({
+  icon,
+  name,
+  alt,
+  ariaLabel,
+  href
+} :IMenuItem ) => {
   return (
     <li>
-      <a href={href} aria-label={ariaLabel}>
-        <img src={icon} alt={alt} />
+      <a
+        href={href}
+        aria-label={ariaLabel}
+      >
+        <img
+          src={icon}
+          alt={alt}
+        />
         {name}
       </a>
     </li>

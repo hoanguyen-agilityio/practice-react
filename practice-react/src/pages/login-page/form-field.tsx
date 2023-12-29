@@ -5,10 +5,15 @@ interface IFormField {
   children: ReactNode
 }
 
-export const FormField = ({ title, children } :IFormField) => {
+export const FormField = ({
+  title,
+  children
+} :IFormField) => {
   return (
     <div className='form-field'>
-      <label className='input-label'>{title}</label>
+      <label className='input-label'>
+        {title}
+      </label>
       {children}
     </div>
   )

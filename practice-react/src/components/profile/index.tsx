@@ -8,17 +8,29 @@ interface IProfile {
   description: string
 }
 
-const Profile = ({ title, avatar, alt, userName, description } :IProfile) => {
+const Profile = ({
+  title,
+  avatar,
+  alt,
+  userName,
+  description
+} :IProfile) => {
   return (
     <div className='profile'>
-      <h1 className='heading'>{title}</h1>
+      <h1 className='heading'>
+        {title}
+      </h1>
       <img
         src={avatar}
         alt={alt}
         className='avatar-user'
       />
-      <p className='user-name'>{userName}</p>
-      <span className='user-rights'>{description}</span>
+      <p className='user-name'>
+        {userName}
+      </p>
+      <span className='user-rights'>
+        {description}
+      </span>
     </div>
   )
 }
