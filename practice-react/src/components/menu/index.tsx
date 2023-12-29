@@ -1,13 +1,10 @@
-import { ReactNode } from 'react'
+import { MENULIST } from '../constants/data'
+import MenuItem from './menu-item'
 
-interface IMenu {
-  children: ReactNode,
-}
-
-const Menu = ({ children } :IMenu) => {
+const Menu = () => {
   return (
     <ul className='sub-sidebar-list'>
-      {children}
+      <MenuItem menuList={MENULIST}/>
     </ul>
   )
 }

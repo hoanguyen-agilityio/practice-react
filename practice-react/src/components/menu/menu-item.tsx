@@ -5,16 +5,27 @@ interface IMenuItem {
   ariaLabel: string
   href: string
 }
+interface IMenuList {
+  menuList: IMenuItem[]
+}
 
-const MenuItem = ({ icon, name, alt, ariaLabel, href } :IMenuItem) => {
+
+const MenuItem = ({menuList}: IMenuList) => {
   return (
-    <li>
-        <a href={href} aria-label={ariaLabel}>
-          <img src={icon} alt={alt} />
-          {name}
-        </a>
-    </li>
+    <>
+      {menuList.map(({icon, name, alt, ariaLabel, href} :IMenuItem) => {
+        return (
+          <li>
+            <a href={href} aria-label={ariaLabel}>
+              <img src={icon} alt={alt} />
+              {name}
+            </a>
+          </li>
+        )
+      })}
+    </>
   )
+
 }
 
 export default MenuItem
