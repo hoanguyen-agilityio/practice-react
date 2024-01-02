@@ -6,6 +6,7 @@ import {
 } from '../../components'
 import { sort } from '../../assets/images'
 import ModalForm from '../../components/Form'
+import ModalDelete from '../../components/ModalDelete'
 
 const StudentsList = () => {
   return (
@@ -31,6 +32,7 @@ const StudentsList = () => {
         </section>
         <ul className="students-list-table"></ul>
         <ModalForm />
+        <ModalDelete />
       </div>
     </div>
   )
