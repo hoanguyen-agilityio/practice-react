@@ -5,7 +5,7 @@ import {
   Sidebar
 } from '../../components'
 import { sort } from '../../assets/images'
-import ModalForm from '../../components/form'
+import ModalForm from '../../components/Form'
 
 const StudentsList = () => {
   return (

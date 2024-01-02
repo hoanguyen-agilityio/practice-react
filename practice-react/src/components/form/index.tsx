@@ -1,7 +1,7 @@
 import './form.css'
 import { Button } from ".."
 import { FORM_INPUT } from '..'
-import Form from "./form"
+import Form from "./Form"
 
 const ModalForm = () => {
   return (

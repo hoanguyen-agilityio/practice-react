@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 
 // Components
-import Input from '.'
+import Input from './index'
 
 export default {
   title: 'Components/Input',
