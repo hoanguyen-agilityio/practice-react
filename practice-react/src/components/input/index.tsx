@@ -1,6 +1,6 @@
 import './input.css'
 
-interface IInput {
+export interface IInput {
   type: string,
   placeholder?: string,
   name: string,

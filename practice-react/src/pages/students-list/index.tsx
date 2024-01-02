@@ -5,6 +5,7 @@ import {
   Sidebar
 } from '../../components'
 import { sort } from '../../assets/images'
+import ModalForm from '../../components/form'
 
 const StudentsList = () => {
   return (
@@ -28,6 +29,8 @@ const StudentsList = () => {
             name='ADD NEW STUDENT'
           />
         </section>
+        <ul className="students-list-table"></ul>
+        <ModalForm />
       </div>
     </div>
   )

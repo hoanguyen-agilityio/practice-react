@@ -1,0 +1,149 @@
+/* START FORM */
+/* STYLE APPLIED TO THE MOBILE */
+.modal {
+  display: none;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-color);
+}
+
+.modal-form {
+  display: none;
+  .error-message {
+    text-align: left;
+    padding: 10px 0 0;
+  }
+}
+
+.modal-header {
+  padding-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal.modal-show {
+  display: flex;
+}
+
+.modal-content {
+  border-radius: var(--border-radius-xl);
+  background-color: var(--secondary-color-50);
+  padding: 0 10px;
+  max-width: 500px;
+  min-width: 245px;
+  width: 80%;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-xl);
+}
+
+.form {
+  overflow: auto;
+}
+
+.form-input-group {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+}
+
+.label-input {
+  font-size: var(--font-size-s);
+}
+
+.form-control {
+  border-radius: var(--border-radius-s);
+  display: block;
+  width: calc(100% - 34px);
+  padding: 15px;
+  margin-top: 15px;
+  font-size: var(--font-size-xs);
+}
+
+.form-warn-msg {
+  margin-top: 10px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: flex-end;
+  padding: 25px 0;
+}
+
+.btn-cancel {
+  margin-right: 15px;
+}
+
+/* Form confirm delete */
+.modal-confirm-delete {
+  top: 20px;
+}
+
+.modal-content-delete {
+  border-radius: var(--border-radius-xl);
+  min-width: 240px;
+}
+
+.title-confirm-delete {
+  color: var(--warning-color-50);
+  font-weight: var(--font-weight-l);
+}
+
+.describe {
+  font-size: var(--font-size-m);
+  padding-top: 30px;
+}
+
+.btn-form-confirm-delete {
+  margin: 25px 0 15px;
+  text-align: right;
+}
+
+.btn-group .btn,
+.btn-form-confirm-delete .btn {
+  padding: 14px 27px;
+}
+
+/* STYLE APPLIED TO THE DESKTOP */
+@media (min-width: 766px) {
+  .describe {
+    font-size: var(--font-size-m);
+  }
+}
+
+/* STYLE APPLIED TO THE DESKTOP */
+@media (min-width: 1200px) {
+  .label-input {
+    font-size: var(--font-size-m);
+  }
+
+  .form-input-group .form-input {
+    margin-top: 10px;
+  }
+
+  .form-control {
+    font-size: var(--font-size-s);
+  }
+
+  .form-input-group {
+    padding-top: 20px;
+  }
+
+  .form-warn-msg {
+    margin-top: 15px;
+  }
+
+  .modal-content-delete {
+    width: 500px;
+  }
+}
+/* END FORM */

@@ -51,3 +51,36 @@ export const MENU_LIST = [
     href: 'javascript:void(0);'
   }
 ]
+
+export const FORM_INPUT = [
+  {
+    nameLabel: 'Name',
+    type: 'text',
+    name: 'name',
+    ariaLabel: 'Enter name'
+  },
+  {
+    nameLabel: 'Email',
+    type: 'email',
+    name: 'email',
+    ariaLabel: 'Enter email'
+  },
+  {
+    nameLabel: 'Phone',
+    type: 'tel',
+    name: 'phone',
+    ariaLabel: 'Enter phone'
+  },
+  {
+    nameLabel: 'Enroll Number',
+    type: 'number',
+    name: 'enrollNumber',
+    ariaLabel: 'Enter enrollNumber'
+  },
+  {
+    nameLabel: 'Date of admission',
+    type: 'date',
+    name: 'dateOfAdmission',
+    ariaLabel: 'Enter date of admission'
+  }
+]
