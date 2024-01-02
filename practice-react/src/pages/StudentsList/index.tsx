@@ -2,11 +2,12 @@ import './students-list.css'
 import {
   Button,
   Header,
+  Loader,
+  ModalDelete,
+  ModalForm,
   Sidebar
 } from '../../components'
 import { sort } from '../../assets/images'
-import ModalForm from '../../components/Form'
-import ModalDelete from '../../components/ModalDelete'
 
 const StudentsList = () => {
   return (
@@ -33,6 +34,7 @@ const StudentsList = () => {
         <ul className="students-list-table"></ul>
         <ModalForm />
         <ModalDelete />
+        <Loader />
       </div>
     </div>
   )

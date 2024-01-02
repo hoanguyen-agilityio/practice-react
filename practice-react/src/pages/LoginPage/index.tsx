@@ -1,6 +1,7 @@
 import {
   Button,
-  Input
+  Input,
+  Loader
 } from '../../components'
 import { FormField } from './form-field'
 import './login-page.css'
@@ -55,6 +56,7 @@ const LoginPage = () => {
           </a>
         </p>
       </form>
+      <Loader />
     </div>
   )
 }

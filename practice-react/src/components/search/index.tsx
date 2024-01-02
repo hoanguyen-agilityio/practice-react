@@ -7,7 +7,11 @@ import { search } from "../../assets/images"
 
 const Search = () => {
   return (
-    <form action='/' className='form-search' method='GET'>
+    <form
+      action='/'
+      className='form-search'
+      method='GET'
+    >
       <Input
         type='search'
         placeholder='Search...'

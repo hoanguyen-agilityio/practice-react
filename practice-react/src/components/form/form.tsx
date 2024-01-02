@@ -1,7 +1,7 @@
 import { Input } from ".."
 import { IInput } from "../Input"
 
-interface IForm extends IInput{
+interface IForm extends IInput {
   nameLabel: string
 }
 

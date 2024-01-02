@@ -31,3 +31,9 @@ export { default as Search } from './Search'
 // Form
 export { default as Form } from './Form/Form'
 export { default as ModalForm } from './Form'
+
+// Modal delete
+export { default as ModalDelete } from './ModalDelete'
+
+// Loader
+export { default as Loader } from './Loader'

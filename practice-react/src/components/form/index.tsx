@@ -1,7 +1,9 @@
 import './form.css'
-import { Button } from ".."
-import { FORM_INPUT } from '..'
-import Form from "./Form"
+import {
+  Button,
+  FORM_INPUT,
+  Form
+} from ".."
 
 const ModalForm = () => {
   return (
@@ -9,7 +11,9 @@ const ModalForm = () => {
       <div className='vertical-scroll'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3 className='title title-form-add-update'>Student</h3>
+            <h3 className='title title-form-add-update'>
+              Student
+            </h3>
             <Button
               className='btn-close-modal'
               name='X'
