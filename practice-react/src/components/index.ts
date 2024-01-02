@@ -16,5 +16,11 @@ export { default as MenuItem } from './menuItem'
 // Profile
 export { default as Profile } from './profile'
 
-// sidebar
+// Sidebar
 export { default as Sidebar } from './sidebar'
+
+// Header
+export { default as Header } from './header'
+
+// Search
+export { default as Search } from './search'

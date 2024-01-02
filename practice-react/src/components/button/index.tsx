@@ -3,8 +3,10 @@ import './button.css'
 interface IButton {
   className: string,
   ariaLabel: string,
-  name: string,
+  name?: string,
   icon?: string,
+  classNameIcon?: string,
+  alt?: string,
   onClick?: () => void
 }
 
@@ -13,6 +15,8 @@ const Button = ({
   ariaLabel,
   name,
   icon,
+  classNameIcon,
+  alt,
   onClick
 } :IButton) => {
   return (
@@ -23,7 +27,7 @@ const Button = ({
       aria-label={ariaLabel}
     >
       {name}
-      {icon && <img src={icon} className='btn-logout-icon' />}
+      {icon && <img src={icon} className={classNameIcon} alt={alt} />}
     </button>
   )
 }

@@ -1,11 +1,8 @@
 /* START PAGE STUDENTS LIST */
-.body-page-students-list {
-  background-color: var(--secondary-color-250);
-}
-
 .container-page-students-list {
   flex-direction: row;
   display: flex;
+  background-color: var(--secondary-color-250);
 }
 
 .container-sidebar {
@@ -161,10 +158,6 @@
   .avatar-user {
     margin-top: 54px;
     border-radius: 50%;
-  }
-
-  .form-search {
-    margin: 12px 27px 12px auto;
   }
 
   .btn-notification {

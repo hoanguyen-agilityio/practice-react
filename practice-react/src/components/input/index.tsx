@@ -4,18 +4,20 @@ interface IInput {
   type: string,
   placeholder?: string,
   name: string,
-  ariaLabel: string
+  ariaLabel: string,
+  className: string
 }
 
 const Input = ({
   type,
   placeholder,
   name,
-  ariaLabel
+  ariaLabel,
+  className
 } :IInput ) => {
   return (
     <input
-      className='form-input'
+      className={className}
       type={type}
       placeholder={placeholder}
       name={name}

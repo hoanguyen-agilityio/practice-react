@@ -30,6 +30,7 @@ const Sidebar = () => {
               ariaLabel='logout'
               name='Logout'
               icon={logout}
+              classNameIcon='btn-logout-icon'
             />
           </div>
         </div>
