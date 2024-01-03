@@ -1,12 +1,12 @@
 import '../Form/form.css'
-import { Button } from ".."
+import { Button } from '..'
 
 const ModalDelete = () => {
   return (
-    <div className="modal modal-confirm-delete">
-      <div className="modal-content modal-content-delete">
-        <div className="modal-header">
-          <p className="title title-confirm-delete">
+    <div className='modal modal-confirm-delete'>
+      <div className='modal-content modal-content-delete'>
+        <div className='modal-header'>
+          <p className='title title-confirm-delete'>
             CONFIRM DELETE!!!
           </p>
           <Button
@@ -15,10 +15,10 @@ const ModalDelete = () => {
             ariaLabel='Button to turn off form'
           />
         </div>
-        <p className="describe">
+        <p className='describe'>
           Are you sure you want delete this student
         </p>
-        <div className="btn-form-confirm-delete">
+        <div className='btn-form-confirm-delete'>
           <Button
             name='CANCEL'
             className='btn btn-cancel'

@@ -2,8 +2,8 @@ import './search.css'
 import {
   Button,
   Input
-} from ".."
-import { search } from "../../assets/images"
+} from '..'
+import { search } from '../../assets/Images'
 
 const Search = () => {
   return (

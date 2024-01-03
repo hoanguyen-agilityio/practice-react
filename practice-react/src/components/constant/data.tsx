@@ -5,7 +5,7 @@ import {
   course,
   graduation,
   payment
-} from '../../assets/images'
+} from '../../assets/Images'
 
 export const MENU_LIST = [
   {

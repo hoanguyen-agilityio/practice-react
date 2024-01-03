@@ -3,7 +3,7 @@ import {
   Button,
   FORM_INPUT,
   Form
-} from ".."
+} from '..'
 
 const ModalForm = () => {
   return (
@@ -35,7 +35,7 @@ const ModalForm = () => {
                 />
               )
           })}
-          <div className="btn-group">
+          <div className='btn-group'>
             <Button
               name='CANCEL'
               className='btn btn-cancel'

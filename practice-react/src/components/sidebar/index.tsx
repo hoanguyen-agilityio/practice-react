@@ -7,7 +7,7 @@ import {
 import {
   avatar,
   logout
-} from '../../assets/images'
+} from '../../assets/Images'
 
 const Sidebar = () => {
   return (

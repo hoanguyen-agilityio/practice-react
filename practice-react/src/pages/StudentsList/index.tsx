@@ -7,7 +7,7 @@ import {
   ModalForm,
   Sidebar
 } from '../../components'
-import { sort } from '../../assets/images'
+import { sort } from '../../assets/Images'
 
 const StudentsList = () => {
   return (
@@ -31,7 +31,7 @@ const StudentsList = () => {
             name='ADD NEW STUDENT'
           />
         </section>
-        <ul className="students-list-table"></ul>
+        <ul className='students-list-table'></ul>
         <ModalForm />
         <ModalDelete />
         <Loader />
