@@ -7,16 +7,21 @@ import {
 import { FormField } from './form-field'
 import './login-page.css'
 import { validate } from '@/validates/form'
-
+import { apiRequest } from '@/services'
+import {
+  ACCOUNTS_API,
+  MESSAGES,
+  STUDENTS_LIST_PAGE
+} from '@/constants'
+import { LoaderHelper } from '@/helpers'
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: '',
     password: ''
-  });
-  const [form, setForm] = useState({
-    email:'',
-    password:''
   });
   const [submit, submitted] = useState(false);
   const updateField = (e) => {
@@ -25,46 +30,61 @@ const LoginPage = () => {
       [e.target.name]: e.target.value
     });
   }
-
-  // const printValues = e => {
-  //   e.preventDefault();
-  //   setForm({
-  //       email: data.email,
-  //       password: data.password
-  //   });
-
-  //   submitted(true);
-  // };
-
   const config = {
     email: ['emptyEmail','formatEmail'],
     password: ['emptyPassword','passwordRule'],
   };
-  const validation = validate.validateForm(form, config);
-
-  const [errorsM, setErrors]= useState({
+  const [errors, setErrors]= useState({
     email:'',
-    password:''
+    password:'',
+    generalError: ''
   })
 
-  const printValues = e => {
+  const printValues = async e => {
     e.preventDefault();
-    setForm({
-        email: data.email,
-        password: data.password
-    });
+    const validation = validate.validateForm(data, config);
     if (!validation.isValid) {
       setErrors({
         email: validation.errors.email,
         password: validation.errors.password
       });
-      submitted(false);
+
+      return;
+    }
+
+    try {
+      const userList = await apiRequest(ACCOUNTS_API, 'GET');
+      const user = userList.find(({ email }) => email === data.email);
+
+      // Correct login account
+      if (user.email === data.email && user.password === data.password) {
+        <Link to='/students-list'></Link>
+        submitted(false);
+
+
+
+      // Login with the wrong account
+      } else {
+        setErrors({
+          email: '',
+          password: '',
+          generalError: MESSAGES.INCORRECT_LOGIN_ACCOUNT
+        });
+
+        return;
+      }
+    } catch (error) {
+      setErrors({
+        email: '',
+        password: '',
+        generalError: MESSAGES.GET_ACCOUNT_ERR
+      });
+
       return;
     }
 
     submitted(true);
   };
-  console.log(errorsM);
 
   return (
     <div className='section-body-login'>
@@ -81,7 +101,7 @@ const LoginPage = () => {
         <p className='form-login-content'>
           Enter your credentials to access your account
         </p>
-        <p className='error-message' />
+        {errors.generalError && <p className='error-message'>{errors.generalError}</p>}
         <FormField title='Email'>
           <Input
             type='email'
@@ -91,7 +111,7 @@ const LoginPage = () => {
             className='form-input'
             value={data.email}
             onChange={updateField}
-            errorMessage={errorsM.email}
+            errorMessage={errors.email}
           />
         </FormField>
         <FormField title='Password'>
@@ -102,15 +122,21 @@ const LoginPage = () => {
             ariaLabel='Password'
             className='form-input'
             onChange={updateField}
-            errorMessage={errorsM.password}
+            errorMessage={errors.password}
           />
         </FormField>
-        <Button
-          className='btn btn-login'
-          ariaLabel='Button sign in'
-          name='Sign In'
-          onClick={printValues}
-        />
+        <Link to='/students-list'>
+          <Button
+            className='btn btn-login'
+            ariaLabel='Button sign in'
+            name='Sign In'
+            onClick={() => {
+              {printValues}
+              navigate("/students-list")
+            }}
+          />
+        </Link>
+
         <p className='message-reset-password'>
           Forgot your password?
           <a
