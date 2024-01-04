@@ -10,8 +10,7 @@ import { validate } from '@/validates/form'
 import { apiRequest } from '@/services'
 import {
   ACCOUNTS_API,
-  MESSAGES,
-  STUDENTS_LIST_PAGE
+  MESSAGES
 } from '@/constants'
 import { LoaderHelper } from '@/helpers'
 import { Link } from "react-router-dom";
@@ -58,10 +57,7 @@ const LoginPage = () => {
 
       // Correct login account
       if (user.email === data.email && user.password === data.password) {
-        <Link to='/students-list'></Link>
-        submitted(false);
-
-
+        navigate("/students-list")
 
       // Login with the wrong account
       } else {
@@ -130,10 +126,7 @@ const LoginPage = () => {
             className='btn btn-login'
             ariaLabel='Button sign in'
             name='Sign In'
-            onClick={() => {
-              {printValues}
-              navigate("/students-list")
-            }}
+            onClick={printValues}
           />
         </Link>
 
