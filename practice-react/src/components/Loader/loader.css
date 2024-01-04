@@ -1,6 +1,6 @@
 /* START LOADER */
 .container-loader {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -10,9 +10,9 @@
   background-color: var(--dark-color);
 }
 
-.container-loader.loader-show {
+/* .container-loader.loader-show {
   display: flex;
-}
+} */
 
 .loader {
   margin: auto;

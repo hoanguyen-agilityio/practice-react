@@ -34,7 +34,6 @@ const StudentsList = () => {
         <ul className='students-list-table'></ul>
         <ModalForm />
         <ModalDelete />
-        <Loader />
       </div>
     </div>
   )

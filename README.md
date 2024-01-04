@@ -74,43 +74,52 @@
 ├── src
     ├── assets
         ├── images
+    ├── components
+        ├── Button
+        ├── Constant
+        ├── Form
+        ├── Header
+        ├── Input
+        ├── Loader
+        ├── Menu
+        ├── MenuItem
+        ├── ModalDelete
+        ├── Profile
+        ├── Search
+        ├── Sidebar
+        ├── index.ts
+    ├── constants
+    ├── helpers
     ├── pages
-        ├── index.html
-        ├── students-list.html
-    ├── scripts
-        ├── constants
-        ├── enums
-        ├── helpers
-        ├── interfaces
-        ├── pages
-        ├── services
-        ├── templates
-        ├── validates
-        ├── views
+        ├── LoginPage
+        ├── StudentsList
+    ├── services
     ├── styles
-        ├── abstracts
-        ├── bases
-        ├── components
-        ├── pages
-        ├── style.css
-├── .editorconfig
-├── .eslintrc.json
+    ├── types
+    ├── validates
+    ├── App.css
+    ├── App.tsx
+    ├── main.tsx
+    ├── vite-env.d.ts
+├── .eslintrc.cjs
 ├── .gitignore
-├── .prettierrc
-├── commitlint.config.js
-├── package-lock.json
+├── index.html
 ├── package.json
+├── pnpm-lock.yaml
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
 ├── README.md
-└──tsconfig.json
+└──.editorconfig
 ```
 
 ## Getting started
 
-| **Command**                                                                     | **Action**                           |
-| ------------------------------------------------------------------------------- | ------------------------------------ |
-| `$git clone git@gitlab.asoft-python.com:hoa.nguyen/training-typescript.git`     | Clone repository with SSH            |
-| `$git clone https://gitlab.asoft-python.com/hoa.nguyen/training-typescript.git` | Clone repository with HTTPS          |
-| `$cd practice-typescript`                                                       | Redirect to folder                   |
-| `$git checkout feature/practice-typescript`                                     | Checkout branch                      |
-| `$npm install`                                                                  | Install dependencies                 |
-| `$npm start`                                                                    | Start local server at localhost:1234 |
+| **Command**                                                                | **Action**                           |
+| -------------------------------------------------------------------------- | ------------------------------------ |
+| `$git clone git@gitlab.asoft-python.com:hoa.nguyen/react-training.git`     | Clone repository with SSH            |
+| `$git clone https://gitlab.asoft-python.com/hoa.nguyen/react-training.git` | Clone repository with HTTPS          |
+| `$cd react-training`                                                       | Redirect to folder                   |
+| `$git checkout feature/practice-react`                                     | Checkout branch                      |
+| `$pnpm install`                                                            | Install dependencies                 |
+| `$pnpm run dev`                                                            | Start local server at localhost:1234 |

@@ -23,6 +23,7 @@ const LoginPage = () => {
     password: ''
   });
   const [submit, submitted] = useState(false);
+  const [loader, setLoader] = useState(false)
   const updateField = (e) => {
     setData({
       ...data,
@@ -58,6 +59,7 @@ const LoginPage = () => {
       // Correct login account
       if (user.email === data.email && user.password === data.password) {
         navigate("/students-list")
+        setTimeout(() => {!loader && <Loader />}, 3000);
 
       // Login with the wrong account
       } else {
@@ -140,7 +142,6 @@ const LoginPage = () => {
           </a>
         </p>
       </form>
-      <Loader />
     </div>
   )
 }
