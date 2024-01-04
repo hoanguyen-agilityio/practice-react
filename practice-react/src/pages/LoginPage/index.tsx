@@ -13,8 +13,8 @@ import {
   MESSAGES
 } from '@/constants'
 import { LoaderHelper } from '@/helpers'
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const LoginPage = () => {
     password: ''
   });
   const [submit, submitted] = useState(false);
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const updateField = (e) => {
     setData({
       ...data,
@@ -42,6 +42,7 @@ const LoginPage = () => {
 
   const printValues = async e => {
     e.preventDefault();
+
     const validation = validate.validateForm(data, config);
     if (!validation.isValid) {
       setErrors({
@@ -58,8 +59,10 @@ const LoginPage = () => {
 
       // Correct login account
       if (user.email === data.email && user.password === data.password) {
-        navigate("/students-list")
-        setTimeout(() => {!loader && <Loader />}, 3000);
+        setLoader(true)
+        console.log(loader);
+
+        // setTimeout(() => {navigate('/students-list')}, 3000);
 
       // Login with the wrong account
       } else {
