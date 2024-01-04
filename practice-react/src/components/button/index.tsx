@@ -7,7 +7,7 @@ interface IButton {
   icon?: string,
   classNameIcon?: string,
   alt?: string,
-  onClick?: () => void
+  onClick: any
 }
 
 const Button = ({

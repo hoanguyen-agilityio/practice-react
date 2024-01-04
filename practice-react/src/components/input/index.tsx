@@ -6,6 +6,9 @@ export interface IInput {
   name: string,
   ariaLabel: string,
   className: string
+  value?: string
+  onChange?: any
+  errorMessage?:string
 }
 
 const Input = ({
@@ -13,16 +16,24 @@ const Input = ({
   placeholder,
   name,
   ariaLabel,
-  className
+  className,
+  value,
+  onChange,
+  errorMessage
 } :IInput ) => {
   return (
-    <input
-      className={className}
-      type={type}
-      placeholder={placeholder}
-      name={name}
-      aria-label={ariaLabel}
-    />
+    <>
+      <input
+        className={className}
+        type={type}
+        placeholder={placeholder}
+        name={name}
+        aria-label={ariaLabel}
+        value={value}
+        onChange={onChange}
+      />
+      {errorMessage && <p className='error-message'>{errorMessage}</p>}
+    </>
   )
 }
 
