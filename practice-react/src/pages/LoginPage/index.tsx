@@ -53,8 +53,6 @@ const LoginPage = () => {
     }
 
     try {
-      console.log(import.meta.env.ACCOUNTS_API);
-
       const users = await apiRequest<null, PartialUser[]>(import.meta.env.VITE_ACCOUNTS_API, 'GET');
       const user: PartialUser = users.find(({ email }) => email === fields.email);
 
