@@ -2,7 +2,6 @@ import { useState } from 'react'
 import {
   Button,
   Input,
-  Loader
 } from '../../components'
 import { FormField } from './form-field'
 import './login-page.css'
@@ -18,15 +17,15 @@ import { validateForm } from '@/validates'
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState({
+  const [fields, setFields] = useState({
     email: '',
     password: ''
   });
-  const [submit, submitted] = useState(false);
-  const [loader, setLoader] = useState(false);
+  const [isSubmit, submitted] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const updateField = (e) => {
-    setData({
-      ...data,
+    setFields({
+      ...fields,
       [e.target.name]: e.target.value
     });
   }
@@ -40,10 +39,10 @@ const LoginPage = () => {
     generalError: ''
   })
 
-  const printValues = async e => {
+  const handleSignIn = async e => {
     e.preventDefault();
 
-    const validation = validateForm(data, config);
+    const validation = validateForm(fields, config);
     if (!validation.isValid) {
       setErrors({
         email: validation.errors.email,
@@ -54,13 +53,13 @@ const LoginPage = () => {
     }
 
     try {
-      const userList = await apiRequest(ACCOUNTS_API, 'GET');
-      const user = userList.find(({ email }) => email === data.email);
+      const users = await apiRequest(ACCOUNTS_API, 'GET');
+      const user = users.find(({ email }) => email === fields.email);
 
       // Correct login account
-      if (user.email === data.email && user.password === data.password) {
-        setLoader(true)
-        console.log(loader);
+      if (user.email === fields.email && user.password === fields.password) {
+        setLoading(true)
+        console.log(isLoading);
 
         // setTimeout(() => {navigate('/students-list')}, 3000);
 
@@ -110,7 +109,7 @@ const LoginPage = () => {
             name='email'
             ariaLabel='Email'
             className='form-input'
-            value={data.email}
+            value={fields.email}
             onChange={updateField}
             errorMessage={errors.email}
           />
@@ -131,7 +130,7 @@ const LoginPage = () => {
             className='btn btn-login'
             ariaLabel='Button sign in'
             name='Sign In'
-            onClick={printValues}
+            onClick={handleSignIn}
           />
         </Link>
 
