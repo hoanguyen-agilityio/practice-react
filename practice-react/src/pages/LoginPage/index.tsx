@@ -2,6 +2,7 @@ import { useState } from 'react'
 import {
   Button,
   Input,
+  Loader,
 } from '../../components'
 import { FormField } from './form-field'
 import './login-page.css'
@@ -13,54 +14,65 @@ import {
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { validateForm } from '@/validates'
+import { Student } from '@/types'
 
 const LoginPage = () => {
   const navigate = useNavigate();
+
+  // useState
   const [fields, setFields] = useState({
     email: '',
     password: ''
   });
+  const [errorsMessage, setErrors]= useState({
+    email:'',
+    password:'',
+    generalError: ''
+  })
   const [isSubmit, submitted] = useState(false);
   const [isLoading, setLoading] = useState(false);
-  const updateField = (e) => {
+
+  // Handles field updates
+  const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
       [e.target.name]: e.target.value
     });
   }
+
   const config = {
     email: ['emptyEmail','formatEmail'],
     password: ['emptyPassword','passwordRule'],
   };
-  const [errors, setErrors]= useState({
-    email:'',
-    password:'',
-    generalError: ''
-  })
 
-  const handleSignIn = async e => {
+  // Handle sign in
+  const handleSignIn = async (e: React.FormEvent<HTMLInputElement>) => {
     e.preventDefault();
-
     const validation = validateForm(fields, config);
+
     if (!validation.isValid) {
       setErrors({
         email: validation.errors.email,
-        password: validation.errors.password
+        password: validation.errors.password,
       });
 
       return;
     }
 
+
     try {
-      const users = await apiRequest(ACCOUNTS_API, 'GET');
+      const users = await apiRequest<null, Student[]>(ACCOUNTS_API, 'GET');
       const user = users.find(({ email }) => email === fields.email);
 
       // Correct login account
       if (user.email === fields.email && user.password === fields.password) {
+        setErrors({
+          email: '',
+          password: '',
+          generalError: ''
+        })
         setLoading(true)
-        console.log(isLoading);
-
-        // setTimeout(() => {navigate('/students-list')}, 3000);
+        setTimeout(() => {navigate('/students-list')}, 3000);
 
       // Login with the wrong account
       } else {
@@ -100,7 +112,7 @@ const LoginPage = () => {
         <p className='form-login-content'>
           Enter your credentials to access your account
         </p>
-        {errors.generalError && <p className='error-message'>{errors.generalError}</p>}
+        {errorsMessage.generalError && <p className='error-message'>{errorsMessage.generalError}</p>}
         <FormField title='Email'>
           <Input
             type='email'
@@ -110,7 +122,7 @@ const LoginPage = () => {
             className='form-input'
             value={fields.email}
             onChange={updateField}
-            errorMessage={errors.email}
+            errorMessage={errorsMessage.email}
           />
         </FormField>
         <FormField title='Password'>
@@ -121,7 +133,7 @@ const LoginPage = () => {
             ariaLabel='Password'
             className='form-input'
             onChange={updateField}
-            errorMessage={errors.password}
+            errorMessage={errorsMessage.password}
           />
         </FormField>
         <Link to='/students-list'>
@@ -143,6 +155,7 @@ const LoginPage = () => {
           </a>
         </p>
       </form>
+      {isLoading && <Loader />}
     </div>
   )
 }

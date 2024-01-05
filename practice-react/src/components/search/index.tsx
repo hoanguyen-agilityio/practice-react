@@ -7,11 +7,7 @@ import { search } from '../../assets/Images'
 
 const Search = () => {
   return (
-    <form
-      action='/'
-      className='form-search'
-      method='GET'
-    >
+    <div className='form-search'>
       <Input
         type='search'
         placeholder='Search...'
@@ -24,7 +20,7 @@ const Search = () => {
         ariaLabel='search'
         icon={search}
       />
-    </form>
+    </div>
   )
 }
 
