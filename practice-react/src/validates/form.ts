@@ -23,7 +23,7 @@ import { ValidationType } from '@/types';
  *
  * @param {string} value - Comparative value
  */
-const isEmpty = (value: string): string => {
+const Empty = (value: string): string => {
   return value;
 }
 
@@ -98,7 +98,7 @@ const validateForm = (data: PartialStudent | PartialUser, config: PartialConfigV
     if (config[key]) {
       config[key].forEach((validationType: string) => {
         // If there are emptyEmail words, continue to consider the isEmpty condition
-        if (validationType === ValidationType.Empty && !isEmpty(value)) {
+        if (validationType === ValidationType.Empty && !Empty(value)) {
           formValidation.isValid = false;
           formValidation.errors[key] = MESSAGES.EMPTY;
 
@@ -109,7 +109,7 @@ const validateForm = (data: PartialStudent | PartialUser, config: PartialConfigV
         if (
           !formValidation.errors[key] &&
           validationType === ValidationType.EmptyEmail &&
-          !isEmpty(value)
+          !Empty(value)
         ) {
           formValidation.isValid = false;
           formValidation.errors[key] = MESSAGES.EMPTY_EMAIL;
@@ -121,7 +121,7 @@ const validateForm = (data: PartialStudent | PartialUser, config: PartialConfigV
         if (
           !formValidation.errors[key] &&
           validationType === ValidationType.EmptyPassword &&
-          !isEmpty(value)
+          !Empty(value)
         ) {
           formValidation.isValid = false;
           formValidation.errors[key] = MESSAGES.EMPTY_PASSWORD;
