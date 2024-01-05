@@ -33,7 +33,7 @@ const LoginPage = () => {
   const [isLoading, setLoading] = useState(false);
 
   // Handles field updates
-  const updateField = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
       [e.target.name]: e.target.value
@@ -122,7 +122,7 @@ const LoginPage = () => {
             ariaLabel='Email'
             className='form-input'
             value={fields.email}
-            onChange={updateField}
+            onChange={handleInputChange}
             errorMessage={errorsMessage.email}
           />
         </FormField>
@@ -133,7 +133,7 @@ const LoginPage = () => {
             name='password'
             ariaLabel='Password'
             className='form-input'
-            onChange={updateField}
+            onChange={handleInputChange}
             errorMessage={errorsMessage.password}
           />
         </FormField>
