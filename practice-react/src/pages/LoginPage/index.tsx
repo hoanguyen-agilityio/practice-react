@@ -13,7 +13,7 @@ import {
 } from '@/constants';
 import { useNavigate } from 'react-router-dom';
 import { validateForm } from '@/validates';
-import { Student } from '@/types';
+import { PartialUser } from '@/types';
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -55,8 +55,10 @@ const LoginPage = () => {
     }
 
     try {
-      const users = await apiRequest<null, Student[]>(import.meta.env.ACCOUNTS_API, 'GET');
-      const user = users.find(({ email }) => email === fields.email);
+      console.log(import.meta.env.ACCOUNTS_API);
+
+      const users = await apiRequest<null, PartialUser[]>(import.meta.env.VITE_ACCOUNTS_API, 'GET');
+      const user: PartialUser = users.find(({ email }) => email === fields.email);
 
       // Correct login account
       if (user.email === fields.email && user.password === fields.password) {

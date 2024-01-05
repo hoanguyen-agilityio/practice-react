@@ -15,12 +15,9 @@ export const apiRequest = async <T, K> (
   if (data) {
     requestOptions.body = JSON.stringify(data)
   }
-  try {
-    const request = await fetch(url, requestOptions)
-    const responseData = await request.json()
 
-    return responseData as K
-  } catch (error) {
-    return 'An error occurred while communicating with the server.'
-  }
+  const request = await fetch(url, requestOptions)
+  const responseData = await request.json()
+
+  return responseData as K
 }
