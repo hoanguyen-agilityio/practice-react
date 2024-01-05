@@ -1,5 +1,5 @@
-import { Input } from '..'
-import { IInput } from '../Input'
+import { Input } from '..';
+import { IInput } from '../Input';
 
 interface IForm extends IInput {
   nameLabel: string

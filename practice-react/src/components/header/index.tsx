@@ -1,12 +1,12 @@
 import {
   Button,
   Search
-} from '..'
+} from '..';
 import {
   btnHideSidebar,
   btnNotification,
   btnShowSidebar
-} from '../../assets/Images'
+} from '../../assets/Images';
 
 const Header = () => {
   return (

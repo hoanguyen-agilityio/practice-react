@@ -1,5 +1,5 @@
-import '../Form/form.css'
-import { Button } from '..'
+import '../Form/form.css';
+import { Button } from '..';
 
 const ModalDelete = () => {
   return (

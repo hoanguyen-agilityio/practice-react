@@ -1,4 +1,4 @@
-import './profile.css'
+import './profile.css';
 
 interface IProfile {
   title: string,

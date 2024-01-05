@@ -1,4 +1,4 @@
-import './input.css'
+import './input.css';
 
 export interface IInput {
   type: string,

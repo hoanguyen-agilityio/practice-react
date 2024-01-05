@@ -1,4 +1,4 @@
-import './students-list.css'
+import './students-list.css';
 import {
   Button,
   Header,
@@ -6,8 +6,8 @@ import {
   ModalDelete,
   ModalForm,
   Sidebar
-} from '../../components'
-import { sort } from '../../assets/Images'
+} from '../../components';
+import { sort } from '../../assets/Images';
 
 const StudentsList = () => {
   return (

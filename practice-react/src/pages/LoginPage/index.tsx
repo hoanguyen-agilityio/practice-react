@@ -3,18 +3,18 @@ import {
   Button,
   Input,
   Loader,
-} from '../../components'
-import { FormField } from './form-field'
-import './login-page.css'
-import { apiRequest } from '@/services'
+} from '../../components';
+import { FormField } from './form-field';
+import './login-page.css';
+import { apiRequest } from '@/services';
 import {
   ACCOUNTS_API,
   MESSAGES
-} from '@/constants'
+} from '@/constants';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { validateForm } from '@/validates'
-import { Student } from '@/types'
+import { validateForm } from '@/validates';
+import { Student } from '@/types';
 
 const LoginPage = () => {
   const navigate = useNavigate();

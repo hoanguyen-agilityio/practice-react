@@ -14,6 +14,6 @@ const MESSAGES = {
   EMPTY_PASSWORD: 'Password value cannot be blank',
 };
 const ADD_STUDENT = 'Add Student';
-const UPDATE_STUDENT = 'Update Student'
+const UPDATE_STUDENT = 'Update Student';
 
 export { EMPTY_TEXT, MESSAGES, ADD_STUDENT, UPDATE_STUDENT };

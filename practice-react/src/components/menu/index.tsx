@@ -1,7 +1,7 @@
 import {
   MenuItem,
   MENU_LIST
-} from '..'
+} from '..';
 
 const Menu = () => {
   return (

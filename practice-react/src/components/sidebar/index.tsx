@@ -1,13 +1,13 @@
-import './sidebar.css'
+import './sidebar.css';
 import {
   Menu,
   Profile,
   Button
-} from '..'
+} from '..';
 import {
   avatar,
   logout
-} from '../../assets/Images'
+} from '../../assets/Images';
 
 const Sidebar = () => {
   return (

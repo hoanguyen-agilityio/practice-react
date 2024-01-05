@@ -3,7 +3,7 @@ import {
   Button,
   FORM_INPUT,
   Form
-} from '..'
+} from '..';
 
 const ModalForm = () => {
   return (
