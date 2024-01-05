@@ -6,7 +6,6 @@ import {
 } from '../../components'
 import { FormField } from './form-field'
 import './login-page.css'
-import { validate } from '@/validates/form'
 import { apiRequest } from '@/services'
 import {
   ACCOUNTS_API,
@@ -15,6 +14,7 @@ import {
 import { LoaderHelper } from '@/helpers'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { validateForm } from '@/validates'
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -43,7 +43,7 @@ const LoginPage = () => {
   const printValues = async e => {
     e.preventDefault();
 
-    const validation = validate.validateForm(data, config);
+    const validation = validateForm(data, config);
     if (!validation.isValid) {
       setErrors({
         email: validation.errors.email,
