@@ -18,7 +18,6 @@ import {
 // Enum
 import { ValidationType } from '@/types';
 
-
 /**
  * Checks for an empty value
  *

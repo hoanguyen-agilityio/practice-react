@@ -8,7 +8,7 @@ export interface IInput {
   className: string
   value?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  errorMessage?:string
+  errorMessage?: string
 }
 
 const Input = ({
