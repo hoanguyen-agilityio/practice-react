@@ -20,4 +20,4 @@ export const apiRequest = async <T, K> (
   const responseData = await request.json()
 
   return responseData as K
-}
+};

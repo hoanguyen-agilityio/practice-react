@@ -29,4 +29,4 @@ const MenuItem = ({
   )
 }
 
-export default MenuItem
+export default MenuItem;

@@ -6,4 +6,4 @@ export enum ValidationType {
   PasswordRule = 'passwordRule',
   Name = 'name',
   Phone = 'phone'
-}
+};

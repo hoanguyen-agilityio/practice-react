@@ -6,7 +6,7 @@ import Input from './index';
 export default {
   title: 'Components/Input',
   component: Input,
-} as Meta
+} as Meta;
 
 type Story = StoryObj<typeof Input>
 
@@ -16,7 +16,7 @@ export const Default: Story = {
     name: 'input',
     ariaLabel: 'Input default'
   },
-}
+};
 
 export const InputEmail: Story = {
   args: {
@@ -25,7 +25,7 @@ export const InputEmail: Story = {
     name: 'email',
     ariaLabel: 'Email'
   }
-}
+};
 
 export const InputPassword: Story = {
   args: {
@@ -34,4 +34,4 @@ export const InputPassword: Story = {
     name: 'password',
     ariaLabel: 'Password'
   }
-}
+};

@@ -50,7 +50,7 @@ export const MENU_LIST = [
     ariaLabel: 'Go to Setting page',
     href: 'javascript:void(0);'
   }
-]
+];
 
 export const FORM_INPUT = [
   {
@@ -83,7 +83,7 @@ export const FORM_INPUT = [
     name: 'dateOfAdmission',
     ariaLabel: 'Enter date of admission'
   }
-]
+];
 
 export const CONFIG = {
   email: ['emptyEmail','formatEmail'],

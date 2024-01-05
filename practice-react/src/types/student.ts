@@ -5,7 +5,7 @@ export interface Student {
   phone: string,
   enrollNumber: string,
   dateOfAdmission: string,
-}
+};
 
 export interface ConfigValidation {
   name: string[],
@@ -14,14 +14,14 @@ export interface ConfigValidation {
   phone: string[],
   enrollNumber: string[],
   dateOfAdmission: string[]
-}
+};
 
 export interface User extends Student {
   password: string
-}
+};
 
-export type PartialStudent = Partial<Student>
+export type PartialStudent = Partial<Student>;
 
-export type PartialConfigValidation = Partial<ConfigValidation>
+export type PartialConfigValidation = Partial<ConfigValidation>;
 
-export type PartialUser = Partial<User>
+export type PartialUser = Partial<User>;

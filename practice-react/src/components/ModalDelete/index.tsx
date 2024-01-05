@@ -35,4 +35,4 @@ const ModalDelete = () => {
   )
 }
 
-export default ModalDelete
+export default ModalDelete;

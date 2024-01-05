@@ -58,4 +58,4 @@ const ModalForm = () => {
   )
 }
 
-export default ModalForm
+export default ModalForm;

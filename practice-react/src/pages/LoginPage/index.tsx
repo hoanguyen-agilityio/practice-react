@@ -8,9 +8,7 @@ import {
 import { FormField } from './form-field';
 import './login-page.css';
 import { apiRequest } from '@/services';
-import {
-  MESSAGES
-} from '@/constants';
+import { MESSAGES } from '@/constants';
 import { useNavigate } from 'react-router-dom';
 import { validateForm } from '@/validates';
 import { PartialUser } from '@/types';
@@ -154,4 +152,4 @@ const LoginPage = () => {
   )
 }
 
-export default LoginPage
+export default LoginPage;

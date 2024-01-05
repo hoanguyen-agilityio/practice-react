@@ -2,7 +2,6 @@ import './students-list.css';
 import {
   Button,
   Header,
-  Loader,
   ModalDelete,
   ModalForm,
   Sidebar
@@ -39,4 +38,4 @@ const StudentsList = () => {
   )
 }
 
-export default StudentsList
+export default StudentsList;

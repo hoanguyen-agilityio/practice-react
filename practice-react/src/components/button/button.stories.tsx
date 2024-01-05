@@ -9,7 +9,7 @@ import Button from './index'
 export default {
   title: 'Components/Button',
   component: Button,
-} as Meta
+} as Meta;
 
 type Story = StoryObj<typeof Button>
 
@@ -19,7 +19,7 @@ export const Default: Story = {
     ariaLabel: 'button',
     name: 'button'
   },
-}
+};
 
 export const BtnLogin: Story = {
   args: {
@@ -27,4 +27,4 @@ export const BtnLogin: Story = {
     ariaLabel: 'Button sign in',
     name: 'Sign In'
   }
-}
+};

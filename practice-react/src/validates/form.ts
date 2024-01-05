@@ -191,4 +191,4 @@ const validateForm = (data: PartialStudent | PartialUser, config: PartialConfigV
 export {
   checkDuplicateData,
   validateForm
-}
+};
