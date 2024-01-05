@@ -84,3 +84,8 @@ export const FORM_INPUT = [
     ariaLabel: 'Enter date of admission'
   }
 ]
+
+export const CONFIG = {
+  email: ['emptyEmail','formatEmail'],
+  password: ['emptyPassword','passwordRule'],
+};

@@ -4,7 +4,8 @@ export { default as Button } from './Button'
 // Constant
 export {
   MENU_LIST,
-  FORM_INPUT
+  FORM_INPUT,
+  CONFIG
 } from './Constant/data'
 
 // Input

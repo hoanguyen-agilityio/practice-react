@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import {
   Button,
+  CONFIG,
   Input,
   Loader,
 } from '../../components';
@@ -40,16 +41,11 @@ const LoginPage = () => {
     });
   }
 
-  const config = {
-    email: ['emptyEmail','formatEmail'],
-    password: ['emptyPassword','passwordRule'],
-  };
-
   // Handle sign in
   const handleSignIn = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
 
-    const validation = validateForm(fields, config);
+    const validation = validateForm(fields, CONFIG);
 
     if (!validation.isValid) {
       setErrors({
@@ -59,7 +55,6 @@ const LoginPage = () => {
 
       return;
     }
-
 
     try {
       const users = await apiRequest<null, Student[]>(ACCOUNTS_API, 'GET');
