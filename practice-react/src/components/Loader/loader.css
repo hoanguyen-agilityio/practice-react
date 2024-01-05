@@ -10,10 +10,6 @@
   background-color: var(--dark-color);
 }
 
-/* .container-loader.loader-show {
-  display: flex;
-} */
-
 .loader {
   margin: auto;
   border: var(--border-m) solid var(--primary-color-150);
