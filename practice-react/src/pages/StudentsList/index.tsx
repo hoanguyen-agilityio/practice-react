@@ -5,8 +5,8 @@ import {
   ModalDelete,
   ModalForm,
   Sidebar
-} from '../../components';
-import { sort } from '../../assets/Images';
+} from '@/components';
+import { sort } from '@/assets/Images';
 
 const StudentsList = () => {
   return (
