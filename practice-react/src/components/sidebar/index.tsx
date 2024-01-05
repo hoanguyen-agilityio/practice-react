@@ -8,8 +8,16 @@ import {
   avatar,
   logout
 } from '../../assets/Images';
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+
+  // Handle logout
+  const handleLogout = (): void => {
+    navigate('/')
+  }
+
   return (
     <div className='container-sidebar'>
       <aside
@@ -31,6 +39,7 @@ const Sidebar = () => {
               name='Logout'
               icon={logout}
               classNameIcon='btn-logout-icon'
+              onClick={handleLogout}
             />
           </div>
         </div>
