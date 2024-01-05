@@ -7,7 +7,7 @@ export interface IInput {
   ariaLabel: string,
   className: string
   value?: string
-  onChange?: any
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   errorMessage?:string
 }
 

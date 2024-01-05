@@ -46,8 +46,9 @@ const LoginPage = () => {
   };
 
   // Handle sign in
-  const handleSignIn = async (e: React.FormEvent<HTMLInputElement>) => {
+  const handleSignIn = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+
     const validation = validateForm(fields, config);
 
     if (!validation.isValid) {
@@ -141,7 +142,7 @@ const LoginPage = () => {
             className='btn btn-login'
             ariaLabel='Button sign in'
             name='Sign In'
-            onClick={handleSignIn}
+            onClick ={handleSignIn}
           />
         </Link>
 
