@@ -28,7 +28,7 @@ const LoginPage = () => {
     password:'',
     generalError: ''
   })
-  const [isSubmit, submitted] = useState(false);
+  const [isSubmit, setSubmit] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
   // Handles field updates
@@ -88,7 +88,7 @@ const LoginPage = () => {
       return;
     }
 
-    submitted(true);
+    setSubmit(true);
   };
 
   return (
