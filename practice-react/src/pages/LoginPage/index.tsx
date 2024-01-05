@@ -4,7 +4,7 @@ import {
   CONFIG,
   Input,
   Loader,
-} from '../../components';
+} from '@/components';
 import { FormField } from './form-field';
 import './login-page.css';
 import { apiRequest } from '@/services';
@@ -12,7 +12,6 @@ import {
   ACCOUNTS_API,
   MESSAGES
 } from '@/constants';
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { validateForm } from '@/validates';
 import { Student } from '@/types';
@@ -132,14 +131,12 @@ const LoginPage = () => {
             errorMessage={errorsMessage.password}
           />
         </FormField>
-        <Link to='/students-list'>
-          <Button
-            className='btn btn-login'
-            ariaLabel='Button sign in'
-            name='Sign In'
-            onClick ={handleSignIn}
-          />
-        </Link>
+        <Button
+          className='btn btn-login'
+          ariaLabel='Button sign in'
+          name='Sign In'
+          onClick ={handleSignIn}
+        />
 
         <p className='message-reset-password'>
           Forgot your password?
