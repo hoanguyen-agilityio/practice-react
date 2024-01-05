@@ -9,7 +9,6 @@ import { FormField } from './form-field';
 import './login-page.css';
 import { apiRequest } from '@/services';
 import {
-  ACCOUNTS_API,
   MESSAGES
 } from '@/constants';
 import { useNavigate } from 'react-router-dom';
@@ -56,7 +55,7 @@ const LoginPage = () => {
     }
 
     try {
-      const users = await apiRequest<null, Student[]>(ACCOUNTS_API, 'GET');
+      const users = await apiRequest<null, Student[]>(import.meta.env.ACCOUNTS_API, 'GET');
       const user = users.find(({ email }) => email === fields.email);
 
       // Correct login account
