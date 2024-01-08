@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
   Button,
@@ -13,7 +14,9 @@ import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
 
 const StudentsList = () => {
+  const navigate = useNavigate();
   const [students, setStudent] = useState([])
+
   useEffect(() => {
     const getData = async () => {
       const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
@@ -23,10 +26,16 @@ const StudentsList = () => {
     getData()
   }, [students])
 
+  // Handle logout
+  const handleLogout = (): void => {
+    navigate('/')
+  }
 
   return (
     <div className='container-page-students-list'>
-      <Sidebar />
+      <Sidebar
+        onClick={handleLogout}
+      />
       <div className='container-content'>
         <Header />
         <section className='list-heading'>
