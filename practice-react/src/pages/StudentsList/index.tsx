@@ -17,8 +17,6 @@ const StudentsList = () => {
   useEffect(() => {
     const getData = async () => {
       const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-      console.log(result);
-
       setStudent(result)
     }
 
