@@ -1,15 +1,15 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './login-page.css';
+import { FormField } from './form-field';
 import {
   Button,
   CONFIG,
   Input,
   Loader,
 } from '@/components';
-import { FormField } from './form-field';
-import './login-page.css';
 import { apiRequest } from '@/services';
 import { MESSAGES } from '@/constants';
-import { useNavigate } from 'react-router-dom';
 import { validateForm } from '@/validates';
 import { PartialUser } from '@/types';
 
@@ -25,7 +25,7 @@ const LoginPage = () => {
     email:'',
     password:'',
     generalError: ''
-  })
+  });
   const [isSubmit, setSubmit] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
@@ -53,8 +53,6 @@ const LoginPage = () => {
     }
 
     try {
-      console.log(import.meta.env.ACCOUNTS_API);
-
       const users = await apiRequest<null, PartialUser[]>(import.meta.env.VITE_ACCOUNTS_API, 'GET');
       const user: PartialUser = users.find(({ email }) => email === fields.email);
 

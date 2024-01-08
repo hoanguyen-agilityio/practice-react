@@ -8,9 +8,6 @@ import {
   Sidebar
 } from '../../components';
 import { sort } from '../../assets/Images';
-import { apiRequest } from '@/services';
-import TableHeader from '@/components/Table/TableHeader';
-import TableBody from '@/components/Table/TableBody';
 
 const StudentsList = () => {
   const [students, setStudent] = useState([])
