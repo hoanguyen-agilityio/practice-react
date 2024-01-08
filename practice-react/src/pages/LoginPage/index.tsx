@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import {
   Button,
   CONFIG,
@@ -25,7 +25,7 @@ const LoginPage = () => {
     email:'',
     password:'',
     generalError: ''
-  })
+  });
   const [isSubmit, setSubmit] = useState(false);
   const [isLoading, setLoading] = useState(false);
 
