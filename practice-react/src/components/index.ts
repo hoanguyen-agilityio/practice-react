@@ -38,3 +38,7 @@ export { default as ModalDelete } from './ModalDelete';
 
 // Loader
 export { default as Loader } from './Loader';
+
+// Table
+export { default as TableHeader } from './Table/TableHeader';
+export { default as TableBody } from './Table/TableBody';

@@ -1,13 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import './students-list.css';
 import {
   Button,
   Header,
   ModalDelete,
   ModalForm,
-  Sidebar
-} from '../../components';
-import { sort } from '../../assets/Images';
+  Sidebar,
+  TableHeader,
+  TableBody
+} from '@/components';
+import { sort } from '@/assets/Images';
+import { apiRequest } from '@/services';
 
 const StudentsList = () => {
   const [students, setStudent] = useState([])
