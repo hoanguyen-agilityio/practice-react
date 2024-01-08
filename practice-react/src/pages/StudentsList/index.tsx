@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
   Button,
@@ -9,9 +10,17 @@ import {
 import { sort } from '@/assets/Images';
 
 const StudentsList = () => {
+  const navigate = useNavigate();
+
+  // Handle logout
+  const handleLogout = (): void => {
+    navigate('/')
+  }
   return (
     <div className='container-page-students-list'>
-      <Sidebar />
+      <Sidebar
+        onClick={handleLogout}
+      />
       <div className='container-content'>
         <Header />
         <section className='list-heading'>
