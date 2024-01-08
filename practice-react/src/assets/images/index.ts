@@ -11,3 +11,5 @@ export { default as btnHideSidebar } from './btn-hide-sidebar.svg';
 export { default as btnShowSidebar } from './btn-show-sidebar.svg';
 export { default as btnNotification } from './notification-btn.svg';
 export { default as sort } from './sort.svg';
+export { default as btnEdit } from './btn-edit.svg';
+export { default as btnDelete } from './btn-delete.svg';
