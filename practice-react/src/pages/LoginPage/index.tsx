@@ -1,15 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './login-page.css';
+import { FormField } from './form-field';
 import {
   Button,
   CONFIG,
   Input,
   Loader,
 } from '@/components';
-import { FormField } from './form-field';
-import './login-page.css';
 import { apiRequest } from '@/services';
 import { MESSAGES } from '@/constants';
-import { useNavigate } from 'react-router-dom';
 import { validateForm } from '@/validates';
 import { PartialUser } from '@/types';
 
