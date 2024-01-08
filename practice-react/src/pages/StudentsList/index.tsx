@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
   Button,
@@ -8,14 +7,16 @@ import {
   Sidebar
 } from '@/components';
 import { sort } from '@/assets/Images';
+import { useNavigate } from 'react-router-dom';
 
 const StudentsList = () => {
   const navigate = useNavigate();
-
   // Handle logout
   const handleLogout = (): void => {
+    localStorage.removeItem('user');
     navigate('/')
   }
+
   return (
     <div className='container-page-students-list'>
       <Sidebar
