@@ -3,16 +3,20 @@ import { Navigate } from "react-router-dom";
 
 interface IProps {
   children: ReactNode;
+  isLoggedIn: Boolean;
 }
 
-const ProtectedRoute = ({ children } :IProps) => {
+const ProtectedRoute = ({
+  children,
+  isLoggedIn
+} :IProps) => {
   const user = localStorage.getItem('user')
-
-  if (user) {
-    return <Navigate to='/students-list' replace />;
+  isLoggedIn = false
+  if (!isLoggedIn && !user) {
+    return <Navigate to='/' replace />;
   }
 
-  return children;
+  return children
 }
 
 export default ProtectedRoute;

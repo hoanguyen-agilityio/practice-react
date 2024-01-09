@@ -12,14 +12,17 @@ function App() {
         <Route
           path='/'
           element={
-            <ProtectedRoute>
-              <LoginPage/>
-            </ProtectedRoute>
+            <LoginPage/>
           }
         />
         <Route
           path='/students-list'
-          element={<StudentsList/>}
+          element={
+            <ProtectedRoute>
+              <StudentsList/>
+            </ProtectedRoute>
+
+          }
         />
       </Routes>
     </BrowserRouter>
