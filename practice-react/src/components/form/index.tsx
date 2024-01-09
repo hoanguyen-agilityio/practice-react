@@ -5,14 +5,18 @@ import {
   Form
 } from '..';
 
-const ModalForm = () => {
+interface IModalForm {
+  title: string
+}
+
+const ModalForm = ({title} :IModalForm) => {
   return (
     <div className='modal modal-form'>
       <div className='vertical-scroll'>
         <div className='modal-content'>
           <div className='modal-header'>
             <h3 className='title title-form-add-update'>
-              Student
+              {title}
             </h3>
             <Button
               className='btn-close-modal'

@@ -13,7 +13,7 @@
 }
 
 .modal-form {
-  display: none;
+  display: flex;
   .error-message {
     text-align: left;
     padding: 10px 0 0;

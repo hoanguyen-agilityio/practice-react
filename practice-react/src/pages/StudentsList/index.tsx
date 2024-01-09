@@ -16,6 +16,8 @@ import { apiRequest } from '@/services';
 const StudentsList = () => {
   const navigate = useNavigate();
   const [students, setStudent] = useState([])
+  const [isModal, setModal] = useState(false)
+  const [contentModal, setContentModal] = useState('');
 
   useEffect(() => {
     const getData = async () => {
@@ -29,6 +31,14 @@ const StudentsList = () => {
   // Handle logout
   const handleLogout = (): void => {
     navigate('/')
+  }
+
+  const handleShowModal = () => {
+    setModal(true)
+  }
+
+  const handleHideModal = () => {
+    setModal(false)
   }
 
   return (
@@ -52,6 +62,10 @@ const StudentsList = () => {
             className='btn btn-add-student'
             ariaLabel='Add new student'
             name='ADD NEW STUDENT'
+            onClick={() => {
+              setContentModal('ADD STUDENT')
+              handleShowModal()
+            }}
           />
         </section>
         <ul className='students-list-table'>
@@ -68,7 +82,7 @@ const StudentsList = () => {
             )
           })}
         </ul>
-        <ModalForm />
+        {isModal && <ModalForm title={contentModal} onClick={() => handleHideModal()}/>}
         <ModalDelete />
       </div>
     </div>
