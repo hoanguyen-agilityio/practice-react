@@ -73,6 +73,7 @@ const StudentsList = () => {
           {students.map((student) => {
             return (
             <TableBody
+              id={student.id}
               name={student.name}
               email={student.email}
               phone={student.phone}
