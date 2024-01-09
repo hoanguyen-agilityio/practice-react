@@ -21,7 +21,6 @@ function App() {
             <ProtectedRoute>
               <StudentsList/>
             </ProtectedRoute>
-
           }
         />
       </Routes>
