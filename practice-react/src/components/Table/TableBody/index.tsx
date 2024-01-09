@@ -7,6 +7,7 @@ import {
 } from '@/assets/Images'
 
 interface ITableBody {
+  id?: string,
   name: string,
   email: string,
   phone: string,
@@ -16,6 +17,7 @@ interface ITableBody {
 }
 
 const TableBody = ({
+  id,
   name,
   email,
   phone,
@@ -25,7 +27,7 @@ const TableBody = ({
 } :ITableBody) => {
   return (
     <>
-      <li className='table-row'>
+      <li className='table-row' id={id}>
         <span><img src={avatar} alt='avatar student' className='avt-student' /></span>
         <span>{name}</span>
         <span>{email}</span>
