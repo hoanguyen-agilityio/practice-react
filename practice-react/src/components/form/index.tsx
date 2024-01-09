@@ -6,10 +6,14 @@ import {
 } from '..';
 
 interface IModalForm {
-  title: string
+  title: string,
+  onClick: () => void,
 }
 
-const ModalForm = ({title} :IModalForm) => {
+const ModalForm = ({
+  title,
+  onClick
+} :IModalForm) => {
   return (
     <div className='modal modal-form'>
       <div className='vertical-scroll'>
@@ -22,6 +26,7 @@ const ModalForm = ({title} :IModalForm) => {
               className='btn-close-modal'
               name='X'
               ariaLabel='Button to turn off form'
+              onClick={onClick}
             />
           </div>
           {FORM_INPUT.map(({
@@ -44,16 +49,13 @@ const ModalForm = ({title} :IModalForm) => {
               name='CANCEL'
               className='btn btn-cancel'
               ariaLabel='Cancel'
+              onClick={onClick}
             />
             <Button
-              name='CREATE STUDENT'
-              className='btn btn-create-student'
+              name='SUBMIT'
+              className='btn btn-submit'
               ariaLabel='Create Student'
-            />
-            <Button
-              name='UPDATE STUDENT'
-              className='btn btn-update-student'
-              ariaLabel='Update Student'
+              onClick={onClick}
             />
           </div>
         </div>

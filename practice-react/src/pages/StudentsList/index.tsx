@@ -63,7 +63,7 @@ const StudentsList = () => {
             ariaLabel='Add new student'
             name='ADD NEW STUDENT'
             onClick={() => {
-              setContentModal('ADD STUDENT')
+              setContentModal('ADD NEW STUDENT')
               handleShowModal()
             }}
           />
@@ -82,7 +82,10 @@ const StudentsList = () => {
             )
           })}
         </ul>
-        {isModal && <ModalForm title={contentModal} onClick={() => handleHideModal()}/>}
+        {isModal && <ModalForm
+          title={contentModal}
+          onClick={handleHideModal} />
+        }
         <ModalDelete />
       </div>
     </div>
