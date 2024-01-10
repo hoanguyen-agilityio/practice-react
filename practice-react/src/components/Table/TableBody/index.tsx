@@ -4,7 +4,7 @@ import {
   avatar,
   btnDelete,
   btnEdit
-} from '@/assets/Images'
+} from '@/assets/Images';
 
 interface ITableBody {
   id?: string,
