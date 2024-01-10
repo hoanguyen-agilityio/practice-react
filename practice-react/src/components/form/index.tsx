@@ -6,13 +6,19 @@ import {
 } from '..';
 
 interface IModalForm {
+  errorMessage: string,
   title: string,
   onClick: () => void,
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onClickSubmit: () => void
 }
 
 const ModalForm = ({
   title,
-  onClick
+  errorMessage,
+  onClick,
+  onChange,
+  onClickSubmit
 } :IModalForm) => {
   return (
     <div className='modal modal-form'>
@@ -29,21 +35,26 @@ const ModalForm = ({
               onClick={onClick}
             />
           </div>
-          {FORM_INPUT.map(({
-            nameLabel,
-            type,
-            name,
-            ariaLabel }) => {
-              return (
-                <Form
-                  nameLabel={nameLabel}
-                  type={type}
-                  name={name}
-                  ariaLabel={ariaLabel}
-                  className='form-input'
-                />
-              )
-          })}
+          <form className='form'>
+            {FORM_INPUT.map(({
+              nameLabel,
+              type,
+              name,
+              ariaLabel,
+            }) => {
+                return (
+                  <Form
+                    nameLabel={nameLabel}
+                    type={type}
+                    name={name}
+                    ariaLabel={ariaLabel}
+                    className='form-input'
+                    onChange={onChange}
+                    errorMessage={errorMessage}
+                  />
+                )
+            })}
+          </form>
           <div className='btn-group'>
             <Button
               name='CANCEL'
@@ -55,7 +66,7 @@ const ModalForm = ({
               name='SUBMIT'
               className='btn btn-submit'
               ariaLabel='Create Student'
-              onClick={onClick}
+              onClick={onClickSubmit}
             />
           </div>
         </div>

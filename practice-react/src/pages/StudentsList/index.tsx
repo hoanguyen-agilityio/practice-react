@@ -8,25 +8,42 @@ import {
   ModalForm,
   Sidebar,
   TableHeader,
-  TableBody
+  TableBody,
+  CONFIG
 } from '@/components';
 import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
+import { validateForm } from '@/validates';
+import { PartialStudent } from '@/types';
 
 const StudentsList = () => {
   const navigate = useNavigate();
   const [students, setStudent] = useState([])
   const [isModal, setModal] = useState(false)
   const [contentModal, setContentModal] = useState('');
+  const [fields, setFields] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    enrollNumber: '',
+    dateOfAdmission: ''
+  });
+  const [errorsMessage, setErrors]= useState({
+    name: '',
+    email: '',
+    phone: '',
+    enrollNumber: '',
+    dateOfAdmission: ''
+  });
 
   useEffect(() => {
     const getData = async () => {
-      const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
+      const result: PartialStudent[]  = await apiRequest<null, PartialStudent[]>(import.meta.env.VITE_STUDENT_API, 'GET');
       setStudent(result)
     }
 
     getData()
-  }, [students])
+  }, [])
 
   // Handle logout
   const handleLogout = (): void => {
@@ -39,6 +56,42 @@ const StudentsList = () => {
 
   const handleHideModal = () => {
     setModal(false)
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFields({
+      ...fields,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const getDataAndValidate = () => {
+    return
+  }
+
+  const handleSubmit = async () => {
+    const validation = validateForm(fields, CONFIG);
+
+    if (!validation.isValid) {
+      setErrors({
+        name: validation.errors.name!,
+        email: validation.errors.email!,
+        phone: validation.errors.phone!,
+        enrollNumber: validation.errors.enrollNumber!,
+        dateOfAdmission: validation.errors.dateOfAdmission!,
+      });
+
+      return;
+    }
+
+    try {
+      const newStudent = await apiRequest<null, PartialStudent[]>(import.meta.env.VITE_STUDENT_API, 'POST', fields);
+      setStudent(currentArticles => [...currentArticles, ...newStudent])
+
+      // update lai students
+    } catch (error) {
+      alert('An error occurred while creating a new student');
+    }
   }
 
   return (
@@ -85,8 +138,13 @@ const StudentsList = () => {
         </ul>
         {isModal && <ModalForm
           title={contentModal}
-          onClick={handleHideModal} />
-        }
+          onClick={handleHideModal}
+          onChange={handleInputChange}
+          onClickSubmit={() => {
+            handleSubmit()
+            handleHideModal()
+          }}
+        />}
         <ModalDelete />
       </div>
     </div>

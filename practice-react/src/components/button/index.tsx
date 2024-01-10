@@ -7,7 +7,7 @@ interface IButton {
   icon?: string,
   classNameIcon?: string,
   alt?: string,
-  onClick: (e: React.MouseEvent<HTMLElement>) => void
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
 const Button = ({

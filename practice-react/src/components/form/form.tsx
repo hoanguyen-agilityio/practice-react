@@ -9,24 +9,26 @@ const Form = ({
   nameLabel,
   type,
   name,
-  ariaLabel
+  ariaLabel,
+  onChange,
+  errorMessage
 } :IForm) => {
   return (
-    <form className='form'>
-      <div className='form-input-group'>
-        <label
-          className='label-input'
-        >
-          {nameLabel}
-        </label>
-        <Input
-          type={type}
-          name={name}
-          ariaLabel={ariaLabel}
-          className='form-input'
-        />
-      </div>
-    </form>
+    <div className='form-input-group'>
+      <label
+        className='label-input'
+      >
+        {nameLabel}
+      </label>
+      <Input
+        type={type}
+        name={name}
+        ariaLabel={ariaLabel}
+        className='form-input'
+        onChange={onChange}
+        errorMessage={errorMessage}
+      />
+    </div>
   )
 }
 
