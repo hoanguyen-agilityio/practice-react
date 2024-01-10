@@ -33,6 +33,7 @@ const StudentsList = () => {
   const [isModal, setModal] = useState(false)
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
   const [fields, setFields] = useState({
     name: '',
     email: '',
@@ -83,6 +84,7 @@ const StudentsList = () => {
       ...fields,
       [e.target.name]: e.target.value
     });
+    setDisabled(true);
   }
 
   const checkDuplicate = (arr) => {
@@ -253,6 +255,7 @@ const StudentsList = () => {
           errorMessagePhone={errorsMessage.phone}
           errorMessageEnrollNumber={errorsMessage.enrollNumber}
           errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
+          disableButton={disabled}
         />}
         <ModalDelete />
       </div>

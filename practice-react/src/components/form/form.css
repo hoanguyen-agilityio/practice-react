@@ -113,6 +113,10 @@
   padding: 14px 27px;
 }
 
+.btn-submit:disabled {
+  opacity: '0.5';
+}
+
 /* STYLE APPLIED TO THE DESKTOP */
 @media (min-width: 766px) {
   .describe {

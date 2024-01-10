@@ -12,6 +12,7 @@ interface IModalForm extends IForm {
   onClick: () => void,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onClickSubmit: () => void
+  disableButton: boolean
 }
 
 const ModalForm = ({
@@ -23,7 +24,8 @@ const ModalForm = ({
   errorMessageDateOfAdmission,
   onClick,
   onChange,
-  onClickSubmit
+  onClickSubmit,
+  disableButton
 } :IModalForm) => {
   return (
     <div className='modal modal-form'>
@@ -99,6 +101,7 @@ const ModalForm = ({
               className='btn btn-submit'
               ariaLabel='Create Student'
               onClick={onClickSubmit}
+              disableButton={disableButton}
             />
           </div>
         </div>

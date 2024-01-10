@@ -7,6 +7,7 @@ interface IButton {
   icon?: string,
   classNameIcon?: string,
   alt?: string,
+  disableButton?: boolean,
   onClick?: (e: React.MouseEvent<HTMLElement>) => void
 }
 
@@ -17,6 +18,7 @@ const Button = ({
   icon,
   classNameIcon,
   alt,
+  disableButton,
   onClick
 } :IButton) => {
   return (
@@ -25,6 +27,7 @@ const Button = ({
       className={className}
       onClick={onClick}
       aria-label={ariaLabel}
+      disabled={disableButton}
     >
       {name}
       {icon && <img src={icon} className={classNameIcon} alt={alt} />}
