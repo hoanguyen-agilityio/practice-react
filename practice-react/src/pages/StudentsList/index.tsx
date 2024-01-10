@@ -28,6 +28,7 @@ const StudentsList = () => {
 
   // Handle logout
   const handleLogout = (): void => {
+    localStorage.removeItem('user');
     navigate('/')
   }
 
