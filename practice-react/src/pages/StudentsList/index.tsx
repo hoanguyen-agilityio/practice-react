@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StudentsList = () => {
   const navigate = useNavigate();
+
   // Handle logout
   const handleLogout = (): void => {
     localStorage.removeItem('user');
