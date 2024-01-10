@@ -12,8 +12,7 @@ const TableHeader = () => {
         <span>Date of admission</span>
         <span></span>
         <span></span>
-    </li>
-
+      </li>
     </>
   )
 }
