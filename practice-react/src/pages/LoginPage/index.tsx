@@ -64,6 +64,7 @@ const LoginPage = () => {
           generalError: ''
         })
         setLoading(true)
+        localStorage.setItem('user', user.email);
         setTimeout(() => {navigate('/students-list')}, 3000);
 
       // Login with the wrong account
