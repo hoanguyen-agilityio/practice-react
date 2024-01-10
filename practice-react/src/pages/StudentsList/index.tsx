@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  useEffect
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
@@ -9,19 +12,27 @@ import {
   Sidebar,
   TableHeader,
   TableBody,
-  CONFIG
+  CONFIG,
+  Loader
 } from '@/components';
 import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
-import { checkDuplicateData, validateForm } from '@/validates';
+import {
+  checkDuplicateData,
+  validateForm
+} from '@/validates';
 import { PartialStudent } from '@/types';
-import { EMPTY_TEXT, MESSAGES } from '@/constants';
+import {
+  EMPTY_TEXT,
+  MESSAGES
+} from '@/constants';
 
 const StudentsList = () => {
   const navigate = useNavigate();
   const [students, setStudent] = useState([])
   const [isModal, setModal] = useState(false)
   const [contentModal, setContentModal] = useState('');
+  const [isLoading, setLoading] = useState(false);
   const [fields, setFields] = useState({
     name: '',
     email: '',
@@ -104,21 +115,21 @@ const StudentsList = () => {
         email: MESSAGES.DUPLICATE_EMAIL
       })
 
-			return;
+      return;
 		} else {
 			isContinue = true;
       setErrors({
         email: EMPTY_TEXT
       })
-		}
 
+		}
 		if (duplicatePhone) {
 			isContinue = false;
       setErrors({
         phone: MESSAGES.DUPLICATE_PHONE
       })
 
-			return;
+      return;
 		} else {
 			isContinue = true;
       setErrors({
@@ -132,7 +143,7 @@ const StudentsList = () => {
         enrollNumber: MESSAGES.DUPLICATE_ENROLL_NUMBER
       })
 
-			return;
+      return;
 		} else {
 			isContinue = true;
       setErrors({
@@ -172,11 +183,17 @@ const StudentsList = () => {
       }
 
       const newStudent = await apiRequest(import.meta.env.VITE_STUDENT_API, 'POST', fields);
-
-      setStudent(students => [...students, newStudent]);
       handleHideModal();
 
-      // update lai students
+      // Show loader
+      setLoading(true);
+      setTimeout(() => {
+        // Hide loader
+        setLoading(false);
+
+        // update lai students
+        setStudent(students => [...students, newStudent]);
+      }, 3000)
     } catch (error) {
       alert('An error occurred while creating a new student');
     }
@@ -239,6 +256,7 @@ const StudentsList = () => {
         />}
         <ModalDelete />
       </div>
+      {isLoading && <Loader />}
     </div>
   )
 }
