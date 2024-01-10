@@ -1,12 +1,13 @@
 import './form.css'
-import {
-  Button,
-  FORM_INPUT,
-  Form
-} from '..';
+import { Button } from '..';
+import FormControl, { IForm } from './form';
 
-interface IModalForm {
-  errorMessage: string,
+interface IModalForm extends IForm {
+  errorMessageName: string,
+  errorMessageEmail: string,
+  errorMessagePhone: string,
+  errorMessageEnrollNumber: string,
+  errorMessageDateOfAdmission: string,
   title: string,
   onClick: () => void,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -15,7 +16,11 @@ interface IModalForm {
 
 const ModalForm = ({
   title,
-  errorMessage,
+  errorMessageName,
+  errorMessageEmail,
+  errorMessagePhone,
+  errorMessageEnrollNumber,
+  errorMessageDateOfAdmission,
   onClick,
   onChange,
   onClickSubmit
@@ -36,24 +41,51 @@ const ModalForm = ({
             />
           </div>
           <form className='form'>
-            {FORM_INPUT.map(({
-              nameLabel,
-              type,
-              name,
-              ariaLabel,
-            }) => {
-                return (
-                  <Form
-                    nameLabel={nameLabel}
-                    type={type}
-                    name={name}
-                    ariaLabel={ariaLabel}
-                    className='form-input'
-                    onChange={onChange}
-                    errorMessage={errorMessage}
-                  />
-                )
-            })}
+            <FormControl
+              nameLabel= 'Name'
+              type= 'text'
+              name= 'name'
+              ariaLabel= 'Enter name'
+              className= 'form-input'
+              onChange={onChange}
+              errorMessage={errorMessageName}
+            />
+            <FormControl
+              nameLabel= 'Email'
+              type= 'email'
+              name= 'email'
+              ariaLabel= 'Enter name'
+              className= 'form-input'
+              onChange={onChange}
+              errorMessage={errorMessageEmail}
+            />
+            <FormControl
+              nameLabel= 'Phone'
+              type= 'tel'
+              name= 'phone'
+              ariaLabel= 'Enter phone'
+              className= 'form-input'
+              onChange={onChange}
+              errorMessage={errorMessagePhone}
+            />
+            <FormControl
+              nameLabel= 'Enroll Number'
+              type= 'number'
+              name= 'enrollNumber'
+              ariaLabel= 'Enter enrollNumber'
+              className= 'form-input'
+              onChange={onChange}
+              errorMessage={errorMessageEnrollNumber}
+            />
+            <FormControl
+              nameLabel= 'Date of admission'
+              type= 'date'
+              name= 'dateOfAdmission'
+              ariaLabel= 'Enter date of admission'
+              className= 'form-input'
+              onChange={onChange}
+              errorMessage={errorMessageDateOfAdmission}
+            />
           </form>
           <div className='btn-group'>
             <Button

@@ -52,44 +52,6 @@ export const MENU_LIST = [
   }
 ];
 
-export const FORM_INPUT = [
-  {
-    nameLabel: 'Name',
-    type: 'text',
-    name: 'name',
-    ariaLabel: 'Enter name',
-    errorMessage: 'name'
-  },
-  {
-    nameLabel: 'Email',
-    type: 'email',
-    name: 'email',
-    ariaLabel: 'Enter email',
-    errorMessage:'email'
-  },
-  {
-    nameLabel: 'Phone',
-    type: 'tel',
-    name: 'phone',
-    ariaLabel: 'Enter phone',
-    errorMessage: 'phone'
-  },
-  {
-    nameLabel: 'Enroll Number',
-    type: 'number',
-    name: 'enrollNumber',
-    ariaLabel: 'Enter enrollNumber',
-    errorMessage: 'enrollNumber'
-  },
-  {
-    nameLabel: 'Date of admission',
-    type: 'date',
-    name: 'dateOfAdmission',
-    ariaLabel: 'Enter date of admission',
-    errorMessage: 'dateOfAdmission'
-  }
-];
-
 export const CONFIG = {
   email: ['emptyEmail','formatEmail'],
   password: ['emptyPassword','passwordRule'],

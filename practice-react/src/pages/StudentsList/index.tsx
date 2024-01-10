@@ -85,8 +85,9 @@ const StudentsList = () => {
     }
 
     try {
-      const newStudent = await apiRequest<null, PartialStudent[]>(import.meta.env.VITE_STUDENT_API, 'POST', fields);
-      setStudent(currentArticles => [...currentArticles, ...newStudent])
+      const newStudent = await apiRequest(import.meta.env.VITE_STUDENT_API, 'POST', fields);
+
+      setStudent(students => [...students, newStudent])
 
       // update lai students
     } catch (error) {

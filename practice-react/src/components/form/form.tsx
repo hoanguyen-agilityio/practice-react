@@ -1,11 +1,11 @@
 import { Input } from '..';
 import { IInput } from '../Input';
 
-interface IForm extends IInput {
+export interface IForm extends IInput {
   nameLabel: string
 }
 
-const Form = ({
+const FormControl = ({
   nameLabel,
   type,
   name,
@@ -32,4 +32,4 @@ const Form = ({
   )
 }
 
-export default Form;
+export default FormControl;
