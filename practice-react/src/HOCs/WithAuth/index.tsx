@@ -1,5 +1,5 @@
-import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
+import { ReactNode } from "react";
 
 interface IProps {
   children: ReactNode;
@@ -7,12 +7,11 @@ interface IProps {
 }
 
 const ProtectedRoute = ({
-  children,
-  isLoggedIn
+  children
 } :IProps) => {
   const user = localStorage.getItem('user')
-  isLoggedIn = false
-  if (!isLoggedIn && !user) {
+
+  if (!user) {
     return <Navigate to='/' replace />;
   }
 
