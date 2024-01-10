@@ -32,9 +32,11 @@ const StudentsList = () => {
   const [students, setStudent] = useState([])
   const [isModal, setModal] = useState(false)
   const [contentModal, setContentModal] = useState('');
+  const [id, setId] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [fields, setFields] = useState({
+    id: '',
     name: '',
     email: '',
     phone: '',
@@ -79,6 +81,11 @@ const StudentsList = () => {
     })
   }
 
+  const handleUpdateStudent = async (event) => {
+    const clickedElementId = event.currentTarget.id
+    const studentApi = import.meta.env.VITE_STUDENT_API
+    const data = await apiRequest(`${studentApi}/${clickedElementId}`, 'GET');
+  }
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
@@ -239,6 +246,11 @@ const StudentsList = () => {
               phone={student.phone}
               enrollNumber={student.enrollNumber}
               dateOfAdmission={student.dateOfAdmission}
+              onClickButtonEdit={(event) => {
+                setContentModal('UPDATE STUDENT')
+                handleShowModal()
+                handleUpdateStudent(event)
+              }}
             />
             )
           })}
@@ -255,7 +267,6 @@ const StudentsList = () => {
           errorMessagePhone={errorsMessage.phone}
           errorMessageEnrollNumber={errorsMessage.enrollNumber}
           errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
-          disableButton={disabled}
         />}
         <ModalDelete />
       </div>
