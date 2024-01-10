@@ -13,8 +13,9 @@ import {
 } from '@/components';
 import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
-import { validateForm } from '@/validates';
+import { checkDuplicateData, validateForm } from '@/validates';
 import { PartialStudent } from '@/types';
+import { EMPTY_TEXT, MESSAGES } from '@/constants';
 
 const StudentsList = () => {
   const navigate = useNavigate();
@@ -56,6 +57,13 @@ const StudentsList = () => {
 
   const handleHideModal = () => {
     setModal(false)
+    setErrors({
+      name: EMPTY_TEXT,
+      email: EMPTY_TEXT,
+      phone: EMPTY_TEXT,
+      enrollNumber: EMPTY_TEXT,
+      dateOfAdmission: EMPTY_TEXT,
+    })
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -65,11 +73,83 @@ const StudentsList = () => {
     });
   }
 
-  const getDataAndValidate = () => {
-    return
+  const checkDuplicate = (arr) => {
+    // Check for duplicate emails
+		const duplicateEmail = checkDuplicateData(
+			arr,
+			'email',
+			fields.email,
+		);
+
+		// Check for duplicate phones
+		const duplicatePhone = checkDuplicateData(
+			arr,
+			'phone',
+			fields.phone,
+		);
+
+		// Check for duplicate enroll numbers
+		const duplicateEnrollNumber = checkDuplicateData(
+			arr,
+			'enrollNumber',
+			fields.enrollNumber,
+		);
+
+		let isContinue: boolean = true;
+
+		if (duplicateEmail) {
+			isContinue = false;
+      setErrors({
+        email: MESSAGES.DUPLICATE_EMAIL
+      })
+
+			return;
+		} else {
+			isContinue = true;
+      setErrors({
+        email: EMPTY_TEXT
+      })
+		}
+
+		if (duplicatePhone) {
+			isContinue = false;
+      setErrors({
+        phone: MESSAGES.DUPLICATE_PHONE
+      })
+
+			return;
+		} else {
+			isContinue = true;
+      setErrors({
+        phone: EMPTY_TEXT
+      })
+		}
+
+		if (duplicateEnrollNumber) {
+			isContinue = false;
+      setErrors({
+        enrollNumber: MESSAGES.DUPLICATE_ENROLL_NUMBER
+      })
+
+			return;
+		} else {
+			isContinue = true;
+      setErrors({
+        enrollNumber: EMPTY_TEXT
+      })
+		}
+
+		if (!isContinue) {
+
+			return;
+		}
+
+		return isContinue;
+
   }
 
   const handleSubmit = async () => {
+    const students = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
     const validation = validateForm(fields, CONFIG);
 
     if (!validation.isValid) {
@@ -85,9 +165,15 @@ const StudentsList = () => {
     }
 
     try {
+      if (!checkDuplicate(students)) {
+
+        return;
+      }
+
       const newStudent = await apiRequest(import.meta.env.VITE_STUDENT_API, 'POST', fields);
 
-      setStudent(students => [...students, newStudent])
+      setStudent(students => [...students, newStudent]);
+      handleHideModal();
 
       // update lai students
     } catch (error) {
@@ -143,8 +229,12 @@ const StudentsList = () => {
           onChange={handleInputChange}
           onClickSubmit={() => {
             handleSubmit()
-            handleHideModal()
           }}
+          errorMessageName={errorsMessage.name}
+          errorMessageEmail={errorsMessage.email}
+          errorMessagePhone={errorsMessage.phone}
+          errorMessageEnrollNumber={errorsMessage.enrollNumber}
+          errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
         />}
         <ModalDelete />
       </div>
