@@ -1,9 +1,8 @@
-import { Navigate } from "react-router-dom";
-import { ReactNode } from "react";
+import { Navigate } from 'react-router-dom';
+import { ReactNode } from 'react';
 
 interface IProps {
   children: ReactNode;
-  isLoggedIn: Boolean;
 }
 
 const ProtectedRoute = ({
