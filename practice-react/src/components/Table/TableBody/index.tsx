@@ -27,7 +27,7 @@ const TableBody = ({
   return (
     <li className='table-row' id={id}>
       <span>
-        <img src={avatar} alt='avatar student' className='avt-student' />
+        <img src={avatar} alt='avatar' className='avatar' />
       </span>
       <span>{name}</span>
       <span>{email}</span>
