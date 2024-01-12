@@ -10,7 +10,7 @@ interface ITableBody {
   enrollNumber: string;
   dateOfAdmission: string;
   onClickButtonEdit: (id) => void
-  onClickButtonDelete: () => void
+  onClickButtonDelete: (id) => void
 }
 
 const TableBody = ({
@@ -44,7 +44,7 @@ const TableBody = ({
         <span>
           <Button
             className='btn-table btn-delete btn-table-delete'
-            onClick={onClickButtonDelete}
+            onClick={() => onClickButtonDelete(id)}
             ariaLabel='button delete'
             icon={btnDelete}
             id={id}

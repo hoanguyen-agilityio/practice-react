@@ -25,6 +25,7 @@ const StudentsList = () => {
   const navigate = useNavigate();
   const [students, setStudent] = useState([]);
   const [isModal, setModal] = useState(false);
+  const [isModalDelete, setModalDelete] = useState(false)
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -73,6 +74,14 @@ const StudentsList = () => {
   const handleShowModal = () => {
     setModal(true);
   };
+
+  const handleShowModalDelete = () => {
+    setModalDelete(true);
+  }
+
+  const handleHideModalDelete = () => {
+    setModalDelete(false)
+  }
 
   const handleHideModal = () => {
     setModal(false);
@@ -309,6 +318,34 @@ const StudentsList = () => {
     handleAddNewStudent();
   };
 
+  const onClickButtonDelete = (id) => {
+    setFields({
+      id: id
+    })
+
+    handleShowModalDelete()
+  }
+
+  /**
+   * Handle delete student
+   */
+  const handleDeleteStudent = async () => {
+    const deleteStudent = await apiRequest(
+      `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
+      'DELETE'
+    );
+    handleHideModalDelete();
+    setLoading(true);
+    setTimeout(() => {
+      // Hide loader
+      setLoading(false);
+
+      // update lai students
+      setStudent(students.filter(st => st.id !== fields.id));
+    }, 3000);
+
+  }
+
   return (
     <div className='container-page-students-list'>
       <Sidebar onClick={handleLogout} />
@@ -347,6 +384,7 @@ const StudentsList = () => {
                   setContentModal('UPDATE STUDENT');
                   onClickButtonEdit(id);
                 }}
+                onClickButtonDelete={onClickButtonDelete}
               />
             );
           })}
@@ -374,7 +412,12 @@ const StudentsList = () => {
             valueDateOfAdmission={fields.dateOfAdmission}
           />
         )}
-        <ModalDelete />
+        {isModalDelete && (
+          <ModalDelete
+            onClickHideModal={handleHideModalDelete}
+            onClickDelete={handleDeleteStudent}
+          />)}
+
       </div>
       {isLoading && <Loader />}
     </div>

@@ -20,6 +20,10 @@
   }
 }
 
+.modal-confirm-delete {
+  display: flex;
+}
+
 .modal-header {
   padding-top: 30px;
   display: flex;

@@ -1,7 +1,15 @@
 import '../Form/form.css';
 import { Button } from '..';
 
-const ModalDelete = () => {
+interface isModalDelete {
+  onClickHideModal: () => void;
+  onClickDelete: () => void;
+}
+
+const ModalDelete = ({
+  onClickHideModal,
+  onClickDelete
+} :isModalDelete) => {
   return (
     <div className='modal modal-confirm-delete'>
       <div className='modal-content modal-content-delete'>
@@ -13,6 +21,7 @@ const ModalDelete = () => {
             name='X'
             className='btn-close-modal'
             ariaLabel='Button to turn off form'
+            onClick={onClickHideModal}
           />
         </div>
         <p className='describe'>
@@ -23,11 +32,13 @@ const ModalDelete = () => {
             name='CANCEL'
             className='btn btn-cancel'
             ariaLabel='Cancel'
+            onClick={onClickHideModal}
           />
           <Button
             name='DELETE'
             className='btn btn-delete'
             ariaLabel='Delete'
+            onClick={onClickDelete}
           />
         </div>
       </div>
