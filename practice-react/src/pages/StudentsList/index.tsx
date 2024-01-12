@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./students-list.css";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './students-list.css';
 import {
   Button,
   Header,
@@ -29,19 +29,19 @@ const StudentsList = () => {
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [fields, setFields] = useState({
-    id: '',
-    name: '',
-    email: '',
-    phone: '',
-    enrollNumber: '',
-    dateOfAdmission: '',
+    id: EMPTY_TEXT,
+    name: EMPTY_TEXT,
+    email: EMPTY_TEXT,
+    phone: EMPTY_TEXT,
+    enrollNumber: EMPTY_TEXT,
+    dateOfAdmission: EMPTY_TEXT,
   });
   const [errorsMessage, setErrors] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    enrollNumber: '',
-    dateOfAdmission: '',
+    name: EMPTY_TEXT,
+    email: EMPTY_TEXT,
+    phone: EMPTY_TEXT,
+    enrollNumber: EMPTY_TEXT,
+    dateOfAdmission: EMPTY_TEXT,
   });
 
   useEffect(() => {
@@ -92,6 +92,18 @@ const StudentsList = () => {
     });
     setDisabled(true);
   };
+
+  // Handle reset form
+  const handleResetForm = () => {
+    setFields({
+      id: EMPTY_TEXT,
+      name: EMPTY_TEXT,
+      email: EMPTY_TEXT,
+      phone: EMPTY_TEXT,
+      enrollNumber: EMPTY_TEXT,
+      dateOfAdmission: EMPTY_TEXT
+    })
+  }
 
   const checkDuplicate = (arr) => {
     // Check for duplicate emails
@@ -207,54 +219,62 @@ const StudentsList = () => {
         setStudent((students) => [...students, newStudent]);
       }, 3000);
     } catch (error) {
-      alert("An error occurred while creating a new student");
+      alert('An error occurred while creating a new student');
     }
   };
 
-  const handleUpdateStudent = async (event) => {
-    const clickedElementId = event.currentTarget.id;
-    const students: PartialStudent[] = await apiRequest(
-      import.meta.env.VITE_STUDENT_API,
-      "GET"
-    );
-    const validation = validateForm(fields, CONFIG);
+  /**
+   * Handle show form update student
+   *
+   * @param id
+   */
+  const onClickButtonEdit = async (id) => {
     const studentApi = import.meta.env.VITE_STUDENT_API;
-    const data = await apiRequest(`${studentApi}/${clickedElementId}`, "GET");
-    const newStudentsList: PartialStudent[] = students.filter(
-      (student: PartialStudent) => {
-        return student.id !== clickedElementId;
-      }
-    );
-    console.log(`${studentApi}/${clickedElementId}`);
-    console.log(newStudentsList);
+    const data = await apiRequest(`${studentApi}/${id}`, 'GET');
 
     setFields({
+      id: data.id,
       name: data.name,
       email: data.email,
       phone: data.phone,
       enrollNumber: data.enrollNumber,
       dateOfAdmission: data.dateOfAdmission,
-    });
+    })
+
+    handleShowModal();
+  }
+
+  /**
+   * Handle update student
+   *
+   * @param id
+   */
+  const handleUpdateStudent = async () => {
+    const students: PartialStudent[] = await apiRequest(
+      import.meta.env.VITE_STUDENT_API,
+      'GET'
+    );
+    const newStudentsList: PartialStudent[] = students.filter(
+      (student: PartialStudent) => {
+        return student.id !== fields.id;
+      }
+    );
+
     if (!validation.isValid) {
-      setErrors({
-        name: validation.errors.name!,
-        email: validation.errors.email!,
-        phone: validation.errors.phone!,
-        enrollNumber: validation.errors.enrollNumber!,
-        dateOfAdmission: validation.errors.dateOfAdmission!,
-      });
+      handleSetErrors();
 
       return;
     }
 
     try {
       if (!checkDuplicate(newStudentsList)) {
+
         return;
       }
 
       const student = await apiRequest(
-        import.meta.env.VITE_STUDENT_API,
-        "PUT",
+        `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
+        'PUT',
         fields
       );
       handleHideModal();
@@ -266,22 +286,27 @@ const StudentsList = () => {
         setLoading(false);
 
         // update lai students
-        setStudent((students) => [...students, student]);
+        setStudent((students) => students.map((st) => {
+          if(st.id === student.id) {
+            return student
+          }
+
+          return st
+        }));
       }, 3000);
     } catch (error) {
-      alert("Something went wrong while updating the student");
+      alert('Something went wrong while updating the student');
     }
   };
 
   const handleSubmit = async () => {
-  /**
-   * Handle submit form
-   */
-    if (contentModal === 'ADD NEW STUDENT') {
-      handleAddNewStudent();
-    } else {
+    if (fields.id) {
       handleUpdateStudent();
+      console.log('Update')
+      return;
     }
+    console.log('Add')
+    handleAddNewStudent();
   };
 
   return (
@@ -292,22 +317,22 @@ const StudentsList = () => {
         <section className='list-heading'>
           <h2 className='title students-list-heading'>Students List</h2>
           <Button
-            className="btn-sort"
-            ariaLabel="Sort the list"
+            className='btn-sort'
+            ariaLabel='Sort the list'
             icon={sort}
-            alt="button sort"
+            alt='button sort'
           />
           <Button
-            className="btn btn-add-student"
-            ariaLabel="Add new student"
-            name="ADD NEW STUDENT"
+            className='btn btn-add-student'
+            ariaLabel='Add new student'
+            name='ADD NEW STUDENT'
             onClick={() => {
               setContentModal('ADD NEW STUDENT');
               handleShowModal();
             }}
           />
         </section>
-        <ul className="students-list-table">
+        <ul className='students-list-table'>
           <TableHeader />
           {students.map((student: Student) => {
             return (
@@ -318,10 +343,9 @@ const StudentsList = () => {
                 phone={student.phone}
                 enrollNumber={student.enrollNumber}
                 dateOfAdmission={student.dateOfAdmission}
-                onClickButtonEdit={(event) => {
+                onClickButtonEdit={(id) => {
                   setContentModal('UPDATE STUDENT');
-                  handleShowModal();
-                  handleUpdateStudent(event);
+                  onClickButtonEdit(id);
                 }}
               />
             );
@@ -330,7 +354,10 @@ const StudentsList = () => {
         {isModal && (
           <ModalForm
             title={contentModal}
-            onClick={handleHideModal}
+            onClick={() => {
+              handleResetForm();
+              handleHideModal();
+            }}
             onChange={handleInputChange}
             onClickSubmit={() => {
               handleSubmit();
@@ -340,6 +367,11 @@ const StudentsList = () => {
             errorMessagePhone={errorsMessage.phone}
             errorMessageEnrollNumber={errorsMessage.enrollNumber}
             errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
+            valueName={fields.name}
+            valueEmail={fields.email}
+            valuePhone={fields.phone}
+            valueEnrollNumber={fields.enrollNumber}
+            valueDateOfAdmission={fields.dateOfAdmission}
           />
         )}
         <ModalDelete />

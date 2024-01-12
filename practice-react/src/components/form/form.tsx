@@ -11,7 +11,8 @@ const FormControl = ({
   name,
   ariaLabel,
   onChange,
-  errorMessage
+  errorMessage,
+  value
 } :IForm) => {
   return (
     <div className='form-input-group'>
@@ -27,6 +28,7 @@ const FormControl = ({
         className='form-input'
         onChange={onChange}
         errorMessage={errorMessage}
+        value={value}
       />
     </div>
   )

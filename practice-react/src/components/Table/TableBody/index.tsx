@@ -9,7 +9,7 @@ interface ITableBody {
   phone: string;
   enrollNumber: string;
   dateOfAdmission: string;
-  onClickButtonEdit: () => void
+  onClickButtonEdit: (id) => void
   onClickButtonDelete: () => void
 }
 
@@ -26,7 +26,7 @@ const TableBody = ({
   return (
     <>
       <li className='table-row' id={id}>
-        <span><img src={avatar} alt='avatar student' className='avt-student' /></span>
+        <span><img src={avatar} alt='avatar' className='avatar' /></span>
         <span>{name}</span>
         <span>{email}</span>
         <span>{phone}</span>
@@ -35,7 +35,7 @@ const TableBody = ({
         <span>
           <Button
             className='btn-table btn-edit'
-            onClick={onClickButtonEdit}
+            onClick={() => onClickButtonEdit(id)}
             ariaLabel='button edit'
             icon={btnEdit}
             id={id}

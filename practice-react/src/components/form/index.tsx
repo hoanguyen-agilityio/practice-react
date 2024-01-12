@@ -12,7 +12,12 @@ interface IModalForm extends IForm {
   onClick: () => void,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onClickSubmit: () => void
-  disableButton: boolean
+  disableButton: boolean,
+  valueName: string,
+  valueEmail: string,
+  valuePhone: string,
+  valueEnrollNumber: string,
+  valueDateOfAdmission: string
 }
 
 const ModalForm = ({
@@ -22,6 +27,11 @@ const ModalForm = ({
   errorMessagePhone,
   errorMessageEnrollNumber,
   errorMessageDateOfAdmission,
+  valueName,
+  valueEmail,
+  valuePhone,
+  valueEnrollNumber,
+  valueDateOfAdmission,
   onClick,
   onChange,
   onClickSubmit,
@@ -51,6 +61,7 @@ const ModalForm = ({
               className='form-input'
               onChange={onChange}
               errorMessage={errorMessageName}
+              value={valueName}
             />
             <FormControl
               nameLabel='Email'
@@ -60,6 +71,7 @@ const ModalForm = ({
               className='form-input'
               onChange={onChange}
               errorMessage={errorMessageEmail}
+              value={valueEmail}
             />
             <FormControl
               nameLabel='Phone'
@@ -69,6 +81,7 @@ const ModalForm = ({
               className='form-input'
               onChange={onChange}
               errorMessage={errorMessagePhone}
+              value={valuePhone}
             />
             <FormControl
               nameLabel='Enroll Number'
@@ -78,6 +91,7 @@ const ModalForm = ({
               className='form-input'
               onChange={onChange}
               errorMessage={errorMessageEnrollNumber}
+              value={valueEnrollNumber}
             />
             <FormControl
               nameLabel='Date of admission'
@@ -87,6 +101,7 @@ const ModalForm = ({
               className='form-input'
               onChange={onChange}
               errorMessage={errorMessageDateOfAdmission}
+              value={valueDateOfAdmission}
             />
           </form>
           <div className='btn-group'>
