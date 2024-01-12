@@ -25,7 +25,7 @@ const StudentsList = () => {
     };
 
     getData();
-  }, [students]);
+  }, []);
 
   // Handle logout
   const handleLogout = (): void => {
