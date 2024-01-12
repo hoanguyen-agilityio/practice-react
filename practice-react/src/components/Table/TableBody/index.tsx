@@ -9,7 +9,8 @@ interface ITableBody {
   phone: string;
   enrollNumber: string;
   dateOfAdmission: string;
-  onClick: () => void;
+  onClickButtonEdit: () => void;
+  onClickButtonDelete: () => void;
 }
 
 const TableBody = ({
@@ -19,7 +20,9 @@ const TableBody = ({
   phone,
   enrollNumber,
   dateOfAdmission,
-  onClick,
+  onClickButtonEdit,
+  onClickButtonDelete
+,
 }: ITableBody) => {
   return (
     <li className='table-row' id={id}>
@@ -34,7 +37,7 @@ const TableBody = ({
       <span>
         <Button
           className='btn-table btn-edit'
-          onClick={onClick}
+          onClick={onClickButtonEdit}
           ariaLabel='button edit'
           icon={btnEdit}
         />
@@ -42,7 +45,7 @@ const TableBody = ({
       <span>
         <Button
           className='btn-table btn-delete btn-table-delete'
-          onClick={onClick}
+          onClick={onClickButtonDelete}
           ariaLabel='button delete'
           icon={btnDelete}
         />
