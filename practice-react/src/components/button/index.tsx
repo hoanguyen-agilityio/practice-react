@@ -1,14 +1,14 @@
 import './button.css';
 
 interface IButton {
-  className: string,
-  ariaLabel: string,
-  name?: string,
-  icon?: string,
-  classNameIcon?: string,
-  alt?: string,
-  disableButton?: boolean,
-  onClick?: (e: React.MouseEvent<HTMLElement>) => void
+  className: string;
+  ariaLabel: string;
+  name?: string;
+  icon?: string;
+  classNameIcon?: string;
+  alt?: string;
+  disableButton?: boolean;
+  onClick: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 const Button = ({
@@ -32,7 +32,7 @@ const Button = ({
       {name}
       {icon && <img src={icon} className={classNameIcon} alt={alt} />}
     </button>
-  )
-}
+  );
+};
 
 export default Button;

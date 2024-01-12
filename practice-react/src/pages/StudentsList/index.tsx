@@ -1,7 +1,4 @@
-import {
-  useState,
-  useEffect
-} from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
@@ -13,24 +10,18 @@ import {
   TableHeader,
   TableBody,
   CONFIG,
-  Loader
+  Loader,
 } from '@/components';
 import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
-import {
-  checkDuplicateData,
-  validateForm
-} from '@/validates';
-import { PartialStudent } from '@/types';
-import {
-  EMPTY_TEXT,
-  MESSAGES
-} from '@/constants';
+import { checkDuplicateData, validateForm } from '@/validates';
+import { Student } from '@/types';
+import { EMPTY_TEXT, MESSAGES } from '@/constants';
 
 const StudentsList = () => {
   const navigate = useNavigate();
-  const [students, setStudent] = useState([])
-  const [isModal, setModal] = useState(false)
+  const [students, setStudent] = useState([]);
+  const [isModal, setModal] = useState(false);
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
@@ -39,128 +30,125 @@ const StudentsList = () => {
     email: '',
     phone: '',
     enrollNumber: '',
-    dateOfAdmission: ''
+    dateOfAdmission: '',
   });
-  const [errorsMessage, setErrors]= useState({
+  const [errorsMessage, setErrors] = useState({
     name: '',
     email: '',
     phone: '',
     enrollNumber: '',
-    dateOfAdmission: ''
+    dateOfAdmission: '',
   });
 
   useEffect(() => {
     const getData = async () => {
-      const result: PartialStudent[]  = await apiRequest<null, PartialStudent[]>(import.meta.env.VITE_STUDENT_API, 'GET');
-      setStudent(result)
-    }
+      const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
+      if (result) {
+        setStudent(result);
 
-    getData()
-  }, [])
+        return;
+      }
+
+      alert(
+        'Cannot display student list. Because the data cannot be retrieved from the database.',
+      );
+    };
+
+    getData();
+  }, []);
 
   // Handle logout
   const handleLogout = (): void => {
     localStorage.removeItem('user');
-    navigate('/')
-  }
+    navigate('/');
+  };
 
   const handleShowModal = () => {
-    setModal(true)
-  }
+    setModal(true);
+  };
 
   const handleHideModal = () => {
-    setModal(false)
+    setModal(false);
     setErrors({
       name: EMPTY_TEXT,
       email: EMPTY_TEXT,
       phone: EMPTY_TEXT,
       enrollNumber: EMPTY_TEXT,
       dateOfAdmission: EMPTY_TEXT,
-    })
-  }
+    });
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
     setDisabled(true);
-  }
+  };
 
   const checkDuplicate = (arr) => {
     // Check for duplicate emails
-		const duplicateEmail = checkDuplicateData(
-			arr,
-			'email',
-			fields.email,
-		);
+    const duplicateEmail = checkDuplicateData(arr, 'email', fields.email);
 
-		// Check for duplicate phones
-		const duplicatePhone = checkDuplicateData(
-			arr,
-			'phone',
-			fields.phone,
-		);
+    // Check for duplicate phones
+    const duplicatePhone = checkDuplicateData(arr, 'phone', fields.phone);
 
-		// Check for duplicate enroll numbers
-		const duplicateEnrollNumber = checkDuplicateData(
-			arr,
-			'enrollNumber',
-			fields.enrollNumber,
-		);
+    // Check for duplicate enroll numbers
+    const duplicateEnrollNumber = checkDuplicateData(
+      arr,
+      'enrollNumber',
+      fields.enrollNumber,
+    );
 
-		let isContinue: boolean = true;
+    let isContinue: boolean = true;
 
-		if (duplicateEmail) {
-			isContinue = false;
+    if (duplicateEmail) {
+      isContinue = false;
       setErrors({
-        email: MESSAGES.DUPLICATE_EMAIL
-      })
+        email: MESSAGES.DUPLICATE_EMAIL,
+      });
 
       return;
-		} else {
-			isContinue = true;
+    } else {
+      isContinue = true;
       setErrors({
-        email: EMPTY_TEXT
-      })
-
-		}
-		if (duplicatePhone) {
-			isContinue = false;
+        email: EMPTY_TEXT,
+      });
+    }
+    if (duplicatePhone) {
+      isContinue = false;
       setErrors({
-        phone: MESSAGES.DUPLICATE_PHONE
-      })
+        phone: MESSAGES.DUPLICATE_PHONE,
+      });
 
       return;
-		} else {
-			isContinue = true;
+    } else {
+      isContinue = true;
       setErrors({
-        phone: EMPTY_TEXT
-      })
-		}
+        phone: EMPTY_TEXT,
+      });
+    }
 
-		if (duplicateEnrollNumber) {
-			isContinue = false;
+    if (duplicateEnrollNumber) {
+      isContinue = false;
       setErrors({
-        enrollNumber: MESSAGES.DUPLICATE_ENROLL_NUMBER
-      })
+        enrollNumber: MESSAGES.DUPLICATE_ENROLL_NUMBER,
+      });
 
       return;
-		} else {
-			isContinue = true;
+    } else {
+      isContinue = true;
       setErrors({
-        enrollNumber: EMPTY_TEXT
-      })
-		}
+        enrollNumber: EMPTY_TEXT,
+      });
+    }
 
-		if (!isContinue) {
+    if (!isContinue) {
+      return;
+    }
 
-			return;
-		}
-
-		return isContinue;
-
-  }
+    return isContinue;
+  };
 
   const handleSubmit = async () => {
     const students = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
@@ -180,11 +168,14 @@ const StudentsList = () => {
 
     try {
       if (!checkDuplicate(students)) {
-
         return;
       }
 
-      const newStudent = await apiRequest(import.meta.env.VITE_STUDENT_API, 'POST', fields);
+      const newStudent = await apiRequest(
+        import.meta.env.VITE_STUDENT_API,
+        'POST',
+        fields,
+      );
       handleHideModal();
 
       // Show loader
@@ -194,24 +185,20 @@ const StudentsList = () => {
         setLoading(false);
 
         // update lai students
-        setStudent(students => [...students, newStudent]);
-      }, 3000)
+        setStudent((students) => [...students, newStudent]);
+      }, 3000);
     } catch (error) {
       alert('An error occurred while creating a new student');
     }
-  }
+  };
 
   return (
     <div className='container-page-students-list'>
-      <Sidebar
-        onClick={handleLogout}
-      />
+      <Sidebar onClick={handleLogout} />
       <div className='container-content'>
         <Header />
         <section className='list-heading'>
-          <h2 className='title students-list-heading'>
-            Students List
-          </h2>
+          <h2 className='title students-list-heading'>Students List</h2>
           <Button
             className='btn-sort'
             ariaLabel='Sort the list'
@@ -223,45 +210,47 @@ const StudentsList = () => {
             ariaLabel='Add new student'
             name='ADD NEW STUDENT'
             onClick={() => {
-              setContentModal('ADD NEW STUDENT')
-              handleShowModal()
+              setContentModal('ADD NEW STUDENT');
+              handleShowModal();
             }}
           />
         </section>
         <ul className='students-list-table'>
           <TableHeader />
-          {students.map((student) => {
+          {students.map((student: Student) => {
             return (
-            <TableBody
-              id={student.id}
-              name={student.name}
-              email={student.email}
-              phone={student.phone}
-              enrollNumber={student.enrollNumber}
-              dateOfAdmission={student.dateOfAdmission}
-            />
-            )
+              <TableBody
+                id={student.id}
+                name={student.name}
+                email={student.email}
+                phone={student.phone}
+                enrollNumber={student.enrollNumber}
+                dateOfAdmission={student.dateOfAdmission}
+              />
+            );
           })}
         </ul>
-        {isModal && <ModalForm
-          title={contentModal}
-          onClick={handleHideModal}
-          onChange={handleInputChange}
-          onClickSubmit={() => {
-            handleSubmit()
-          }}
-          errorMessageName={errorsMessage.name}
-          errorMessageEmail={errorsMessage.email}
-          errorMessagePhone={errorsMessage.phone}
-          errorMessageEnrollNumber={errorsMessage.enrollNumber}
-          errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
-          disableButton={disabled}
-        />}
+        {isModal && (
+          <ModalForm
+            title={contentModal}
+            onClick={handleHideModal}
+            onChange={handleInputChange}
+            onClickSubmit={() => {
+              handleSubmit();
+            }}
+            errorMessageName={errorsMessage.name}
+            errorMessageEmail={errorsMessage.email}
+            errorMessagePhone={errorsMessage.phone}
+            errorMessageEnrollNumber={errorsMessage.enrollNumber}
+            errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
+            disableButton={disabled}
+          />
+        )}
         <ModalDelete />
       </div>
       {isLoading && <Loader />}
     </div>
-  )
-}
+  );
+};
 
 export default StudentsList;
