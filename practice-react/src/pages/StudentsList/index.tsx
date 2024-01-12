@@ -24,10 +24,12 @@ const StudentsList = () => {
       if (result) {
         setStudent(result);
 
-        return
+        return;
       }
 
-      alert('Cannot display student list. Because the data cannot be retrieved from the database.')
+      alert(
+        'Cannot display student list. Because the data cannot be retrieved from the database.',
+      );
     };
 
     getData();
