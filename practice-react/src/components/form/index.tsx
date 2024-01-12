@@ -44,47 +44,47 @@ const ModalForm = ({
           </div>
           <form className='form'>
             <FormControl
-              nameLabel= 'Name'
-              type= 'text'
-              name= 'name'
-              ariaLabel= 'Enter name'
-              className= 'form-input'
+              nameLabel='Name'
+              type='text'
+              name='name'
+              ariaLabel='Enter name'
+              className='form-input'
               onChange={onChange}
               errorMessage={errorMessageName}
             />
             <FormControl
-              nameLabel= 'Email'
-              type= 'email'
-              name= 'email'
-              ariaLabel= 'Enter name'
-              className= 'form-input'
+              nameLabel='Email'
+              type='email'
+              name='email'
+              ariaLabel='Enter name'
+              className='form-input'
               onChange={onChange}
               errorMessage={errorMessageEmail}
             />
             <FormControl
-              nameLabel= 'Phone'
-              type= 'tel'
-              name= 'phone'
-              ariaLabel= 'Enter phone'
-              className= 'form-input'
+              nameLabel='Phone'
+              type='tel'
+              name='phone'
+              ariaLabel='Enter phone'
+              className='form-input'
               onChange={onChange}
               errorMessage={errorMessagePhone}
             />
             <FormControl
-              nameLabel= 'Enroll Number'
-              type= 'number'
-              name= 'enrollNumber'
-              ariaLabel= 'Enter enrollNumber'
-              className= 'form-input'
+              nameLabel='Enroll Number'
+              type='number'
+              name='enrollNumber'
+              ariaLabel='Enter enrollNumber'
+              className='form-input'
               onChange={onChange}
               errorMessage={errorMessageEnrollNumber}
             />
             <FormControl
-              nameLabel= 'Date of admission'
-              type= 'date'
-              name= 'dateOfAdmission'
-              ariaLabel= 'Enter date of admission'
-              className= 'form-input'
+              nameLabel='Date of admission'
+              type='date'
+              name='dateOfAdmission'
+              ariaLabel='Enter date of admission'
+              className='form-input'
               onChange={onChange}
               errorMessage={errorMessageDateOfAdmission}
             />

@@ -1,18 +1,14 @@
 import { Button } from '@/components';
 import '../table.css';
-import {
-  avatar,
-  btnDelete,
-  btnEdit
-} from '@/assets/Images'
+import { avatar, btnDelete, btnEdit } from '@/assets/Images';
 
 interface ITableBody {
-  id?: string,
-  name: string,
-  email: string,
-  phone: string,
-  enrollNumber: string,
-  dateOfAdmission: string,
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  enrollNumber: string;
+  dateOfAdmission: string;
   onClickButtonEdit: () => void
   onClickButtonDelete: () => void
 }
@@ -59,4 +55,4 @@ const TableBody = ({
   )
 }
 
-export default TableBody
+export default TableBody;
