@@ -1,13 +1,13 @@
 import './button.css';
 
 interface IButton {
-  className: string,
-  ariaLabel: string,
-  name?: string,
-  icon?: string,
-  classNameIcon?: string,
-  alt?: string,
-  onClick: (e: React.MouseEvent<HTMLElement>) => void
+  className: string;
+  ariaLabel: string;
+  name?: string;
+  icon?: string;
+  classNameIcon?: string;
+  alt?: string;
+  onClick: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 const Button = ({
@@ -17,8 +17,8 @@ const Button = ({
   icon,
   classNameIcon,
   alt,
-  onClick
-} :IButton) => {
+  onClick,
+}: IButton) => {
   return (
     <button
       type='button'
@@ -29,7 +29,7 @@ const Button = ({
       {name}
       {icon && <img src={icon} className={classNameIcon} alt={alt} />}
     </button>
-  )
-}
+  );
+};
 
 export default Button;

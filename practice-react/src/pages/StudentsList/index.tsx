@@ -8,41 +8,38 @@ import {
   ModalForm,
   Sidebar,
   TableHeader,
-  TableBody
+  TableBody,
 } from '@/components';
 import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
+import { Student } from '@/types';
 
 const StudentsList = () => {
   const navigate = useNavigate();
-  const [students, setStudent] = useState([])
+  const [students, setStudent] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
       const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-      setStudent(result)
-    }
+      setStudent(result);
+    };
 
-    getData()
-  }, [students])
+    getData();
+  }, [students]);
 
   // Handle logout
   const handleLogout = (): void => {
     localStorage.removeItem('user');
-    navigate('/')
-  }
+    navigate('/');
+  };
 
   return (
     <div className='container-page-students-list'>
-      <Sidebar
-        onClick={handleLogout}
-      />
+      <Sidebar onClick={handleLogout} />
       <div className='container-content'>
         <Header />
         <section className='list-heading'>
-          <h2 className='title students-list-heading'>
-            Students List
-          </h2>
+          <h2 className='title students-list-heading'>Students List</h2>
           <Button
             className='btn-sort'
             ariaLabel='Sort the list'
@@ -57,24 +54,24 @@ const StudentsList = () => {
         </section>
         <ul className='students-list-table'>
           <TableHeader />
-          {students.map((student) => {
+          {students.map((student: Student) => {
             return (
-            <TableBody
-              id={student.id}
-              name={student.name}
-              email={student.email}
-              phone={student.phone}
-              enrollNumber={student.enrollNumber}
-              dateOfAdmission={student.dateOfAdmission}
-            />
-            )
+              <TableBody
+                id={student.id}
+                name={student.name}
+                email={student.email}
+                phone={student.phone}
+                enrollNumber={student.enrollNumber}
+                dateOfAdmission={student.dateOfAdmission}
+              />
+            );
           })}
         </ul>
         <ModalForm />
         <ModalDelete />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default StudentsList;

@@ -1,19 +1,15 @@
 import { Button } from '@/components';
 import '../table.css';
-import {
-  avatar,
-  btnDelete,
-  btnEdit
-} from '@/assets/Images';
+import { avatar, btnDelete, btnEdit } from '@/assets/Images';
 
 interface ITableBody {
-  id?: string,
-  name: string,
-  email: string,
-  phone: string,
-  enrollNumber: string,
-  dateOfAdmission: string,
-  onClick: () => void
+  id?: string;
+  name: string;
+  email: string;
+  phone: string;
+  enrollNumber: string;
+  dateOfAdmission: string;
+  onClick: () => void;
 }
 
 const TableBody = ({
@@ -23,36 +19,36 @@ const TableBody = ({
   phone,
   enrollNumber,
   dateOfAdmission,
-  onClick
-} :ITableBody) => {
+  onClick,
+}: ITableBody) => {
   return (
-    <>
-      <li className='table-row' id={id}>
-        <span><img src={avatar} alt='avatar student' className='avt-student' /></span>
-        <span>{name}</span>
-        <span>{email}</span>
-        <span>{phone}</span>
-        <span>{enrollNumber}</span>
-        <span>{dateOfAdmission}</span>
-        <span>
-          <Button
-            className='btn-table btn-edit'
-            onClick={onClick}
-            ariaLabel='button edit'
-            icon={btnEdit}
-          />
-        </span>
-        <span>
-          <Button
-            className='btn-table btn-delete btn-table-delete'
-            onClick={onClick}
-            ariaLabel='button delete'
-            icon={btnDelete}
-          />
-        </span>
-      </li>
-    </>
-  )
-}
+    <li className='table-row' id={id}>
+      <span>
+        <img src={avatar} alt='avatar student' className='avt-student' />
+      </span>
+      <span>{name}</span>
+      <span>{email}</span>
+      <span>{phone}</span>
+      <span>{enrollNumber}</span>
+      <span>{dateOfAdmission}</span>
+      <span>
+        <Button
+          className='btn-table btn-edit'
+          onClick={onClick}
+          ariaLabel='button edit'
+          icon={btnEdit}
+        />
+      </span>
+      <span>
+        <Button
+          className='btn-table btn-delete btn-table-delete'
+          onClick={onClick}
+          ariaLabel='button delete'
+          icon={btnDelete}
+        />
+      </span>
+    </li>
+  );
+};
 
-export default TableBody
+export default TableBody;
