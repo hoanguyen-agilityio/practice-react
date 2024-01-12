@@ -3,7 +3,7 @@ import '../table.css';
 import { avatar, btnDelete, btnEdit } from '@/assets/Images';
 
 interface ITableBody {
-  id?: string;
+  id: string;
   name: string;
   email: string;
   phone: string;
