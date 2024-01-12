@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  useEffect
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
@@ -14,8 +17,11 @@ import {
 } from '@/components';
 import { sort } from '@/assets/Images';
 import { apiRequest } from '@/services';
-import { checkDuplicateData, validateForm } from '@/validates';
-import { Student } from '@/types';
+import {
+  checkDuplicateData,
+  validateForm
+} from '@/validates';
+import { PartialStudent, Student } from '@/types';
 import { EMPTY_TEXT, MESSAGES } from '@/constants';
 
 const StudentsList = () => {
@@ -26,6 +32,7 @@ const StudentsList = () => {
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [fields, setFields] = useState({
+    id: '',
     name: '',
     email: '',
     phone: '',
@@ -42,7 +49,10 @@ const StudentsList = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
+      const result: PartialStudent[] = await apiRequest<null, PartialStudent[]>(
+        import.meta.env.VITE_STUDENT_API,
+        'GET',
+      );
       if (result) {
         setStudent(result);
 
@@ -115,6 +125,7 @@ const StudentsList = () => {
         email: EMPTY_TEXT,
       });
     }
+
     if (duplicatePhone) {
       isContinue = false;
       setErrors({
@@ -150,24 +161,35 @@ const StudentsList = () => {
     return isContinue;
   };
 
-  const handleSubmit = async () => {
-    const students = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-    const validation = validateForm(fields, CONFIG);
+  const validation = validateForm(fields, CONFIG);
 
+  /**
+   * Handle setErrors of useState
+   */
+  const handleSetErrors = () => {
+    setErrors({
+      name: validation.errors.name!,
+      email: validation.errors.email!,
+      phone: validation.errors.phone!,
+      enrollNumber: validation.errors.enrollNumber!,
+      dateOfAdmission: validation.errors.dateOfAdmission!,
+    });
+  }
+
+  /**
+   * Handle add new student
+   */
+  const handleAddNewStudent = async () => {
+    const students = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
     if (!validation.isValid) {
-      setErrors({
-        name: validation.errors.name!,
-        email: validation.errors.email!,
-        phone: validation.errors.phone!,
-        enrollNumber: validation.errors.enrollNumber!,
-        dateOfAdmission: validation.errors.dateOfAdmission!,
-      });
+      handleSetErrors();
 
       return;
     }
 
     try {
       if (!checkDuplicate(students)) {
+
         return;
       }
 
@@ -189,6 +211,17 @@ const StudentsList = () => {
       }, 3000);
     } catch (error) {
       alert('An error occurred while creating a new student');
+    }
+  };
+
+  /**
+   * Handle submit form
+   */
+  const handleSubmit = async () => {
+    if (contentModal === 'ADD NEW STUDENT') {
+      handleAddNewStudent();
+    } else {
+      handleUpdateStudent();
     }
   };
 
@@ -243,7 +276,6 @@ const StudentsList = () => {
             errorMessagePhone={errorsMessage.phone}
             errorMessageEnrollNumber={errorsMessage.enrollNumber}
             errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
-            disableButton={disabled}
           />
         )}
         <ModalDelete />
