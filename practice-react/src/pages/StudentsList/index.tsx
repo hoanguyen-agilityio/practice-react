@@ -21,7 +21,13 @@ const StudentsList = () => {
   useEffect(() => {
     const getData = async () => {
       const result = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-      setStudent(result);
+      if (result) {
+        setStudent(result);
+
+        return
+      }
+
+      alert('Cannot display student list. Because the data cannot be retrieved from the database.')
     };
 
     getData();
