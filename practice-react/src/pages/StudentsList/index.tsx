@@ -243,10 +243,10 @@ const StudentsList = () => {
    * Handle submit form
    */
   const handleSubmit = async () => {
-    if (contentModal === 'ADD NEW STUDENT') {
-      handleAddNewStudent();
-    } else {
+    if (fields.id) {
       handleUpdateStudent();
+    } else {
+      handleAddNewStudent();
     }
   };
 
