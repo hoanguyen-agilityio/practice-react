@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  useEffect
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
@@ -129,7 +132,7 @@ const StudentsList = () => {
    *
    * @param {Array[]} arr - The array contains the list of students
    */
-  const checkDuplicate = (arr: Student[]) => {
+  const checkDuplicate = (arr: PartialStudent[]) => {
     // Check for duplicate emails
     const duplicateEmail = checkDuplicateData(arr, 'email', fields.email);
 
@@ -226,7 +229,7 @@ const StudentsList = () => {
         return;
       }
 
-      const newStudent = await apiRequest(
+      const newStudent: Student = await apiRequest(
         import.meta.env.VITE_STUDENT_API,
         'POST',
         fields,
@@ -250,11 +253,11 @@ const StudentsList = () => {
   /**
    * Handle show form update student
    *
-   * @param id
+   * @param {string} id - id of the object containing the student
    */
-  const onClickButtonEdit = async (id) => {
+  const onClickButtonEdit = async (id: string) => {
     const studentApi = import.meta.env.VITE_STUDENT_API;
-    const data = await apiRequest(`${studentApi}/${id}`, 'GET');
+    const data: Student = await apiRequest(`${studentApi}/${id}`, 'GET');
 
     setFields({
       id: data.id,
@@ -296,7 +299,7 @@ const StudentsList = () => {
         return;
       }
 
-      const student = await apiRequest(
+      const student: Student = await apiRequest(
         `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
         'PUT',
         fields
@@ -358,15 +361,15 @@ const StudentsList = () => {
         </section>
         <ul className='students-list-table'>
           <TableHeader />
-          {students.map((student: Student) => {
+          {students.map((student: PartialStudent) => {
             return (
               <TableBody
-                id={student.id}
-                name={student.name}
-                email={student.email}
-                phone={student.phone}
-                enrollNumber={student.enrollNumber}
-                dateOfAdmission={student.dateOfAdmission}
+                id ={student.id as string}
+                name={student.name as string}
+                email={student.email as string}
+                phone={student.phone as string}
+                enrollNumber={student.enrollNumber as string}
+                dateOfAdmission={student.dateOfAdmission as string}
                 onClickButtonEdit={(id) => {
                   setContentModal('UPDATE STUDENT');
                   onClickButtonEdit(id);

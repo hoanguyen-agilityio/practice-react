@@ -9,7 +9,7 @@ interface ITableBody {
   phone: string;
   enrollNumber: string;
   dateOfAdmission: string;
-  onClickButtonEdit: (id) => void
+  onClickButtonEdit: (id: string) => void
   onClickButtonDelete: () => void
 }
 
