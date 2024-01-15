@@ -45,8 +45,9 @@ const LoginPage = () => {
 
     if (!validation.isValid) {
       setErrors({
-        email: validation.errors.email!,
-        password: validation.errors.password
+        ...errorsMessage,
+        email: validation.errors.email as string,
+        password: validation.errors.password as string
       });
 
       return;
@@ -54,7 +55,7 @@ const LoginPage = () => {
 
     try {
       const users = await apiRequest<null, PartialUser[]>(import.meta.env.VITE_ACCOUNTS_API, 'GET');
-      const user: PartialUser = users.find(({ email }) => email === fields.email)!;
+      const user: PartialUser = users?.find(({ email }) => email === fields.email)!;
 
       // Correct login account
       if (user.email === fields.email && user.password === fields.password) {
