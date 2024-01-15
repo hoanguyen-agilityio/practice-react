@@ -18,12 +18,18 @@ import {
   checkDuplicateData,
   validateForm
 } from '@/validates';
-import { PartialStudent, Student } from '@/types';
-import { EMPTY_TEXT, MESSAGES } from '@/constants';
+import {
+  PartialStudent,
+  Student
+} from '@/types';
+import {
+  EMPTY_TEXT,
+  MESSAGES
+} from '@/constants';
 
 const StudentsList = () => {
   const navigate = useNavigate();
-  const [students, setStudent] = useState([]);
+  const [students, setStudent] = useState<PartialStudent[]>([]);
   const [isModal, setModal] = useState(false);
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
@@ -36,7 +42,7 @@ const StudentsList = () => {
     enrollNumber: EMPTY_TEXT,
     dateOfAdmission: EMPTY_TEXT,
   });
-  const [errorsMessage, setErrors] = useState({
+  const [errorsMessage, setErrors] = useState<PartialStudent>({
     name: EMPTY_TEXT,
     email: EMPTY_TEXT,
     phone: EMPTY_TEXT,
@@ -64,16 +70,24 @@ const StudentsList = () => {
     getData();
   }, []);
 
-  // Handle logout
+  /**
+   * Handle logout
+   */
   const handleLogout = (): void => {
     localStorage.removeItem('user');
     navigate('/');
   };
 
+  /**
+   * Handle show modal
+   */
   const handleShowModal = () => {
     setModal(true);
   };
 
+  /**
+   * Handle hide modal
+   */
   const handleHideModal = () => {
     setModal(false);
     setErrors({
@@ -85,6 +99,11 @@ const StudentsList = () => {
     });
   };
 
+  /**
+   * Handle input change
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Value of input
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
@@ -105,7 +124,12 @@ const StudentsList = () => {
     })
   }
 
-  const checkDuplicate = (arr) => {
+  /**
+   * Handle check duplicate data
+   *
+   * @param {Array[]} arr - The array contains the list of students
+   */
+  const checkDuplicate = (arr: Student[]) => {
     // Check for duplicate emails
     const duplicateEmail = checkDuplicateData(arr, 'email', fields.email);
 
@@ -189,7 +213,7 @@ const StudentsList = () => {
    * Handle add new student
    */
   const handleAddNewStudent = async () => {
-    const students = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
+    const students: Student[] = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
 
     if (!validation.isValid) {
       handleSetErrors();
@@ -302,10 +326,10 @@ const StudentsList = () => {
   const handleSubmit = async () => {
     if (fields.id) {
       handleUpdateStudent();
-      console.log('Update')
+
       return;
     }
-    console.log('Add')
+
     handleAddNewStudent();
   };
 
@@ -354,7 +378,7 @@ const StudentsList = () => {
         {isModal && (
           <ModalForm
             title={contentModal}
-            onClick={() => {
+            onClose={() => {
               handleResetForm();
               handleHideModal();
             }}
@@ -362,11 +386,7 @@ const StudentsList = () => {
             onClickSubmit={() => {
               handleSubmit();
             }}
-            errorMessageName={errorsMessage.name}
-            errorMessageEmail={errorsMessage.email}
-            errorMessagePhone={errorsMessage.phone}
-            errorMessageEnrollNumber={errorsMessage.enrollNumber}
-            errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
+            errors={errorsMessage}
             valueName={fields.name}
             valueEmail={fields.email}
             valuePhone={fields.phone}

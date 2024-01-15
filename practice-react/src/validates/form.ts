@@ -91,8 +91,8 @@ const validateForm = (data: PartialStudent | PartialUser, config: PartialConfigV
   };
 
   // Point to the key in the data object
-  Object.keys(data).forEach(key => {
-    const value = data[key];
+  Object.keys(data).forEach((key: string) => {
+    const value: string = data[key];
 
     // There is a key in the config
     if (config[key]) {
