@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  useEffect
+} from 'react';
 import { useNavigate } from 'react-router-dom';
 import './students-list.css';
 import {
@@ -18,18 +21,24 @@ import {
   checkDuplicateData,
   validateForm
 } from '@/validates';
-import { PartialStudent, Student } from '@/types';
-import { EMPTY_TEXT, MESSAGES } from '@/constants';
+import {
+  PartialStudent,
+  Student
+} from '@/types';
+import {
+  EMPTY_TEXT,
+  MESSAGES
+} from '@/constants';
 
 const StudentsList = () => {
   const navigate = useNavigate();
-  const [students, setStudent] = useState([]);
+  const [students, setStudent] = useState<PartialStudent[]>([]);
   const [isModal, setModal] = useState(false);
   const [isModalDelete, setModalDelete] = useState(false)
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
-  const [fields, setFields] = useState({
+  const [fields, setFields] = useState<Student>({
     id: EMPTY_TEXT,
     name: EMPTY_TEXT,
     email: EMPTY_TEXT,
@@ -37,7 +46,7 @@ const StudentsList = () => {
     enrollNumber: EMPTY_TEXT,
     dateOfAdmission: EMPTY_TEXT,
   });
-  const [errorsMessage, setErrors] = useState({
+  const [errorsMessage, setErrors] = useState<PartialStudent>({
     name: EMPTY_TEXT,
     email: EMPTY_TEXT,
     phone: EMPTY_TEXT,
@@ -65,12 +74,17 @@ const StudentsList = () => {
     getData();
   }, []);
 
-  // Handle logout
+  /**
+   * Handle logout
+   */
   const handleLogout = (): void => {
     localStorage.removeItem('user');
     navigate('/');
   };
 
+  /**
+   * Handle show modal
+   */
   const handleShowModal = () => {
     setModal(true);
   };
@@ -83,6 +97,9 @@ const StudentsList = () => {
     setModalDelete(false)
   }
 
+  /**
+   * Handle hide modal
+   */
   const handleHideModal = () => {
     setModal(false);
     setErrors({
@@ -94,6 +111,11 @@ const StudentsList = () => {
     });
   };
 
+  /**
+   * Handle input change
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - Value of input
+   */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFields({
       ...fields,
@@ -114,7 +136,12 @@ const StudentsList = () => {
     })
   }
 
-  const checkDuplicate = (arr) => {
+  /**
+   * Handle check duplicate data
+   *
+   * @param {Array[]} arr - The array contains the list of students
+   */
+  const checkDuplicate = (arr: PartialStudent[]) => {
     // Check for duplicate emails
     const duplicateEmail = checkDuplicateData(arr, 'email', fields.email);
 
@@ -186,60 +213,22 @@ const StudentsList = () => {
    */
   const handleSetErrors = () => {
     setErrors({
-      name: validation.errors.name!,
-      email: validation.errors.email!,
-      phone: validation.errors.phone!,
-      enrollNumber: validation.errors.enrollNumber!,
-      dateOfAdmission: validation.errors.dateOfAdmission!,
+      name: validation.errors.name as string,
+      email: validation.errors.email as string,
+      phone: validation.errors.phone as string,
+      enrollNumber: validation.errors.enrollNumber as string,
+      dateOfAdmission: validation.errors.dateOfAdmission as string,
     });
   }
 
   /**
-   * Handle add new student
-   */
-  const handleAddNewStudent = async () => {
-    const students = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-
-    if (!validation.isValid) {
-      handleSetErrors();
-
-      return;
-    }
-
-    try {
-      if (!checkDuplicate(students)) {
-        return;
-      }
-
-      const newStudent = await apiRequest(
-        import.meta.env.VITE_STUDENT_API,
-        'POST',
-        fields,
-      );
-      handleHideModal();
-
-      // Show loader
-      setLoading(true);
-      setTimeout(() => {
-        // Hide loader
-        setLoading(false);
-
-        // update lai students
-        setStudent((students) => [...students, newStudent]);
-      }, 3000);
-    } catch (error) {
-      alert('An error occurred while creating a new student');
-    }
-  };
-
-  /**
    * Handle show form update student
    *
-   * @param id
+   * @param {string} id - id of the object containing the student
    */
-  const onClickButtonEdit = async (id) => {
+  const onClickButtonEdit = async (id: string) => {
     const studentApi = import.meta.env.VITE_STUDENT_API;
-    const data = await apiRequest(`${studentApi}/${id}`, 'GET');
+    const data: Student = await apiRequest(`${studentApi}/${id}`, 'GET');
 
     setFields({
       id: data.id,
@@ -253,73 +242,96 @@ const StudentsList = () => {
     handleShowModal();
   }
 
-  /**
-   * Handle update student
-   *
-   * @param id
-   */
-  const handleUpdateStudent = async () => {
-    const students: PartialStudent[] = await apiRequest(
-      import.meta.env.VITE_STUDENT_API,
-      'GET'
-    );
-    const newStudentsList: PartialStudent[] = students.filter(
-      (student: PartialStudent) => {
-        return student.id !== fields.id;
-      }
-    );
 
+  /**
+   * Handle submit
+   */
+  const handleSubmit = async () => {
     if (!validation.isValid) {
       handleSetErrors();
 
       return;
     }
 
-    try {
-      if (!checkDuplicate(newStudentsList)) {
+    if (fields.id) {
+      const students: PartialStudent[] = await apiRequest(
+        import.meta.env.VITE_STUDENT_API,
+        'GET'
+      );
+      const newStudentsList: PartialStudent[] = students.filter(
+        (student: PartialStudent) => {
+          return student.id !== fields.id;
+        }
+      );
+
+      if (!validation.isValid) {
+        handleSetErrors();
 
         return;
       }
 
-      const student = await apiRequest(
-        `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
-        'PUT',
-        fields
-      );
-      handleHideModal();
+      try {
+        if (!checkDuplicate(newStudentsList)) {
 
-      // Show loader
-      setLoading(true);
-      setTimeout(() => {
-        // Hide loader
-        setLoading(false);
+          return;
+        }
 
-        // update lai students
-        setStudent((students) => students.map((st) => {
-          if(st.id === student.id) {
-            return student
-          }
+        const student: Student = await apiRequest(
+          `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
+          'PUT',
+          fields
+        );
+        handleHideModal();
 
-          return st
-        }));
-      }, 3000);
-    } catch (error) {
-      alert('Something went wrong while updating the student');
+        // Show loader
+        setLoading(true);
+        setTimeout(() => {
+          // Hide loader
+          setLoading(false);
+
+          // update lai students
+          setStudent((students) => students.map((st) => {
+            if(st.id === student.id) {
+              return student
+            }
+
+            return st
+          }));
+        }, 3000);
+      } catch (error) {
+        alert('Something went wrong while updating the student');
+      }
+    } else {
+      try {
+        if (!checkDuplicate(students)) {
+          return;
+        }
+
+        const newStudent: Student = await apiRequest(
+          import.meta.env.VITE_STUDENT_API,
+          'POST',
+          fields,
+        );
+        handleHideModal();
+
+        // Show loader
+        setLoading(true);
+        setTimeout(() => {
+          // Hide loader
+          setLoading(false);
+
+          // update lai students
+          setStudent((students) => [...students, newStudent]);
+        }, 3000);
+      } catch (error) {
+        alert('An error occurred while creating a new student');
+      }
     }
   };
 
-  const handleSubmit = async () => {
-    if (fields.id) {
-      handleUpdateStudent();
-      console.log('Update')
-      return;
-    }
-    console.log('Add')
-    handleAddNewStudent();
-  };
-
-  const onClickButtonDelete = (id) => {
+  const onClickButtonDelete = (id: string) => {
     setFields({
+      ...fields,
       id: id
     })
 
@@ -371,15 +383,15 @@ const StudentsList = () => {
         </section>
         <ul className='students-list-table'>
           <TableHeader />
-          {students.map((student: Student) => {
+          {students.map((student: PartialStudent) => {
             return (
               <TableBody
-                id={student.id}
-                name={student.name}
-                email={student.email}
-                phone={student.phone}
-                enrollNumber={student.enrollNumber}
-                dateOfAdmission={student.dateOfAdmission}
+                id ={student.id as string}
+                name={student.name as string}
+                email={student.email as string}
+                phone={student.phone as string}
+                enrollNumber={student.enrollNumber as string}
+                dateOfAdmission={student.dateOfAdmission as string}
                 onClickButtonEdit={(id) => {
                   setContentModal('UPDATE STUDENT');
                   onClickButtonEdit(id);
@@ -392,7 +404,7 @@ const StudentsList = () => {
         {isModal && (
           <ModalForm
             title={contentModal}
-            onClick={() => {
+            onClose={() => {
               handleResetForm();
               handleHideModal();
             }}
@@ -400,16 +412,8 @@ const StudentsList = () => {
             onClickSubmit={() => {
               handleSubmit();
             }}
-            errorMessageName={errorsMessage.name}
-            errorMessageEmail={errorsMessage.email}
-            errorMessagePhone={errorsMessage.phone}
-            errorMessageEnrollNumber={errorsMessage.enrollNumber}
-            errorMessageDateOfAdmission={errorsMessage.dateOfAdmission}
-            valueName={fields.name}
-            valueEmail={fields.email}
-            valuePhone={fields.phone}
-            valueEnrollNumber={fields.enrollNumber}
-            valueDateOfAdmission={fields.dateOfAdmission}
+            errors={errorsMessage}
+            valueInput={fields}
           />
         )}
         {isModalDelete && (

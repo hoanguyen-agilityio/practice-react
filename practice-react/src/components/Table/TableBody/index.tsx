@@ -9,8 +9,8 @@ interface ITableBody {
   phone: string;
   enrollNumber: string;
   dateOfAdmission: string;
-  onClickButtonEdit: (id) => void
-  onClickButtonDelete: (id) => void
+  onClickButtonEdit: (id: string) => void
+  onClickButtonDelete: (id: string) => void
 }
 
 const TableBody = ({

@@ -1,38 +1,23 @@
 import './form.css'
 import { Button } from '..';
 import FormControl, { IForm } from './form';
+import { PartialStudent, Student } from '@/types';
 
 interface IModalForm extends IForm {
-  errorMessageName: string,
-  errorMessageEmail: string,
-  errorMessagePhone: string,
-  errorMessageEnrollNumber: string,
-  errorMessageDateOfAdmission: string,
+  errors: PartialStudent,
   title: string,
-  onClick: () => void,
+  onClose: () => void,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onClickSubmit: () => void
   disableButton: boolean,
-  valueName: string,
-  valueEmail: string,
-  valuePhone: string,
-  valueEnrollNumber: string,
-  valueDateOfAdmission: string
+  valueInput: Student
 }
 
 const ModalForm = ({
   title,
-  errorMessageName,
-  errorMessageEmail,
-  errorMessagePhone,
-  errorMessageEnrollNumber,
-  errorMessageDateOfAdmission,
-  valueName,
-  valueEmail,
-  valuePhone,
-  valueEnrollNumber,
-  valueDateOfAdmission,
-  onClick,
+  errors,
+  onClose,
+  valueInput,
   onChange,
   onClickSubmit,
   disableButton
@@ -49,7 +34,7 @@ const ModalForm = ({
               className='btn-close-modal'
               name='X'
               ariaLabel='Button to turn off form'
-              onClick={onClick}
+              onClick={onClose}
             />
           </div>
           <form className='form'>
@@ -60,8 +45,8 @@ const ModalForm = ({
               ariaLabel='Enter name'
               className='form-input'
               onChange={onChange}
-              errorMessage={errorMessageName}
-              value={valueName}
+              value={valueInput.name}
+              errorMessage={errors.name}
             />
             <FormControl
               nameLabel='Email'
@@ -70,8 +55,8 @@ const ModalForm = ({
               ariaLabel='Enter name'
               className='form-input'
               onChange={onChange}
-              errorMessage={errorMessageEmail}
-              value={valueEmail}
+              value={valueInput.email}
+              errorMessage={errors.email}
             />
             <FormControl
               nameLabel='Phone'
@@ -80,8 +65,8 @@ const ModalForm = ({
               ariaLabel='Enter phone'
               className='form-input'
               onChange={onChange}
-              errorMessage={errorMessagePhone}
-              value={valuePhone}
+              value={valueInput.phone}
+              errorMessage={errors.phone}
             />
             <FormControl
               nameLabel='Enroll Number'
@@ -90,8 +75,8 @@ const ModalForm = ({
               ariaLabel='Enter enrollNumber'
               className='form-input'
               onChange={onChange}
-              errorMessage={errorMessageEnrollNumber}
-              value={valueEnrollNumber}
+              value={valueInput.enrollNumber}
+              errorMessage={errors.enrollNumber}
             />
             <FormControl
               nameLabel='Date of admission'
@@ -100,8 +85,8 @@ const ModalForm = ({
               ariaLabel='Enter date of admission'
               className='form-input'
               onChange={onChange}
-              errorMessage={errorMessageDateOfAdmission}
-              value={valueDateOfAdmission}
+              value={valueInput.dateOfAdmission}
+              errorMessage={errors.dateOfAdmission}
             />
           </form>
           <div className='btn-group'>
@@ -109,7 +94,7 @@ const ModalForm = ({
               name='CANCEL'
               className='btn btn-cancel'
               ariaLabel='Cancel'
-              onClick={onClick}
+              onClick={onClose}
             />
             <Button
               name='SUBMIT'
