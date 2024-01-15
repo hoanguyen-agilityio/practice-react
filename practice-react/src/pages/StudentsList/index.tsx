@@ -365,7 +365,7 @@ const StudentsList = () => {
    */
   const handleSearch = async (searchValue: string) => {
     if (searchValue === '') {
-      const student: Student = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
+      const student: PartialStudent[] = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
       setSearchInput(student)
     } else {
       const filteredData: PartialStudent[] = students.filter((item) => {
