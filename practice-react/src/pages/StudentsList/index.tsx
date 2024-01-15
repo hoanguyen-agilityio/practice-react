@@ -85,14 +85,14 @@ const StudentsList = () => {
    * Handle show modal
    */
   const handleShowModal = () => {
-    setModal(true);
+    setModal(!isModal);
   };
 
   /**
    * Handle hide modal
    */
   const handleHideModal = () => {
-    setModal(false);
+    setModal(!isModal);
     setErrors({
       name: EMPTY_TEXT,
       email: EMPTY_TEXT,

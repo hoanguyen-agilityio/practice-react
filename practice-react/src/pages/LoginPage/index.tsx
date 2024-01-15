@@ -55,7 +55,7 @@ const LoginPage = () => {
 
     try {
       const users = await apiRequest<null, PartialUser[]>(import.meta.env.VITE_ACCOUNTS_API, 'GET');
-      const user: PartialUser = users?.find(({ email }) => email === fields.email)!;
+      const user = users?.find(({ email }) => email === fields.email) as PartialUser;
 
       // Correct login account
       if (user.email === fields.email && user.password === fields.password) {
