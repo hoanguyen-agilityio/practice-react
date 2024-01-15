@@ -266,7 +266,7 @@ const StudentsList = () => {
         {isModal && (
           <ModalForm
             title={contentModal}
-            onClick={handleHideModal}
+            onClose={handleHideModal}
             onChange={handleInputChange}
             onClickSubmit={() => {
               handleSubmit();

@@ -9,7 +9,7 @@ interface IModalForm extends IForm {
   errorMessageEnrollNumber: string,
   errorMessageDateOfAdmission: string,
   title: string,
-  onClick: () => void,
+  onClose: () => void,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onClickSubmit: () => void
   disableButton: boolean
@@ -22,7 +22,7 @@ const ModalForm = ({
   errorMessagePhone,
   errorMessageEnrollNumber,
   errorMessageDateOfAdmission,
-  onClick,
+  onClose,
   onChange,
   onClickSubmit,
   disableButton
@@ -39,7 +39,7 @@ const ModalForm = ({
               className='btn-close-modal'
               name='X'
               ariaLabel='Button to turn off form'
-              onClick={onClick}
+              onClick={onClose}
             />
           </div>
           <form className='form'>
@@ -94,7 +94,7 @@ const ModalForm = ({
               name='CANCEL'
               className='btn btn-cancel'
               ariaLabel='Cancel'
-              onClick={onClick}
+              onClick={onClose}
             />
             <Button
               name='SUBMIT'
