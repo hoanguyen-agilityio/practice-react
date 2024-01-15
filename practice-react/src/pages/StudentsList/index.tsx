@@ -120,7 +120,7 @@ const StudentsList = () => {
    *
    * @param {Array[]} arr - The array contains the list of students
    */
-  const checkDuplicate = (arr: Student[]) => {
+  const checkDuplicate = (arr: PartialStudent[]) => {
     // Check for duplicate emails
     const duplicateEmail = checkDuplicateData(arr, 'email', fields.email);
 
@@ -204,8 +204,6 @@ const StudentsList = () => {
    * Handle add new student
    */
   const handleAddNewStudent = async () => {
-    const students: Student[] = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-
     if (!validation.isValid) {
       handleSetErrors();
 
@@ -218,7 +216,7 @@ const StudentsList = () => {
         return;
       }
 
-      const newStudent = await apiRequest(
+      const newStudent: PartialStudent = await apiRequest(
         import.meta.env.VITE_STUDENT_API,
         'POST',
         fields,
