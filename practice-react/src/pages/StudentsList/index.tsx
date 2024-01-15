@@ -294,11 +294,7 @@ const StudentsList = () => {
             onClose={handleHideModal}
             onChange={handleInputChange}
             onClickSubmit={handleSubmit}
-            errorMessageName={errorsMessage.name!}
-            errorMessageEmail={errorsMessage.email!}
-            errorMessagePhone={errorsMessage.phone!}
-            errorMessageEnrollNumber={errorsMessage.enrollNumber!}
-            errorMessageDateOfAdmission={errorsMessage.dateOfAdmission!}
+            errors={errorsMessage}
           />
         )}
         <ModalDelete />
