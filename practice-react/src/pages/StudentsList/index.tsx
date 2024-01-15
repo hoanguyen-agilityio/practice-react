@@ -213,44 +213,6 @@ const StudentsList = () => {
   }
 
   /**
-   * Handle add new student
-   */
-  const handleAddNewStudent = async () => {
-    const students: Student[] = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
-
-    if (!validation.isValid) {
-      handleSetErrors();
-
-      return;
-    }
-
-    try {
-      if (!checkDuplicate(students)) {
-        return;
-      }
-
-      const newStudent: Student = await apiRequest(
-        import.meta.env.VITE_STUDENT_API,
-        'POST',
-        fields,
-      );
-      handleHideModal();
-
-      // Show loader
-      setLoading(true);
-      setTimeout(() => {
-        // Hide loader
-        setLoading(false);
-
-        // update lai students
-        setStudent((students) => [...students, newStudent]);
-      }, 3000);
-    } catch (error) {
-      alert('An error occurred while creating a new student');
-    }
-  };
-
-  /**
    * Handle show form update student
    *
    * @param {string} id - id of the object containing the student
@@ -271,58 +233,6 @@ const StudentsList = () => {
     handleShowModal();
   }
 
-  /**
-   * Handle update student
-   */
-  const handleUpdateStudent = async () => {
-    const students: PartialStudent[] = await apiRequest(
-      import.meta.env.VITE_STUDENT_API,
-      'GET'
-    );
-    const newStudentsList: PartialStudent[] = students.filter(
-      (student: PartialStudent) => {
-        return student.id !== fields.id;
-      }
-    );
-
-    if (!validation.isValid) {
-      handleSetErrors();
-
-      return;
-    }
-
-    try {
-      if (!checkDuplicate(newStudentsList)) {
-
-        return;
-      }
-
-      const student: Student = await apiRequest(
-        `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
-        'PUT',
-        fields
-      );
-      handleHideModal();
-
-      // Show loader
-      setLoading(true);
-      setTimeout(() => {
-        // Hide loader
-        setLoading(false);
-
-        // update lai students
-        setStudent((students) => students.map((st) => {
-          if(st.id === student.id) {
-            return student
-          }
-
-          return st
-        }));
-      }, 3000);
-    } catch (error) {
-      alert('Something went wrong while updating the student');
-    }
-  };
 
   /**
    * Handle submit
@@ -382,7 +292,6 @@ const StudentsList = () => {
       } catch (error) {
         alert('Something went wrong while updating the student');
       }
-      // handleUpdateStudent();
     } else {
       try {
         if (!checkDuplicate(students)) {
@@ -409,8 +318,6 @@ const StudentsList = () => {
         alert('An error occurred while creating a new student');
       }
     }
-
-    // handleAddNewStudent();
   };
 
   return (
