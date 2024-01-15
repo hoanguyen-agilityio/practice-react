@@ -37,7 +37,7 @@ const StudentsList = () => {
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
-  const [fields, setFields] = useState({
+  const [fields, setFields] = useState<Student>({
     id: EMPTY_TEXT,
     name: EMPTY_TEXT,
     email: EMPTY_TEXT,
@@ -204,11 +204,11 @@ const StudentsList = () => {
    */
   const handleSetErrors = () => {
     setErrors({
-      name: validation.errors.name!,
-      email: validation.errors.email!,
-      phone: validation.errors.phone!,
-      enrollNumber: validation.errors.enrollNumber!,
-      dateOfAdmission: validation.errors.dateOfAdmission!,
+      name: validation.errors.name as string,
+      email: validation.errors.email as string,
+      phone: validation.errors.phone as string,
+      enrollNumber: validation.errors.enrollNumber as string,
+      dateOfAdmission: validation.errors.dateOfAdmission as string,
     });
   }
 
@@ -273,8 +273,6 @@ const StudentsList = () => {
 
   /**
    * Handle update student
-   *
-   * @param id
    */
   const handleUpdateStudent = async () => {
     const students: PartialStudent[] = await apiRequest(
@@ -326,14 +324,93 @@ const StudentsList = () => {
     }
   };
 
+  /**
+   * Handle submit
+   */
   const handleSubmit = async () => {
-    if (fields.id) {
-      handleUpdateStudent();
+    if (!validation.isValid) {
+      handleSetErrors();
 
       return;
     }
 
-    handleAddNewStudent();
+    if (fields.id) {
+      const students: PartialStudent[] = await apiRequest(
+        import.meta.env.VITE_STUDENT_API,
+        'GET'
+      );
+      const newStudentsList: PartialStudent[] = students.filter(
+        (student: PartialStudent) => {
+          return student.id !== fields.id;
+        }
+      );
+
+      if (!validation.isValid) {
+        handleSetErrors();
+
+        return;
+      }
+
+      try {
+        if (!checkDuplicate(newStudentsList)) {
+
+          return;
+        }
+
+        const student: Student = await apiRequest(
+          `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
+          'PUT',
+          fields
+        );
+        handleHideModal();
+
+        // Show loader
+        setLoading(true);
+        setTimeout(() => {
+          // Hide loader
+          setLoading(false);
+
+          // update lai students
+          setStudent((students) => students.map((st) => {
+            if(st.id === student.id) {
+              return student
+            }
+
+            return st
+          }));
+        }, 3000);
+      } catch (error) {
+        alert('Something went wrong while updating the student');
+      }
+      // handleUpdateStudent();
+    } else {
+      try {
+        if (!checkDuplicate(students)) {
+          return;
+        }
+
+        const newStudent: Student = await apiRequest(
+          import.meta.env.VITE_STUDENT_API,
+          'POST',
+          fields,
+        );
+        handleHideModal();
+
+        // Show loader
+        setLoading(true);
+        setTimeout(() => {
+          // Hide loader
+          setLoading(false);
+
+          // update lai students
+          setStudent((students) => [...students, newStudent]);
+        }, 3000);
+      } catch (error) {
+        alert('An error occurred while creating a new student');
+      }
+    }
+
+    // handleAddNewStudent();
   };
 
   return (
@@ -390,11 +467,7 @@ const StudentsList = () => {
               handleSubmit();
             }}
             errors={errorsMessage}
-            valueName={fields.name}
-            valueEmail={fields.email}
-            valuePhone={fields.phone}
-            valueEnrollNumber={fields.enrollNumber}
-            valueDateOfAdmission={fields.dateOfAdmission}
+            valueInput={fields}
           />
         )}
         <ModalDelete />

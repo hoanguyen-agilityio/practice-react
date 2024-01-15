@@ -1,3 +1,4 @@
+import { Student } from '@/types';
 import './input.css';
 
 export interface IInput {
