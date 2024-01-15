@@ -8,7 +8,15 @@ import {
   btnShowSidebar
 } from '../../assets/Images';
 
-const Header = () => {
+interface ISearch {
+  onChange: () => void;
+  onClick: () => void;
+}
+
+const Header = ({
+  onChange,
+  onClick
+} :ISearch) => {
   return (
     <header className='header'>
       <Button
@@ -23,7 +31,10 @@ const Header = () => {
         icon={btnShowSidebar}
         alt='button show sidebar'
       />
-      <Search />
+      <Search
+        onChange={onChange}
+        onClick={onClick}
+      />
       <Button
         className='btn-notification'
         ariaLabel='See announcement'

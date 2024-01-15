@@ -5,7 +5,15 @@ import {
 } from '..';
 import { search } from '../../assets/Images';
 
-const Search = () => {
+interface ISearch {
+  onChange: () => void;
+  onClick: () => void
+}
+
+const Search = ({
+  onChange,
+  onClick
+} :ISearch) => {
   return (
     <div className='form-search'>
       <Input
@@ -14,11 +22,13 @@ const Search = () => {
         className='search-field'
         ariaLabel='Enter the content you want to search for'
         name='search'
+        onChange={onChange}
       />
       <Button
         className='btn-search'
         ariaLabel='search'
         icon={search}
+        onClick={onClick}
       />
     </div>
   )

@@ -29,6 +29,7 @@ const StudentsList = () => {
   const [contentModal, setContentModal] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [disabled, setDisabled] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
   const [fields, setFields] = useState({
     id: EMPTY_TEXT,
     name: EMPTY_TEXT,
@@ -343,14 +344,41 @@ const StudentsList = () => {
       // update lai students
       setStudent(students.filter(st => st.id !== fields.id));
     }, 3000);
+  }
 
+  /**
+   * Process searches and save search results
+   *
+   * @param {string} searchValue - Value entered from search input
+   */
+  const handleSearch = async (searchValue: string) => {
+    if (searchValue === '') {
+      const student = await apiRequest(import.meta.env.VITE_STUDENT_API, 'GET');
+      setSearchInput(student)
+    } else {
+      const filteredData = students.filter((item) => {
+        return Object.values(item).join('').toLowerCase().includes(searchValue.toLowerCase())
+      })
+
+      setSearchInput(filteredData)
+    }
+  }
+
+  /**
+   * Handles showing search results when clicking on the search button
+   */
+  const handleClickSearchButton = () => {
+    setStudent(searchInput);
   }
 
   return (
     <div className='container-page-students-list'>
       <Sidebar onClick={handleLogout} />
       <div className='container-content'>
-        <Header />
+        <Header
+          onChange={(e) => {handleSearch(e.target.value)}}
+          onClick={handleClickSearchButton}
+        />
         <section className='list-heading'>
           <h2 className='title students-list-heading'>Students List</h2>
           <Button

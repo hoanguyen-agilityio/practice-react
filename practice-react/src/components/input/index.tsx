@@ -19,7 +19,7 @@ const Input = ({
   className,
   value,
   onChange,
-  errorMessage
+  errorMessage,
 } :IInput ) => {
   return (
     <>
