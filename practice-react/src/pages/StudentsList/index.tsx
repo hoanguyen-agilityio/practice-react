@@ -275,6 +275,7 @@ const StudentsList = () => {
           fields,
         );
         handleToggleModal();
+        handleResetForm();
 
         // Show loader
         setLoading(true);
@@ -311,6 +312,7 @@ const StudentsList = () => {
           fields,
         );
         handleToggleModal();
+        handleResetForm();
 
         // Show loader
         setLoading(true);

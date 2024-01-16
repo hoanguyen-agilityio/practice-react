@@ -9,7 +9,10 @@ import {
   Loader,
 } from '@/components';
 import { apiRequest } from '@/services';
-import { EMPTY_TEXT, MESSAGES } from '@/constants';
+import {
+  EMPTY_TEXT,
+  MESSAGES
+} from '@/constants';
 import { validateForm } from '@/validates';
 import { PartialUser } from '@/types';
 
@@ -18,13 +21,13 @@ const LoginPage = () => {
 
   // useState
   const [fields, setFields] = useState({
-    email: '',
-    password: ''
+    email: EMPTY_TEXT,
+    password: EMPTY_TEXT
   });
   const [errorsMessage, setErrors]= useState({
-    email:'',
-    password:'',
-    generalError: ''
+    email: EMPTY_TEXT,
+    password: EMPTY_TEXT,
+    generalError: EMPTY_TEXT
   });
   const [isSubmit, setSubmit] = useState(false);
   const [isLoading, setLoading] = useState(false);
@@ -71,8 +74,8 @@ const LoginPage = () => {
       // Login with the wrong account
       } else {
         setErrors({
-          email: '',
-          password: '',
+          email: EMPTY_TEXT,
+          password: EMPTY_TEXT,
           generalError: MESSAGES.INCORRECT_LOGIN_ACCOUNT
         });
 
@@ -80,8 +83,8 @@ const LoginPage = () => {
       }
     } catch (error) {
       setErrors({
-        email: '',
-        password: '',
+        email: EMPTY_TEXT,
+        password: EMPTY_TEXT,
         generalError: MESSAGES.GET_ACCOUNT_ERR
       });
 
