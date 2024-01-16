@@ -201,50 +201,44 @@ const StudentsList = () => {
   }
 
   /**
-   * Handle add new student
+   * Handle submit form
    */
-  const handleAddNewStudent = async () => {
+  const handleSubmit = async () => {
     if (!validation.isValid) {
       handleSetErrors();
 
       return;
     }
 
-    try {
-      if (!checkDuplicate(students)) {
-
-        return;
-      }
-
-      const newStudent: PartialStudent = await apiRequest(
-        import.meta.env.VITE_STUDENT_API,
-        'POST',
-        fields,
-      );
-      handleHideModal();
-
-      // Show loader
-      setLoading(true);
-      setTimeout(() => {
-        // Hide loader
-        setLoading(false);
-
-        // update lai students
-        setStudent((students) => [...students, newStudent]);
-      }, 3000);
-    } catch (error) {
-      alert('An error occurred while creating a new student');
-    }
-  };
-
-  /**
-   * Handle submit form
-   */
-  const handleSubmit = async () => {
     if (fields.id) {
       handleUpdateStudent();
     } else {
-      handleAddNewStudent();
+      // Handle add new student
+      try {
+        if (!checkDuplicate(students)) {
+
+          return;
+        }
+
+        const newStudent: PartialStudent = await apiRequest(
+          import.meta.env.VITE_STUDENT_API,
+          'POST',
+          fields,
+        );
+        handleHideModal();
+
+        // Show loader
+        setLoading(true);
+        setTimeout(() => {
+          // Hide loader
+          setLoading(false);
+
+          // update lai students
+          setStudent((students) => [...students, newStudent]);
+        }, 3000);
+      } catch (error) {
+        alert('An error occurred while creating a new student');
+      }
     }
   };
 
