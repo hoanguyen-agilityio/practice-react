@@ -82,25 +82,14 @@ const StudentsList = () => {
     navigate('/');
   };
 
-  /**
-   * Handle show modal
-   */
-  const handleShowModal = () => {
-    setModal(!isModal);
-  };
-
-  const handleShowModalDelete = () => {
-    setModalDelete(true);
-  }
-
-  const handleHideModalDelete = () => {
-    setModalDelete(false)
+  const handleToggleModalDelete = () => {
+    setModalDelete(!isModalDelete)
   }
 
   /**
-   * Handle hide modal
+   * Handles show or hide modal
    */
-  const handleHideModal = () => {
+  const handleToggleModal = () => {
     setModal(!isModal);
     setErrors({
       name: EMPTY_TEXT,
@@ -239,7 +228,7 @@ const StudentsList = () => {
       dateOfAdmission: data.dateOfAdmission,
     });
 
-    handleShowModal();
+    handleToggleModal();
   };
 
   /**
@@ -272,6 +261,7 @@ const StudentsList = () => {
 
       try {
         if (!checkDuplicate(newStudentsList)) {
+
           return;
         }
 
@@ -280,10 +270,10 @@ const StudentsList = () => {
           'PUT',
           fields,
         );
-        handleHideModal();
+        handleToggleModal();
 
         // Show loader
-        setLoading(!isLoading);
+        setLoading(true);
         setTimeout(() => {
           // Hide loader
           setLoading(false);
@@ -292,6 +282,7 @@ const StudentsList = () => {
           setStudent((students) =>
             students.map((st) => {
               if (st.id === student.id) {
+
                 return student;
               }
 
@@ -306,6 +297,7 @@ const StudentsList = () => {
     } else {
       try {
         if (!checkDuplicate(students)) {
+
           return;
         }
 
@@ -314,10 +306,10 @@ const StudentsList = () => {
           'POST',
           fields,
         );
-        handleHideModal();
+        handleToggleModal();
 
         // Show loader
-        setLoading(!isLoading);
+        setLoading(true);
         setTimeout(() => {
           // Hide loader
           setLoading(false);
@@ -337,7 +329,7 @@ const StudentsList = () => {
       id: id
     })
 
-    handleShowModalDelete()
+    handleToggleModalDelete()
   }
 
   /**
@@ -348,7 +340,7 @@ const StudentsList = () => {
       `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
       'DELETE'
     );
-    handleHideModalDelete();
+    handleToggleModalDelete();
     setLoading(true);
     setTimeout(() => {
       // Hide loader
@@ -379,7 +371,7 @@ const StudentsList = () => {
             name='ADD NEW STUDENT'
             onClick={() => {
               setContentModal('ADD NEW STUDENT');
-              handleShowModal();
+              handleToggleModal();
             }}
           />
         </section>
@@ -408,19 +400,17 @@ const StudentsList = () => {
             title={contentModal}
             onClose={() => {
               handleResetForm();
-              handleHideModal();
+              handleToggleModal();
             }}
             onChange={handleInputChange}
-            onClickSubmit={() => {
-              handleSubmit();
-            }}
+            onClickSubmit={handleSubmit}
             errors={errorsMessage}
             valueInput={fields}
           />
         )}
         {isModalDelete && (
           <ModalDelete
-            onClickHideModal={handleHideModalDelete}
+            onClickHideModal={handleToggleModalDelete}
             onClickDelete={handleDeleteStudent}
           />)}
 

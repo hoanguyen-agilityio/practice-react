@@ -1,9 +1,12 @@
 import './form.css';
 import { Button } from '..';
-import FormControl, { IForm } from './form';
-import { PartialStudent, Student } from '@/types';
+import {
+  PartialStudent,
+  Student
+} from '@/types';
+import FormControl from './form';
 
-interface IModalForm extends IForm {
+interface IModalForm {
   errors: PartialStudent;
   title: string;
   onClose: () => void;
@@ -27,7 +30,9 @@ const ModalForm = ({
       <div className='vertical-scroll'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3 className='title title-form-add-update'>{title}</h3>
+            <h3 className='title title-form-add-update'>
+              {title}
+            </h3>
             <Button
               className='btn-close-modal'
               name='X'
