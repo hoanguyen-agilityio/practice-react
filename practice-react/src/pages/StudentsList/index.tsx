@@ -84,25 +84,17 @@ const StudentsList = () => {
   };
 
   /**
-   * Handle show modal
+   * Handles show or hide the delete modal
    */
-  const handleShowModal = () => {
-    setModal(true);
-  };
-
-  const handleShowModalDelete = () => {
-    setModalDelete(true);
-  }
-
-  const handleHideModalDelete = () => {
-    setModalDelete(false)
+  const handleToggleModalDelete = () => {
+    setModalDelete(!isModalDelete)
   }
 
   /**
-   * Handle hide modal
+   * Handles show or hide modal
    */
-  const handleHideModal = () => {
-    setModal(false);
+  const handleToggleModal = () => {
+    setModal(!isModal);
     setErrors({
       name: EMPTY_TEXT,
       email: EMPTY_TEXT,
@@ -122,7 +114,7 @@ const StudentsList = () => {
       ...fields,
       [e.target.name]: e.target.value,
     });
-    setDisabled(true);
+    setDisabled(!disabled);
   };
 
   // Handle reset form
@@ -133,9 +125,9 @@ const StudentsList = () => {
       email: EMPTY_TEXT,
       phone: EMPTY_TEXT,
       enrollNumber: EMPTY_TEXT,
-      dateOfAdmission: EMPTY_TEXT
-    })
-  }
+      dateOfAdmission: EMPTY_TEXT,
+    });
+  };
 
   /**
    * Handle check duplicate data
@@ -214,13 +206,13 @@ const StudentsList = () => {
    */
   const handleSetErrors = () => {
     setErrors({
-      name: validation.errors.name as string,
-      email: validation.errors.email as string,
-      phone: validation.errors.phone as string,
-      enrollNumber: validation.errors.enrollNumber as string,
-      dateOfAdmission: validation.errors.dateOfAdmission as string,
+      name: validation.errors.name,
+      email: validation.errors.email,
+      phone: validation.errors.phone,
+      enrollNumber: validation.errors.enrollNumber,
+      dateOfAdmission: validation.errors.dateOfAdmission,
     });
-  }
+  };
 
   /**
    * Handle show form update student
@@ -238,11 +230,10 @@ const StudentsList = () => {
       phone: data.phone,
       enrollNumber: data.enrollNumber,
       dateOfAdmission: data.dateOfAdmission,
-    })
+    });
 
-    handleShowModal();
-  }
-
+    handleToggleModal();
+  };
 
   /**
    * Handle submit
@@ -254,15 +245,16 @@ const StudentsList = () => {
       return;
     }
 
+    // Handle update student
     if (fields.id) {
       const students: PartialStudent[] = await apiRequest(
         import.meta.env.VITE_STUDENT_API,
-        'GET'
+        'GET',
       );
       const newStudentsList: PartialStudent[] = students.filter(
         (student: PartialStudent) => {
           return student.id !== fields.id;
-        }
+        },
       );
 
       if (!validation.isValid) {
@@ -280,9 +272,9 @@ const StudentsList = () => {
         const student: Student = await apiRequest(
           `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
           'PUT',
-          fields
+          fields,
         );
-        handleHideModal();
+        handleToggleModal();
 
         // Show loader
         setLoading(true);
@@ -291,29 +283,34 @@ const StudentsList = () => {
           setLoading(false);
 
           // update lai students
-          setStudent((students) => students.map((st) => {
-            if(st.id === student.id) {
-              return student
-            }
+          setStudent((students) =>
+            students.map((st) => {
+              if (st.id === student.id) {
 
-            return st
-          }));
+                return student;
+              }
+
+              return st;
+            }),
+          );
         }, 3000);
       } catch (error) {
         alert('Something went wrong while updating the student');
       }
+      // Handle add new student
     } else {
       try {
         if (!checkDuplicate(students)) {
+
           return;
         }
 
-        const newStudent: Student = await apiRequest(
+        const newStudent: PartialStudent = await apiRequest(
           import.meta.env.VITE_STUDENT_API,
           'POST',
           fields,
         );
-        handleHideModal();
+        handleToggleModal();
 
         // Show loader
         setLoading(true);
@@ -336,7 +333,7 @@ const StudentsList = () => {
       id: id
     })
 
-    handleShowModalDelete()
+    handleToggleModalDelete()
   }
 
   /**
@@ -347,7 +344,7 @@ const StudentsList = () => {
       `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
       'DELETE'
     );
-    handleHideModalDelete();
+    handleToggleModalDelete();
     setLoading(true);
     setTimeout(() => {
       // Hide loader
@@ -405,7 +402,7 @@ const StudentsList = () => {
             name='ADD NEW STUDENT'
             onClick={() => {
               setContentModal('ADD NEW STUDENT');
-              handleShowModal();
+              handleToggleModal();
             }}
           />
         </section>
@@ -414,7 +411,7 @@ const StudentsList = () => {
           {students.map((student: PartialStudent) => {
             return (
               <TableBody
-                id ={student.id as string}
+                id={student.id as string}
                 name={student.name as string}
                 email={student.email as string}
                 phone={student.phone as string}
@@ -434,22 +431,20 @@ const StudentsList = () => {
             title={contentModal}
             onClose={() => {
               handleResetForm();
-              handleHideModal();
+              handleToggleModal();
             }}
             onChange={handleInputChange}
-            onClickSubmit={() => {
-              handleSubmit();
-            }}
+            onClickSubmit={handleSubmit}
             errors={errorsMessage}
             valueInput={fields}
           />
         )}
         {isModalDelete && (
           <ModalDelete
-            onClickHideModal={handleHideModalDelete}
+            onClickHideModal={handleToggleModalDelete}
             onClickDelete={handleDeleteStudent}
-          />)}
-
+          />
+        )}
       </div>
       {isLoading && <Loader />}
     </div>

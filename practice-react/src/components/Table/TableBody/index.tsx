@@ -9,8 +9,8 @@ interface ITableBody {
   phone: string;
   enrollNumber: string;
   dateOfAdmission: string;
-  onClickButtonEdit: (id: string) => void
-  onClickButtonDelete: (id: string) => void
+  onClickButtonEdit: (id: string) => void;
+  onClickButtonDelete: (id: string) => void;
 }
 
 const TableBody = ({
@@ -21,38 +21,36 @@ const TableBody = ({
   enrollNumber,
   dateOfAdmission,
   onClickButtonEdit,
-  onClickButtonDelete
-} :ITableBody) => {
+  onClickButtonDelete,
+}: ITableBody) => {
   return (
-    <>
-      <li className='table-row' id={id}>
-        <span><img src={avatar} alt='avatar' className='avatar' /></span>
-        <span>{name}</span>
-        <span>{email}</span>
-        <span>{phone}</span>
-        <span>{enrollNumber}</span>
-        <span>{dateOfAdmission}</span>
-        <span>
-          <Button
-            className='btn-table btn-edit'
-            onClick={() => onClickButtonEdit(id)}
-            ariaLabel='button edit'
-            icon={btnEdit}
-            id={id}
-          />
-        </span>
-        <span>
-          <Button
-            className='btn-table btn-delete btn-table-delete'
-            onClick={() => onClickButtonDelete(id)}
-            ariaLabel='button delete'
-            icon={btnDelete}
-            id={id}
-          />
-        </span>
-      </li>
-    </>
-  )
-}
+    <li className='table-row' id={id}>
+      <span>
+        <img src={avatar} alt='avatar' className='avatar' />
+      </span>
+      <span>{name}</span>
+      <span>{email}</span>
+      <span>{phone}</span>
+      <span>{enrollNumber}</span>
+      <span>{dateOfAdmission}</span>
+      <span>
+        <Button
+          className='btn-table btn-edit'
+          onClick={() => onClickButtonEdit(id)}
+          ariaLabel='button edit'
+          icon={btnEdit}
+        />
+      </span>
+      <span>
+        <Button
+          className='btn-table btn-delete btn-table-delete'
+          onClick={() => onClickButtonDelete(id)}
+          ariaLabel='button delete'
+          icon={btnDelete}
+        />
+      </span>
+    </li>
+  );
+};
 
 export default TableBody;

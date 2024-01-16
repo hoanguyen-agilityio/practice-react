@@ -9,7 +9,7 @@ import {
 } from '../../assets/Images';
 
 interface ISearch {
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
 }
 
@@ -32,7 +32,7 @@ const Header = ({
         alt='button show sidebar'
       />
       <Search
-        onChange={onChange}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
         onClick={onClick}
       />
       <Button

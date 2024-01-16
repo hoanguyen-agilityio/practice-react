@@ -6,7 +6,7 @@ import {
 import { search } from '../../assets/Images';
 
 interface ISearch {
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void
 }
 

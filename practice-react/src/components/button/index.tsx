@@ -1,7 +1,6 @@
 import './button.css';
 
 interface IButton {
-  id?: string;
   className: string;
   ariaLabel: string;
   name?: string;
@@ -13,7 +12,6 @@ interface IButton {
 }
 
 const Button = ({
-  id,
   className,
   ariaLabel,
   name,
@@ -30,7 +28,6 @@ const Button = ({
       onClick={onClick}
       aria-label={ariaLabel}
       disabled={disableButton}
-      id={id}
     >
       {name}
       {icon && <img src={icon} className={classNameIcon} alt={alt} />}
