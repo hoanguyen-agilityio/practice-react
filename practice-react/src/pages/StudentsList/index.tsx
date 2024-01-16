@@ -192,11 +192,11 @@ const StudentsList = () => {
    */
   const handleSetErrors = () => {
     setErrors({
-      name: validation.errors.name!,
-      email: validation.errors.email!,
-      phone: validation.errors.phone!,
-      enrollNumber: validation.errors.enrollNumber!,
-      dateOfAdmission: validation.errors.dateOfAdmission!,
+      name: validation.errors.name,
+      email: validation.errors.email,
+      phone: validation.errors.phone,
+      enrollNumber: validation.errors.enrollNumber,
+      dateOfAdmission: validation.errors.dateOfAdmission,
     });
   }
 
