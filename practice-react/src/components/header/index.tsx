@@ -5,7 +5,7 @@ import {
 import {
   btnHideSidebar,
   btnNotification,
-  btnShowSidebar
+  btnShowSidebar,
 } from '../../assets/Images';
 
 interface IHeader {
@@ -16,7 +16,7 @@ interface IHeader {
 const Header = ({
   onChange,
   onClick
-} :IHeader) => {
+}: IHeader) => {
   return (
     <header className='header'>
       <Button
@@ -31,10 +31,7 @@ const Header = ({
         icon={btnShowSidebar}
         alt='button show sidebar'
       />
-      <Search
-        onChange={(e) => onChange(e)}
-        onClick={onClick}
-      />
+      <Search onChange={(e) => onChange(e)} onClick={onClick} />
       <Button
         className='btn-notification'
         ariaLabel='See announcement'
@@ -42,7 +39,7 @@ const Header = ({
         alt='btn notification'
       />
     </header>
-  )
-}
+  );
+};
 
 export default Header;

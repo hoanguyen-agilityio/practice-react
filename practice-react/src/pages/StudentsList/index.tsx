@@ -88,7 +88,7 @@ const StudentsList = () => {
    */
   const handleToggleModalDelete = () => {
     setModalDelete(!isModalDelete)
-  }
+  };
 
   /**
    * Handles show or hide modal
@@ -325,7 +325,6 @@ const StudentsList = () => {
           // Hide loader
           setLoading(false);
 
-          // update lai students
           setStudent((students) => [...students, newStudent]);
         }, 3000);
       } catch (error) {
