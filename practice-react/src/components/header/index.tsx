@@ -32,7 +32,7 @@ const Header = ({
         alt='button show sidebar'
       />
       <Search
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
+        onChange={(e) => onChange(e)}
         onClick={onClick}
       />
       <Button
