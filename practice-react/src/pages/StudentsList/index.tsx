@@ -82,6 +82,9 @@ const StudentsList = () => {
     navigate('/');
   };
 
+  /**
+   * Handles show or hide the delete modal
+   */
   const handleToggleModalDelete = () => {
     setModalDelete(!isModalDelete)
   }
@@ -349,7 +352,6 @@ const StudentsList = () => {
       // update lai students
       setStudent(students.filter(st => st.id !== fields.id));
     }, 3000);
-
   }
 
   return (
@@ -412,8 +414,8 @@ const StudentsList = () => {
           <ModalDelete
             onClickHideModal={handleToggleModalDelete}
             onClickDelete={handleDeleteStudent}
-          />)}
-
+          />
+        )}
       </div>
       {isLoading && <Loader />}
     </div>
