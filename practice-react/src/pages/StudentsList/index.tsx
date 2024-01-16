@@ -82,16 +82,9 @@ const StudentsList = () => {
   };
 
   /**
-   * Handle show modal
+   * Handles show or hide modal
    */
-  const handleShowModal = () => {
-    setModal(!isModal);
-  };
-
-  /**
-   * Handle hide modal
-   */
-  const handleHideModal = () => {
+  const handleModal = () => {
     setModal(!isModal);
     setErrors({
       name: EMPTY_TEXT,
@@ -230,7 +223,7 @@ const StudentsList = () => {
       dateOfAdmission: data.dateOfAdmission,
     });
 
-    handleShowModal();
+    handleModal();
   };
 
   /**
@@ -271,10 +264,10 @@ const StudentsList = () => {
           'PUT',
           fields,
         );
-        handleHideModal();
+        handleModal();
 
         // Show loader
-        setLoading(!isLoading);
+        setLoading(true);
         setTimeout(() => {
           // Hide loader
           setLoading(false);
@@ -305,10 +298,10 @@ const StudentsList = () => {
           'POST',
           fields,
         );
-        handleHideModal();
+        handleModal();
 
         // Show loader
-        setLoading(!isLoading);
+        setLoading(true);
         setTimeout(() => {
           // Hide loader
           setLoading(false);
@@ -341,7 +334,7 @@ const StudentsList = () => {
             name='ADD NEW STUDENT'
             onClick={() => {
               setContentModal('ADD NEW STUDENT');
-              handleShowModal();
+              handleModal();
             }}
           />
         </section>
@@ -369,7 +362,7 @@ const StudentsList = () => {
             title={contentModal}
             onClose={() => {
               handleResetForm();
-              handleHideModal();
+              handleModal();
             }}
             onChange={handleInputChange}
             onClickSubmit={() => {

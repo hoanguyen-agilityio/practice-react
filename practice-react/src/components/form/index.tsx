@@ -1,9 +1,9 @@
 import './form.css';
 import { Button } from '..';
-import FormControl, { IForm } from './form';
 import { PartialStudent, Student } from '@/types';
+import FormControl from './form';
 
-interface IModalForm extends IForm {
+interface IModalForm {
   errors: PartialStudent;
   title: string;
   onClose: () => void;
