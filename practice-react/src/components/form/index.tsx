@@ -1,6 +1,9 @@
 import './form.css';
 import { Button } from '..';
-import { PartialStudent, Student } from '@/types';
+import {
+  PartialStudent,
+  Student
+} from '@/types';
 import FormControl from './form';
 
 interface IModalForm {
