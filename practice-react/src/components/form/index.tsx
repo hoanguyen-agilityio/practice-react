@@ -1,16 +1,16 @@
-import './form.css'
+import './form.css';
 import { Button } from '..';
 import FormControl, { IForm } from './form';
 import { PartialStudent, Student } from '@/types';
 
 interface IModalForm extends IForm {
-  errors: PartialStudent,
-  title: string,
-  onClose: () => void,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  onClickSubmit: () => void
-  disableButton: boolean,
-  valueInput: Student
+  errors: PartialStudent;
+  title: string;
+  onClose: () => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClickSubmit: () => void;
+  disableButton: boolean;
+  valueInput: Student;
 }
 
 const ModalForm = ({
@@ -20,16 +20,14 @@ const ModalForm = ({
   valueInput,
   onChange,
   onClickSubmit,
-  disableButton
-} :IModalForm) => {
+  disableButton,
+}: IModalForm) => {
   return (
     <div className='modal modal-form'>
       <div className='vertical-scroll'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h3 className='title title-form-add-update'>
-              {title}
-            </h3>
+            <h3 className='title title-form-add-update'>{title}</h3>
             <Button
               className='btn-close-modal'
               name='X'
@@ -107,7 +105,7 @@ const ModalForm = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ModalForm;

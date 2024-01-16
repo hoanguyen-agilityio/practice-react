@@ -112,7 +112,7 @@ const StudentsList = () => {
       ...fields,
       [e.target.name]: e.target.value,
     });
-    setDisabled(true);
+    setDisabled(!disabled);
   };
 
   // Handle reset form
@@ -274,7 +274,7 @@ const StudentsList = () => {
         handleHideModal();
 
         // Show loader
-        setLoading(true);
+        setLoading(!isLoading);
         setTimeout(() => {
           // Hide loader
           setLoading(false);
@@ -308,7 +308,7 @@ const StudentsList = () => {
         handleHideModal();
 
         // Show loader
-        setLoading(true);
+        setLoading(!isLoading);
         setTimeout(() => {
           // Hide loader
           setLoading(false);
