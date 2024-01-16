@@ -342,7 +342,7 @@ const StudentsList = () => {
    * Handle delete student
    */
   const handleDeleteStudent = async () => {
-    const deleteStudent = await apiRequest(
+    await apiRequest(
       `${import.meta.env.VITE_STUDENT_API}/${fields.id}`,
       'DELETE'
     );
@@ -352,7 +352,6 @@ const StudentsList = () => {
       // Hide loader
       setLoading(false);
 
-      // update lai students
       setStudent(students.filter(st => st.id !== fields.id));
     }, 3000);
   }
