@@ -14,6 +14,7 @@ interface IModalForm {
   onClickSubmit: () => void;
   disableButton: boolean;
   valueInput: Student;
+  classNameButton: string
 }
 
 const ModalForm = ({
@@ -24,6 +25,7 @@ const ModalForm = ({
   onChange,
   onClickSubmit,
   disableButton,
+  classNameButton
 }: IModalForm) => {
   return (
     <div className='modal modal-form'>
@@ -101,7 +103,8 @@ const ModalForm = ({
             />
             <Button
               name='SUBMIT'
-              className='btn btn-submit'
+              // className='btn btn-submit'
+              className={classNameButton}
               ariaLabel='Create Student'
               onClick={onClickSubmit}
               disableButton={disableButton}

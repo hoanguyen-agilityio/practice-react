@@ -117,8 +117,9 @@
   padding: 14px 27px;
 }
 
-.btn-submit:disabled {
-  opacity: '0.5';
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* STYLE APPLIED TO THE DESKTOP */

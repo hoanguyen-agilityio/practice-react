@@ -95,6 +95,7 @@ const StudentsList = () => {
    */
   const handleToggleModal = () => {
     setModal(!isModal);
+    setDisabled(false);
     setErrors({
       name: EMPTY_TEXT,
       email: EMPTY_TEXT,
@@ -114,7 +115,7 @@ const StudentsList = () => {
       ...fields,
       [e.target.name]: e.target.value,
     });
-    setDisabled(!disabled);
+    setDisabled(false);
   };
 
   // Handle reset form
@@ -239,6 +240,8 @@ const StudentsList = () => {
    * Handle submit
    */
   const handleSubmit = async () => {
+    setDisabled(true);
+
     if (!validation.isValid) {
       handleSetErrors();
 
@@ -276,6 +279,7 @@ const StudentsList = () => {
         );
         handleToggleModal();
         handleResetForm();
+        setDisabled(false);
 
         // Show loader
         setLoading(true);
@@ -313,6 +317,7 @@ const StudentsList = () => {
         );
         handleToggleModal();
         handleResetForm();
+        setDisabled(false);
 
         // Show loader
         setLoading(true);
@@ -438,6 +443,10 @@ const StudentsList = () => {
             onClickSubmit={handleSubmit}
             errors={errorsMessage}
             valueInput={fields}
+            disableButton={disabled}
+            classNameButton={
+              disabled ? 'btn btn-submit disabled' : 'btn btn-submit'
+            }
           />
         )}
         {isModalDelete && (
