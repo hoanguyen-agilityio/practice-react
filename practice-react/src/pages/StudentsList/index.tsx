@@ -84,7 +84,7 @@ const StudentsList = () => {
   /**
    * Handles show or hide modal
    */
-  const handleModal = () => {
+  const handleToggleModal = () => {
     setModal(!isModal);
     setErrors({
       name: EMPTY_TEXT,
@@ -223,7 +223,7 @@ const StudentsList = () => {
       dateOfAdmission: data.dateOfAdmission,
     });
 
-    handleModal();
+    handleToggleModal();
   };
 
   /**
@@ -265,7 +265,7 @@ const StudentsList = () => {
           'PUT',
           fields,
         );
-        handleModal();
+        handleToggleModal();
 
         // Show loader
         setLoading(true);
@@ -301,7 +301,7 @@ const StudentsList = () => {
           'POST',
           fields,
         );
-        handleModal();
+        handleToggleModal();
 
         // Show loader
         setLoading(true);
@@ -337,7 +337,7 @@ const StudentsList = () => {
             name='ADD NEW STUDENT'
             onClick={() => {
               setContentModal('ADD NEW STUDENT');
-              handleModal();
+              handleToggleModal();
             }}
           />
         </section>
@@ -365,12 +365,10 @@ const StudentsList = () => {
             title={contentModal}
             onClose={() => {
               handleResetForm();
-              handleModal();
+              handleToggleModal();
             }}
             onChange={handleInputChange}
-            onClickSubmit={() => {
-              handleSubmit();
-            }}
+            onClickSubmit={handleSubmit}
             errors={errorsMessage}
             valueInput={fields}
           />
