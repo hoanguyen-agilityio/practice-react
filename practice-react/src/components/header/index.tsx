@@ -8,7 +8,7 @@ import {
   btnShowSidebar
 } from '../../assets/Images';
 
-interface ISearch {
+interface IHeader {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick: () => void;
 }
@@ -16,7 +16,7 @@ interface ISearch {
 const Header = ({
   onChange,
   onClick
-} :ISearch) => {
+} :IHeader) => {
   return (
     <header className='header'>
       <Button
