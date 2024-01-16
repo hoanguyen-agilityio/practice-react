@@ -256,6 +256,7 @@ const StudentsList = () => {
 
       try {
         if (!checkDuplicate(newStudentsList)) {
+
           return;
         }
 
@@ -276,6 +277,7 @@ const StudentsList = () => {
           setStudent((students) =>
             students.map((st) => {
               if (st.id === student.id) {
+
                 return student;
               }
 
@@ -290,6 +292,7 @@ const StudentsList = () => {
     } else {
       try {
         if (!checkDuplicate(students)) {
+
           return;
         }
 
