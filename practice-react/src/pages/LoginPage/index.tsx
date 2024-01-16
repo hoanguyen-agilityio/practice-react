@@ -9,7 +9,7 @@ import {
   Loader,
 } from '@/components';
 import { apiRequest } from '@/services';
-import { MESSAGES } from '@/constants';
+import { EMPTY_TEXT, MESSAGES } from '@/constants';
 import { validateForm } from '@/validates';
 import { PartialUser } from '@/types';
 
@@ -45,9 +45,9 @@ const LoginPage = () => {
 
     if (!validation.isValid) {
       setErrors({
-        ...errorsMessage,
         email: validation.errors.email as string,
-        password: validation.errors.password as string
+        password: validation.errors.password as string,
+        generalError: EMPTY_TEXT
       });
 
       return;

@@ -72,7 +72,7 @@ const isValidPhoneNumber = (value: string): boolean => {
  * @returns
  */
 const checkDuplicateData = <Type>(data: Type[], key: string, value: string) => {
-  return data.find(item => item[key] === value);
+  return data.find((item) => item[key] === value);
 }
 
 /**
