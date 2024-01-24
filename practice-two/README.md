@@ -8,7 +8,6 @@ This document provides requirements and estimation for React practice two.
 
 - This is the author [Hoa Nguyen](https://gitlab.asoft-python.com/hoa.nguyen)
 
-
 ### Time line
 
 - Time line: 15 days (Jan 22, 2024 - Feb 16, 2024)
