@@ -33,7 +33,7 @@ This document provides requirements and estimation for React practice two.
 - Home page:
   - User can view products
   - User can add products to the cart
-  - User can see the login page after clicking on the login button
+  - User can redirect to login page after clicking on login button
   - User can view promotion information
   - User can view feedback and reviews from other users
   - User can go to the product list page after clicking on the product list link
@@ -41,10 +41,14 @@ This document provides requirements and estimation for React practice two.
   - User can search for products
   - User can view the products added to the cart and the amount to pay after clicking on the cart
   - User can click the checkout button to go to the Cart page to complete the ordering process
+  - User can add items to the cart on the home page after entering the correct email and password
+  - User can see header
+  - User can see banner
+  - User can see slider
+  - User can see footer
 - Login page
   - User is able to see the Login Form
   - User is able to see error message when enter blank or wrong user’s name, user’s password
-  - User can add items to the cart on the home page after entering the correct email and password
   - User can switch to the registration page after clicking the link if they do not have an account
 - Sign up page
   - User is able to see the Sign up Form
@@ -59,6 +63,9 @@ This document provides requirements and estimation for React practice two.
   - User can search for products
   - User can view the products added to the cart and the amount to pay after clicking on the cart
   - User can click the checkout button to go to the Cart page to complete the ordering process
+  - User can see header
+  - User can see footer
+  - Users can see the sidebar
 - Product detail page
   - User can view details of a product
   - User can choose the quantity to order
@@ -70,6 +77,8 @@ This document provides requirements and estimation for React practice two.
   - User can view the products added to the cart and the amount to pay after clicking on the cart
   - User can click the checkout button to go to the Cart page to complete the ordering process
   - User can return to the home page after clicking on the website logo
+  - User can see header
+  - User can see footer
 - Cart page
   - User can return to the home page after clicking on the website logo
   - User can view all products added to the cart
@@ -77,6 +86,8 @@ This document provides requirements and estimation for React practice two.
   - Users can enter promotional codes to receive discounts
   - Users can click on the payment button to complete the ordering process
   - Users can view the reduced amount and the amount to be paid
+  - User can see header
+  - User can see footer
 
 ## Technical
 
@@ -94,11 +105,6 @@ This document provides requirements and estimation for React practice two.
 - [npm](https://www.npmjs.com/) (Version: 10.1.0)
 - [node](https://nodejs.org/en) (Version: 20.9.0)
 
-## Login account
-
-- Account: hoa.nguyen@asnet.com.vn
-- Password: @Hoa0919591905
-
 # Folder structure
 
 ```
@@ -107,22 +113,23 @@ This document provides requirements and estimation for React practice two.
         ├── images
     ├── stories
     ├── components
+        ├── Common
+            ├── Button
+            ├── Input
+            ├── Header
+            ├── Footer
+            ├── CardInfo
+            ├── DropDown
+            ├── Pagination
+            ├── NumberAction
+            ├── Checkbox
+            ├── Contact
         ├── Sidebar
-        ├── Input
-        ├── NumberAction
-        ├── Button
-        ├── Checkbox
-        ├── Header
-        ├── Footer
-        ├── DropDown
         ├── Banner
-        ├── Pagination
         ├── RadioGroup
         ├── RadioItem
-        ├── CardInfo
         ├── CardDetails
         ├── Slider
-        ├── Contact
         ├── CartPopup
         ├── index.ts
     ├── constants
@@ -165,3 +172,4 @@ This document provides requirements and estimation for React practice two.
 | `$git checkout feature/practice-two`                                       | Checkout branch                              |
 | `$pnpm install`                                                            | Install dependencies                         |
 | `$pnpm run dev`                                                            | Start local server at http://localhost:5173/ |
+| `$pnpm run storybook`                                                      | Start local server at http://localhost:6006/ |
