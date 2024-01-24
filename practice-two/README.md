@@ -81,14 +81,14 @@ This document provides requirements and estimation for React practice two.
 
 ## Technical
 
-[vite](https://vitejs.dev/) (Version: 5.0.0): A JavaScript application building tool, along with React, a popular JavaScript library for building user interfaces. Vite is a fast and efficient development tool for React projects, helping to speed up the development process.
-[TypeScript](https://www.typescriptlang.org/) (Version: 5.2.2): TypeScript: typed JavaScript, compiles to plain JS, catches errors early, supports modern JS features, interfaces, enums, and type annotations, fosters robust and scalable apps, enhances dev experience
-[React](https://react.dev/learn) (Version: 18.2.0): React is a JavaScript library for building reusable user interfaces efficiently. It uses a virtual DOM for optimal rendering and updates only what's necessary. With a component-based approach, React simplifies application development and maintenance. It's popular for its simplicity, flexibility, and strong community support.
-[StoryBook](https://storybook.js.org/docs/get-started/install) (Version: 7.6.7): Storybook is a frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation. It’s open source and free.
-[ESLint](https://eslint.org/) (Version: 8.56.0): ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
-[Prettier](https://prettier.io/) (Version: 3.2.4): Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
-[React Router v6](https://reactrouter.com/en/main) (Version: 6.21.3): React Router is an API for React applications. React router uses client-side dynamic routing allowing to build SPA (Single Page Application) with navigation without page refresh. This is an increasingly popular way to deliver a better user experience.
-[Tailwind CSS](https://tailwindcss.com/) (Version: 3.0): A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+- [Vite](https://vitejs.dev/) (Version: 5.0.0): A JavaScript application building tool, along with React, a popular JavaScript library for building user interfaces. Vite is a fast and efficient development tool for React projects, helping to speed up the development process.
+- [TypeScript](https://www.typescriptlang.org/) (Version: 5.2.2): TypeScript: typed JavaScript, compiles to plain JS, catches errors early, supports modern JS features, interfaces, enums, and type annotations, fosters robust and scalable apps, enhances dev experience
+- [React](https://react.dev/learn) (Version: 18.2.0): React is a JavaScript library for building reusable user interfaces efficiently. It uses a virtual DOM for optimal rendering and updates only what's necessary. With a component-based approach, React simplifies application development and maintenance. It's popular for its simplicity, flexibility, and strong community support.
+- [StoryBook](https://storybook.js.org/docs/get-started/install) (Version: 7.6.7): Storybook is a frontend workshop for building UI components and pages in isolation. Thousands of teams use it for UI development, testing, and documentation. It’s open source and free.
+- [ESLint](https://eslint.org/) (Version: 8.56.0): ESLint statically analyzes your code to quickly find problems. It is built into most text editors and you can run ESLint as part of your continuous integration pipeline.
+- [Prettier](https://prettier.io/) (Version: 3.2.4): Prettier is an opinionated code formatter. It enforces a consistent style by parsing your code and re-printing it with its own rules that take the maximum line length into account, wrapping code when necessary.
+- [React Router v6](https://reactrouter.com/en/main) (Version: 6.21.3): React Router is an API for React applications. React router uses client-side dynamic routing allowing to build SPA (Single Page Application) with navigation without page refresh. This is an increasingly popular way to deliver a better user experience.
+- [Tailwind CSS](https://tailwindcss.com/) (Version: 3.0): A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
 
 ## Prerequisites
 
