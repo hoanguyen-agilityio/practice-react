@@ -100,6 +100,7 @@ This document provides requirements and estimation for React practice two.
 - Password: @Hoa0919591905
 
 # Folder structure
+
 ```
 ├── src
     ├── assets
