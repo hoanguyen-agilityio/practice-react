@@ -84,3 +84,12 @@ export const ButtonAddNewAddress: Story = {
     custom: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
+
+// Button add card
+export const ButtonAddCard: Story = {
+  args: {
+    type: 'default',
+    label: 'Add Card',
+    custom: 'pt-4 pb-4 pl-110px pr-110px',
+  },
+};
