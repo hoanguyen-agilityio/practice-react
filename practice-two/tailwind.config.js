@@ -9,6 +9,7 @@ export default {
       padding: {
         '17px': '17px',
         '100px': '100px',
+        '110px': '110px',
         '204px': '204px'
       },
       borderRadius: {

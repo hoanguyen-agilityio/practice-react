@@ -566,52 +566,52 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
-.pb-4 {
-  padding-bottom: 1rem;
-}
-
-.pl-10 {
-  padding-left: 2.5rem;
-}
-
-.pl-7 {
-  padding-left: 1.75rem;
-}
-
-.pr-10 {
-  padding-right: 2.5rem;
-}
-
-.pr-7 {
-  padding-right: 1.75rem;
-}
-
-.pt-4 {
-  padding-top: 1rem;
-}
-
 .pb-17px {
   padding-bottom: 17px;
 }
 
-.pl-204px {
-  padding-left: 204px;
-}
-
-.pr-204px {
-  padding-right: 204px;
-}
-
-.pt-17px {
-  padding-top: 17px;
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
 .pl-100px {
   padding-left: 100px;
 }
 
+.pl-204px {
+  padding-left: 204px;
+}
+
+.pl-7 {
+  padding-left: 1.75rem;
+}
+
 .pr-100px {
   padding-right: 100px;
+}
+
+.pr-204px {
+  padding-right: 204px;
+}
+
+.pr-7 {
+  padding-right: 1.75rem;
+}
+
+.pt-17px {
+  padding-top: 17px;
+}
+
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pl-110px {
+  padding-left: 110px;
+}
+
+.pr-110px {
+  padding-right: 110px;
 }
 
 .font-jost {

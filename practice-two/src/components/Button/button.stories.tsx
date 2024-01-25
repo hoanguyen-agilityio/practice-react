@@ -13,6 +13,7 @@ export default {
 
 type Story = StoryObj<typeof Button>;
 
+// Button login
 export const ButtonLogin: Story = {
   args: {
     type: 'default',
@@ -21,6 +22,7 @@ export const ButtonLogin: Story = {
   },
 };
 
+// Button sign up
 export const ButtonSignUp: Story = {
   args: {
     type: 'default',
@@ -29,6 +31,7 @@ export const ButtonSignUp: Story = {
   },
 };
 
+// Button login on product page
 export const ButtonLoginOnProductPage: Story = {
   args: {
     type: 'default',
@@ -37,10 +40,20 @@ export const ButtonLoginOnProductPage: Story = {
   },
 };
 
-export const ButtonCheckOut: Story = {
+// Button checkout
+export const ButtonCheckout: Story = {
   args: {
     type: 'default',
     label: 'Checkout',
     custom: 'pt-4 pb-4 pl-100px pr-100px',
+  },
+};
+
+// Button add to cart
+export const ButtonAddToCart: Story = {
+  args: {
+    type: 'default',
+    label: 'Add to Cart',
+    custom: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
