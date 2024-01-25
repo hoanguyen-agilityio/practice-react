@@ -75,3 +75,12 @@ export const ButtonApply: Story = {
     custom: 'pt-4 pb-4 pl-7 pr-7 rounded-r-10px rounded-l-none',
   },
 };
+
+// Button add new address
+export const ButtonAddNewAddress: Story = {
+  args: {
+    type: 'default',
+    label: 'Add New Address',
+    custom: 'pt-4 pb-4 pl-110px pr-110px',
+  },
+};
