@@ -552,6 +552,21 @@ video {
   border-radius: 10px;
 }
 
+.rounded-r-10px {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.rounded-t-none {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.rounded-l-none {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
 .border-none {
   border-style: none;
 }
