@@ -57,3 +57,11 @@ export const ButtonAddToCart: Story = {
     custom: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
+
+export const ButtonDeliverHere: Story = {
+  args: {
+    type: 'default',
+    label: 'Deliver Here',
+    custom: 'pt-4 pb-4 pl-100px pr-100px',
+  },
+};
