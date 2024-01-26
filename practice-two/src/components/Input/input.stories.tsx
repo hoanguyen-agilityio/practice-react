@@ -19,7 +19,7 @@ export const DefaultInput: Story = {
   args: {
     type: 'text',
     name: 'input',
-    ariaLabel: 'Input default',
+    ariaLabel: 'Default input',
     customClass: 'w-445px'
   },
 };
@@ -29,8 +29,19 @@ export const PasswordInput: Story = {
   args: {
     type: 'password',
     name: 'password',
-    ariaLabel: 'Input password',
+    ariaLabel: 'Password input',
     placeholder: '••••••••••••••••••••',
     customClass: 'w-445px'
+  },
+};
+
+// Error input
+export const ErrorInput: Story = {
+  args: {
+    type: 'text',
+    name: 'Error input',
+    ariaLabel: 'Error input',
+    customClass: 'w-445px',
+    errorMessage: 'Error message'
   },
 };

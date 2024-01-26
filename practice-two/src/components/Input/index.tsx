@@ -19,8 +19,8 @@ const Input = ({
   errorMessage,
   onChange,
 }: IInput) => {
-  const inputClasses = `font-jost text-base rounded-10px p-4 ${customClass} border-2 border-black border-solid`;
-  const errorMessageClasses = 'font-jost text-xs text-red pt-2.5';
+  const inputClasses = `font-jost text-base rounded-10px p-4 ${customClass} border border-black border-solid`;
+  const errorMessageClasses = 'font-jost text-sm text-red-600 pt-2.5';
 
   return (
     <>
