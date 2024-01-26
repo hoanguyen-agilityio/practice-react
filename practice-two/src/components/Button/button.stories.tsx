@@ -2,6 +2,7 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
+import { rightArrow } from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -91,5 +92,25 @@ export const ButtonAddCard: Story = {
     type: 'default',
     label: 'Add Card',
     custom: 'pt-4 pb-4 pl-110px pr-110px',
+  },
+};
+
+// Button continue
+export const ButtonContinue: Story = {
+  args: {
+    type: 'default',
+    label: 'Continue',
+    custom: 'pt-4 pb-4 pl-110px pr-110px',
+  },
+};
+
+// Button shop now
+export const ButtonShopNow: Story = {
+  args: {
+    type: 'default',
+    rightIcon: rightArrow,
+    label: 'Shop Now',
+    custom: 'pt-4 pb-4 pl-5 pr-5 flex',
+    iconClasses:'w-6 ml-5'
   },
 };

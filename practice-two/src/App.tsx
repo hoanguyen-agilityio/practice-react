@@ -11,8 +11,7 @@ function App() {
         type='default'
         label='Login'
         custom='pt-17px pb-17px pl-204px pr-204px'
-        onClick={handleClick}
-      />
+        onClick={handleClick} iconClasses={''}      />
     </>
   )
 }

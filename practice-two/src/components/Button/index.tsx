@@ -50,7 +50,7 @@ const Button = ({
       >
         {label}
         <img
-          src={leftIcon}
+          src={rightIcon}
           alt={alt}
           className={iconClasses}
         />
@@ -66,6 +66,7 @@ const Button = ({
         <img
           src={icon}
           alt={alt}
+          className={iconClasses}
         />
       </button>
     )
