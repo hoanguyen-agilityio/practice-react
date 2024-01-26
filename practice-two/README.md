@@ -32,60 +32,58 @@ This document provides requirements and estimation for React practice two.
 
 - Home page:
   - User can view products
-  - User can add products to the cart
+  - After successfully logging in, users can add products to the cart
   - User can redirect to login page after clicking on login button
   - User can view promotion information
   - User can view feedback and reviews from other users
   - User can go to the product list page after clicking on the product list link
   - User can go to the product detail page when the user clicks on the product
   - User can search for products
-  - User can view the products added to the cart and the amount to pay after clicking on the cart
-  - User can click the checkout button to go to the Cart page to complete the ordering process
-  - User can add items to the cart on the home page after entering the correct email and password
+  - After successfully logging in, users can view the products added to the cart and the amount to pay after clicking on the cart.
   - User can see header
   - User can see banner
   - User can see slider
   - User can see footer
 - Login page
-  - User is able to see the Login Form
-  - User is able to see error message when enter blank or wrong user’s name, user’s password
+  - User can see the Login Form
+  - User can see error message when enter blank or wrong user’s name, user’s password
   - User can switch to the registration page after clicking the link if they do not have an account
+  - User can redirect to home/current page after entering correct email and password
 - Sign up page
-  - User is able to see the Sign up Form
+  - User can see the Sign up Form
   - User may see an error message when entering an empty or incorrect first name, last name, email, and password
   - User can go to the login page if they enter the first name, last name, email, and password fields correctly.
 - Product page
   - User can view product list
-  - User can add products to the cart after clicking the Add to cart button
+  - After successfully logging in, users can add products to the cart after pressing the Add to cart button
   - User can filter products according to their needs in the sidebar
   - User can move to the next product page by clicking on the page transition button
   - User can return to the home page after clicking on the website logo
   - User can search for products
-  - User can view the products added to the cart and the amount to pay after clicking on the cart
-  - User can click the checkout button to go to the Cart page to complete the ordering process
+  - After successfully logging in, users can view the products added to the cart and the amount to pay after clicking on the cart.
   - User can see header
   - User can see footer
-  - Users can see the sidebar
+  - User can see the sidebar
 - Product detail page
   - User can view details of a product
   - User can choose the quantity to order
   - User can choose size and color for the product
-  - User can add products to the cart after clicking the Add to cart button
+  - After successfully logging in, users can add products to the cart after pressing the Add to cart button
   - User can view many different images of the product
   - User can view the product's description
   - User can view related products
-  - User can view the products added to the cart and the amount to pay after clicking on the cart
-  - User can click the checkout button to go to the Cart page to complete the ordering process
+  - After successfully logging in, user can view the products added to the cart and the amount to pay after clicking on the cart
   - User can return to the home page after clicking on the website logo
   - User can see header
   - User can see footer
 - Cart page
+  - User must log in to view the cart page
   - User can return to the home page after clicking on the website logo
   - User can view all products added to the cart
-  - Users can edit quantities or remove products from the cart
-  - Users can enter promotional codes to receive discounts
-  - Users can click on the payment button to complete the ordering process
-  - Users can view the reduced amount and the amount to be paid
+  - User can edit quantities or remove products from the cart
+  - User can enter promotional codes to receive discounts
+  - User can click on the payment button to complete the ordering process
+  - User can view the reduced amount and the amount to be paid
   - User can see header
   - User can see footer
 
