@@ -153,3 +153,12 @@ export const ButtonWesternWear: Story = {
     custom: 'pt-4 pb-4 pl-16 pr-16',
   },
 };
+
+// Button view cart
+export const ButtonViewCart: Story = {
+  args: {
+    type: 'primary',
+    label: 'View Cart',
+    custom: 'pt-4 pb-4 pl-110px pr-110px border-2 border-black !border-solid',
+  },
+};
