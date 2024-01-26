@@ -114,3 +114,14 @@ export const ButtonShopNow: Story = {
     iconClasses:'w-6 ml-5'
   },
 };
+
+// Button view all product
+export const ButtonViewAllProduct: Story = {
+  args: {
+    type: 'default',
+    rightIcon: rightArrow,
+    label: 'View All Product',
+    custom: 'pt-4 pb-4 pl-5 pr-5 flex',
+    iconClasses:'w-6 ml-5'
+  },
+};
