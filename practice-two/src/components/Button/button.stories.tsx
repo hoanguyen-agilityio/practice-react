@@ -2,7 +2,7 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
-import { rightArrow } from '../../assets/Images';
+import { edit, rightArrow } from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -160,5 +160,16 @@ export const ButtonViewCart: Story = {
     type: 'primary',
     label: 'View Cart',
     custom: 'pt-4 pb-4 pl-110px pr-110px border-2 border-black !border-solid',
+  },
+};
+
+// Button edit
+export const ButtonEdit: Story = {
+  args: {
+    type: 'primary',
+    leftIcon: edit,
+    iconClasses:'w-8 mr-2',
+    label: 'Edit',
+    custom: 'bg-neutral-200 pt-1.5 pb-1.5 pl-12 pr-12 flex items-center',
   },
 };
