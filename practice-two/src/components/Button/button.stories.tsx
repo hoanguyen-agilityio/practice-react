@@ -2,7 +2,7 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
-import { edit, leftArrow, rightArrow, trashCan } from '../../assets/Images';
+import { edit, heart, leftArrow, rightArrow, trashCan } from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -200,6 +200,15 @@ export const ButtonIconDelete: Story = {
   args: {
     type: 'secondary',
     icon: trashCan,
-    iconClasses:'w-6 border-none',
+    iconClasses:'w-6',
+  },
+};
+
+// Button icon heart
+export const ButtonIconHeart: Story = {
+  args: {
+    type: 'secondary',
+    icon: heart,
+    iconClasses:'w-6',
   },
 };
