@@ -32,18 +32,18 @@ This document provides requirements and estimation for React practice two.
 
 - Home page:
   - User can view products
-  - After successfully logging in, users can add products to the cart
   - User can redirect to login page after clicking on login button
   - User can view promotion information
   - User can view feedback and reviews from other users
   - User can go to the product list page after clicking on the product list link
   - User can go to the product detail page when the user clicks on the product
-  - User can search for products
-  - After successfully logging in, users can view the products added to the cart and the amount to pay after clicking on the cart.
+  - Users can navigate to the products page when searching for products
   - User can see header
   - User can see banner
   - User can see slider
   - User can see footer
+  - After successfully logging in, users can add products to the cart
+  - After successfully logging in, users can view the products added to the cart and the amount to pay after clicking on the cart.
 - Login page
   - User can see the Login Form
   - User can see error message when enter blank or wrong user’s name, user’s password
@@ -55,27 +55,27 @@ This document provides requirements and estimation for React practice two.
   - User can go to the login page if they enter the first name, last name, email, and password fields correctly.
 - Product page
   - User can view product list
-  - After successfully logging in, users can add products to the cart after pressing the Add to cart button
   - User can filter products according to their needs in the sidebar
   - User can move to the next product page by clicking on the page transition button
   - User can return to the home page after clicking on the website logo
   - User can search for products
-  - After successfully logging in, users can view the products added to the cart and the amount to pay after clicking on the cart.
   - User can see header
   - User can see footer
   - User can see the sidebar
+  - After successfully logging in, users can add products to the cart after pressing the Add to cart button
+  - After successfully logging in, users can view the products added to the cart and the amount to pay after clicking on the cart.
 - Product detail page
   - User can view details of a product
   - User can choose the quantity to order
   - User can choose size and color for the product
-  - After successfully logging in, users can add products to the cart after pressing the Add to cart button
   - User can view many different images of the product
   - User can view the product's description
   - User can view related products
-  - After successfully logging in, user can view the products added to the cart and the amount to pay after clicking on the cart
   - User can return to the home page after clicking on the website logo
   - User can see header
   - User can see footer
+  - After successfully logging in, users can add products to the cart after pressing the Add to cart button
+  - After successfully logging in, user can view the products added to the cart and the amount to pay after clicking on the cart
 - Cart page
   - User must log in to view the cart page
   - User can return to the home page after clicking on the website logo
