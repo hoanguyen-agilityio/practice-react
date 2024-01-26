@@ -2,7 +2,7 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
-import { edit, heart, leftArrow, rightArrow, trashCan } from '../../assets/Images';
+import { cart, edit, heart, leftArrow, rightArrow, trashCan } from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -209,6 +209,15 @@ export const ButtonIconHeart: Story = {
   args: {
     type: 'secondary',
     icon: heart,
+    iconClasses:'w-6',
+  },
+};
+
+// Button icon cart
+export const ButtonIconCart: Story = {
+  args: {
+    type: 'secondary',
+    icon: cart,
     iconClasses:'w-6',
   },
 };
