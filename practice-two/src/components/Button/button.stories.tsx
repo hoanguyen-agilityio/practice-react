@@ -2,7 +2,14 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
-import { cart, edit, heart, leftArrow, rightArrow, trashCan } from '../../assets/Images';
+import {
+  cart,
+  edit,
+  heart,
+  leftArrow,
+  rightArrow,
+  trashCan
+} from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -111,7 +118,7 @@ export const ButtonShopNow: Story = {
     rightIcon: rightArrow,
     label: 'Shop Now',
     custom: 'pt-4 pb-4 pl-5 pr-5 flex',
-    iconClasses:'w-6 ml-5'
+    iconClasses: 'w-6 ml-5',
   },
 };
 
@@ -122,7 +129,7 @@ export const ButtonViewAllProduct: Story = {
     rightIcon: rightArrow,
     label: 'View All Product',
     custom: 'pt-4 pb-4 pl-5 pr-5 flex',
-    iconClasses:'w-6 ml-5'
+    iconClasses: 'w-6 ml-5',
   },
 };
 
@@ -132,7 +139,7 @@ export const ButtonForward: Story = {
     type: 'default',
     icon: rightArrow,
     custom: 'p-4',
-    iconClasses:'w-6'
+    iconClasses: 'w-6',
   },
 };
 
@@ -142,7 +149,7 @@ export const ButtonBackward: Story = {
     type: 'default',
     icon: leftArrow,
     custom: 'p-4 bg-neutral-200',
-    iconClasses:'w-6'
+    iconClasses: 'w-6',
   },
 };
 
@@ -178,7 +185,7 @@ export const ButtonEdit: Story = {
   args: {
     type: 'primary',
     leftIcon: edit,
-    iconClasses:'w-6 mr-2',
+    iconClasses: 'w-6 mr-2',
     label: 'Edit',
     custom: 'bg-neutral-200 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
   },
@@ -189,7 +196,7 @@ export const ButtonDelete: Story = {
   args: {
     type: 'primary',
     leftIcon: trashCan,
-    iconClasses:'w-6 mr-2',
+    iconClasses: 'w-6 mr-2',
     label: 'Delete',
     custom: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
   },
@@ -200,7 +207,7 @@ export const ButtonIconDelete: Story = {
   args: {
     type: 'secondary',
     icon: trashCan,
-    iconClasses:'w-6',
+    iconClasses: 'w-6',
   },
 };
 
@@ -209,7 +216,7 @@ export const ButtonIconHeart: Story = {
   args: {
     type: 'secondary',
     icon: heart,
-    iconClasses:'w-6',
+    iconClasses: 'w-6',
   },
 };
 
@@ -218,6 +225,6 @@ export const ButtonIconCart: Story = {
   args: {
     type: 'secondary',
     icon: cart,
-    iconClasses:'w-6',
+    iconClasses: 'w-6',
   },
 };

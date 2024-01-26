@@ -10,11 +10,11 @@ const config: StorybookConfig = {
     '@storybook/preset-create-react-app'
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: '@storybook/react-vite',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
 };
 export default config;
