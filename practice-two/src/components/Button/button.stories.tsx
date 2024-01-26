@@ -2,7 +2,7 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
-import { edit, rightArrow, trashCan } from '../../assets/Images';
+import { edit, leftArrow, rightArrow, trashCan } from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -132,6 +132,16 @@ export const ButtonForward: Story = {
     type: 'default',
     icon: rightArrow,
     custom: 'p-4',
+    iconClasses:'w-6'
+  },
+};
+
+// Button backward
+export const ButtonBackward: Story = {
+  args: {
+    type: 'default',
+    icon: leftArrow,
+    custom: 'p-4 bg-neutral-200',
     iconClasses:'w-6'
   },
 };
