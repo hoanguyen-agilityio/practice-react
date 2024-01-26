@@ -194,3 +194,12 @@ export const ButtonDelete: Story = {
     custom: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
   },
 };
+
+// Button icon delete
+export const ButtonIconDelete: Story = {
+  args: {
+    type: 'secondary',
+    icon: trashCan,
+    iconClasses:'w-6 border-none',
+  },
+};

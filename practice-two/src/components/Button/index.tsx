@@ -27,6 +27,10 @@ const Button = ({
     buttonClasses += ' bg-white text-black'
   }
 
+  if (type === 'secondary') {
+    buttonClasses = `${custom} active:shadow-3xl border-none bg-none`
+  }
+
   if (leftIcon) {
     return (
       <button
