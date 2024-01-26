@@ -704,6 +704,14 @@ video {
   padding-right: 5rem;
 }
 
+.pl-16 {
+  padding-left: 4rem;
+}
+
+.pr-16 {
+  padding-right: 4rem;
+}
+
 .font-jost {
   font-family: Jost, sans-serif;
 }

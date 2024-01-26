@@ -144,3 +144,12 @@ export const ButtonAddToCartInCard: Story = {
     custom: 'pt-4 pb-4 pl-20 pr-20',
   },
 };
+
+// Button western wear
+export const ButtonWesternWear: Story = {
+  args: {
+    type: 'primary',
+    label: 'Western Wear',
+    custom: 'pt-4 pb-4 pl-16 pr-16',
+  },
+};
