@@ -125,3 +125,22 @@ export const ButtonViewAllProduct: Story = {
     iconClasses:'w-6 ml-5'
   },
 };
+
+// Button forward
+export const ButtonForward: Story = {
+  args: {
+    type: 'default',
+    icon: rightArrow,
+    custom: 'p-4',
+    iconClasses:'w-6'
+  },
+};
+
+// Button add to cart in card
+export const ButtonAddToCartInCard: Story = {
+  args: {
+    type: 'primary',
+    label: 'Add to Cart',
+    custom: 'pt-4 pb-4 pl-20 pr-20',
+  },
+};

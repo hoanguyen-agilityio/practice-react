@@ -24,7 +24,7 @@ const Button = ({
   let buttonClasses = `font-jost font-size: 1rem bg-black text-white border-none rounded-10px ${custom} active:shadow-3xl`
 
   if (type === 'primary') {
-    buttonClasses += ' bg-white text-red-600'
+    buttonClasses += ' bg-white text-black'
   }
 
   if (leftIcon) {
