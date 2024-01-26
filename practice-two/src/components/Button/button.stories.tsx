@@ -2,7 +2,7 @@ import {
   Meta,
   StoryObj
 } from '@storybook/react';
-import { edit, rightArrow } from '../../assets/Images';
+import { edit, rightArrow, trashCan } from '../../assets/Images';
 
 // Components
 import Button from './index';
@@ -168,8 +168,19 @@ export const ButtonEdit: Story = {
   args: {
     type: 'primary',
     leftIcon: edit,
-    iconClasses:'w-8 mr-2',
+    iconClasses:'w-6 mr-2',
     label: 'Edit',
-    custom: 'bg-neutral-200 pt-1.5 pb-1.5 pl-12 pr-12 flex items-center',
+    custom: 'bg-neutral-200 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
+  },
+};
+
+// Button delete
+export const ButtonDelete: Story = {
+  args: {
+    type: 'primary',
+    leftIcon: trashCan,
+    iconClasses:'w-6 mr-2',
+    label: 'Delete',
+    custom: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
   },
 };
