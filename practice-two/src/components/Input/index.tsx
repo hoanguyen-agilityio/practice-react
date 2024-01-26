@@ -24,16 +24,16 @@ const Input = ({
 
   return (
     <>
-        <input
-          className={inputClasses}
-          placeholder={placeholder}
-          type={type}
-          aria-label={ariaLabel}
-          name={name}
-          value={defaultValue}
-          onChange={onChange}
-        />
-        {errorMessage && <p className={errorMessageClasses}>{errorMessage}</p>}
+      <input
+        className={inputClasses}
+        placeholder={placeholder}
+        type={type}
+        aria-label={ariaLabel}
+        name={name}
+        value={defaultValue}
+        onChange={onChange}
+      />
+      {errorMessage && <p className={errorMessageClasses}>{errorMessage}</p>}
     </>
   );
 };
