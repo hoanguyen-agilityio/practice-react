@@ -26,7 +26,7 @@ export const ButtonLogin: Story = {
   args: {
     type: 'default',
     label: 'Login',
-    custom: 'pt-17px pb-17px pl-204px pr-204px',
+    customClass: 'pt-17px pb-17px pl-204px pr-204px',
   },
 };
 
@@ -35,7 +35,7 @@ export const ButtonSignUp: Story = {
   args: {
     type: 'default',
     label: 'Sign up',
-    custom: 'pt-17px pb-17px pl-204px pr-204px',
+    customClass: 'pt-17px pb-17px pl-204px pr-204px',
   },
 };
 
@@ -44,7 +44,7 @@ export const ButtonLoginOnProductPage: Story = {
   args: {
     type: 'default',
     label: 'Login',
-    custom: 'pt-4 pb-4 pl-7 pr-7',
+    customClass: 'pt-4 pb-4 pl-7 pr-7',
   },
 };
 
@@ -53,7 +53,7 @@ export const ButtonCheckout: Story = {
   args: {
     type: 'default',
     label: 'Checkout',
-    custom: 'pt-4 pb-4 pl-100px pr-100px',
+    customClass: 'pt-4 pb-4 pl-100px pr-100px',
   },
 };
 
@@ -62,7 +62,7 @@ export const ButtonAddToCart: Story = {
   args: {
     type: 'default',
     label: 'Add to Cart',
-    custom: 'pt-4 pb-4 pl-110px pr-110px',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
 
@@ -71,7 +71,7 @@ export const ButtonDeliverHere: Story = {
   args: {
     type: 'default',
     label: 'Deliver Here',
-    custom: 'pt-4 pb-4 pl-100px pr-100px',
+    customClass: 'pt-4 pb-4 pl-100px pr-100px',
   },
 };
 
@@ -80,7 +80,7 @@ export const ButtonApply: Story = {
   args: {
     type: 'default',
     label: 'Apply',
-    custom: 'pt-4 pb-4 pl-7 pr-7 rounded-r-10px rounded-l-none',
+    customClass: 'pt-4 pb-4 pl-7 pr-7 rounded-r-10px rounded-l-none',
   },
 };
 
@@ -89,7 +89,7 @@ export const ButtonAddNewAddress: Story = {
   args: {
     type: 'default',
     label: 'Add New Address',
-    custom: 'pt-4 pb-4 pl-110px pr-110px',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
 
@@ -98,7 +98,7 @@ export const ButtonAddCard: Story = {
   args: {
     type: 'default',
     label: 'Add Card',
-    custom: 'pt-4 pb-4 pl-110px pr-110px',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
 
@@ -107,7 +107,7 @@ export const ButtonContinue: Story = {
   args: {
     type: 'default',
     label: 'Continue',
-    custom: 'pt-4 pb-4 pl-110px pr-110px',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
 };
 
@@ -117,7 +117,7 @@ export const ButtonShopNow: Story = {
     type: 'default',
     rightIcon: rightArrow,
     label: 'Shop Now',
-    custom: 'pt-4 pb-4 pl-5 pr-5 flex',
+    customClass: 'pt-4 pb-4 pl-5 pr-5 flex',
     iconClasses: 'w-6 ml-5',
   },
 };
@@ -128,7 +128,7 @@ export const ButtonViewAllProduct: Story = {
     type: 'default',
     rightIcon: rightArrow,
     label: 'View All Product',
-    custom: 'pt-4 pb-4 pl-5 pr-5 flex',
+    customClass: 'pt-4 pb-4 pl-5 pr-5 flex',
     iconClasses: 'w-6 ml-5',
   },
 };
@@ -138,7 +138,7 @@ export const ButtonForward: Story = {
   args: {
     type: 'default',
     icon: rightArrow,
-    custom: 'p-4',
+    customClass: 'p-4',
     iconClasses: 'w-6',
   },
 };
@@ -148,7 +148,7 @@ export const ButtonBackward: Story = {
   args: {
     type: 'default',
     icon: leftArrow,
-    custom: 'p-4 bg-neutral-200',
+    customClass: 'p-4 bg-neutral-200',
     iconClasses: 'w-6',
   },
 };
@@ -158,7 +158,7 @@ export const ButtonAddToCartInCard: Story = {
   args: {
     type: 'primary',
     label: 'Add to Cart',
-    custom: 'pt-4 pb-4 pl-20 pr-20',
+    customClass: 'pt-4 pb-4 pl-20 pr-20',
   },
 };
 
@@ -167,7 +167,7 @@ export const ButtonWesternWear: Story = {
   args: {
     type: 'primary',
     label: 'Western Wear',
-    custom: 'pt-4 pb-4 pl-16 pr-16',
+    customClass: 'pt-4 pb-4 pl-16 pr-16',
   },
 };
 
@@ -176,7 +176,7 @@ export const ButtonViewCart: Story = {
   args: {
     type: 'primary',
     label: 'View Cart',
-    custom: 'pt-4 pb-4 pl-110px pr-110px border-2 border-black !border-solid',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px border-2 border-black !border-solid',
   },
 };
 
@@ -187,7 +187,7 @@ export const ButtonEdit: Story = {
     leftIcon: edit,
     iconClasses: 'w-6 mr-2',
     label: 'Edit',
-    custom: 'bg-neutral-200 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
+    customClass: 'bg-neutral-200 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
   },
 };
 
@@ -198,7 +198,7 @@ export const ButtonDelete: Story = {
     leftIcon: trashCan,
     iconClasses: 'w-6 mr-2',
     label: 'Delete',
-    custom: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
+    customClass: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
   },
 };
 

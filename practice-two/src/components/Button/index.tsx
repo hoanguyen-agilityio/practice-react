@@ -7,7 +7,7 @@ interface IButton {
   label: string;
   alt?: string;
   iconClasses: string;
-  custom?: string;
+  customClass?: string;
 }
 
 const Button = ({
@@ -18,17 +18,17 @@ const Button = ({
   icon,
   alt,
   iconClasses,
-  custom,
+  customClass,
   onClick,
 }: IButton) => {
-  let buttonClasses = `font-jost font-size: 1rem bg-black text-white border-none rounded-10px ${custom} active:shadow-3xl`;
+  let buttonClasses = `font-jost font-size: 1rem bg-black text-white border-none rounded-10px ${customClass} active:shadow-3xl`;
 
   if (type === 'primary') {
     buttonClasses += ' bg-white text-black';
   }
 
   if (type === 'secondary') {
-    buttonClasses = `${custom} active:shadow-3xl border-none bg-none`;
+    buttonClasses = `${customClass} active:shadow-3xl border-none bg-none`;
   }
 
   if (leftIcon) {
