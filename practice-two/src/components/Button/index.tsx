@@ -1,12 +1,12 @@
 interface IButton {
   type: 'default' | 'primary' | 'secondary';
-  onClick: () => void;
+  onClick?: () => void;
   leftIcon?: string;
   rightIcon?: string;
   icon?: string;
   label: string;
   alt?: string;
-  iconClasses: string;
+  iconClasses?: string;
   customClass?: string;
 }
 
@@ -24,7 +24,7 @@ const Button = ({
   let buttonClasses = `font-jost font-size: 1rem bg-black text-white border-none rounded-10px ${customClass} active:shadow-3xl`;
 
   if (type === 'primary') {
-    buttonClasses += ' bg-white text-black';
+    buttonClasses += ' !bg-white !text-black';
   }
 
   if (type === 'secondary') {

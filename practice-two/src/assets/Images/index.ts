@@ -4,3 +4,6 @@ export { default as edit } from './edit.svg';
 export { default as trashCan } from './trash-can.svg';
 export { default as heart } from './heart.svg';
 export { default as cart } from './cart.svg';
+export { default as logo } from './logo.svg';
+export { default as search } from './search.svg';
+export { default as arrowDropDown } from './arrow-drop-down.svg';
