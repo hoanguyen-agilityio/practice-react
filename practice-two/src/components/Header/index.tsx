@@ -7,7 +7,6 @@ import {
   search
 } from '../../assets/Images';
 
-
 interface IHeader {
   clickBackHomePage: () => void;
   clickToLoginPage: () => void;
