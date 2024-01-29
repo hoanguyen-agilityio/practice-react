@@ -14,18 +14,14 @@ const Input = ({
   name,
   defaultValue,
   type,
-  customClass,
   placeholder,
   errorMessage,
   onChange,
 }: IInput) => {
-  const inputClasses = `font-jost text-base rounded-10px p-4 ${customClass} border border-black border-solid`;
-  const errorMessageClasses = 'font-jost text-sm text-red-600 pt-2.5';
-
   return (
     <>
       <input
-        className={inputClasses}
+        className= 'font-jost text-base rounded-10px p-4 border border-black border-solid w-445px'
         placeholder={placeholder}
         type={type}
         aria-label={ariaLabel}
@@ -33,7 +29,7 @@ const Input = ({
         value={defaultValue}
         onChange={onChange}
       />
-      {errorMessage && <p className={errorMessageClasses}>{errorMessage}</p>}
+      {errorMessage && <p className='font-jost text-sm text-red-600 pt-2.5'>{errorMessage}</p>}
     </>
   );
 };
