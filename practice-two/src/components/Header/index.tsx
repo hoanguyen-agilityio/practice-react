@@ -1,3 +1,4 @@
+import { Button } from '..';
 import {
   arrowDropDown,
   cart,
@@ -5,7 +6,7 @@ import {
   logo,
   search
 } from '../../assets/Images';
-import Button from '../Button';
+
 
 interface IHeader {
   clickBackHomePage: () => void;
