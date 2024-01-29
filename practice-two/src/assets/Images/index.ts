@@ -7,3 +7,5 @@ export { default as cart } from './cart.svg';
 export { default as logo } from './logo.svg';
 export { default as search } from './search.svg';
 export { default as arrowDropDown } from './arrow-drop-down.svg';
+export { default as plus } from './plus.svg';
+export { default as minus } from './minus.svg';
