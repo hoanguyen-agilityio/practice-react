@@ -4,7 +4,7 @@ interface IButton {
   type: 'default' | 'primary' | 'secondary';
   onClick?: () => void;
   icon?: string;
-  label: string;
+  label?: string;
   alt?: string;
   iconClasses?: string;
   customClass?: string;
