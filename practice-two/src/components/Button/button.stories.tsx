@@ -176,7 +176,7 @@ export const ButtonViewCart: Story = {
   args: {
     type: 'primary',
     label: 'View Cart',
-    customClass: 'pt-4 pb-4 pl-110px pr-110px border border-black !border-solid',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px border border-black border-solid',
   },
 };
 
