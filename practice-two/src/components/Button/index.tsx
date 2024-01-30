@@ -17,30 +17,30 @@ const Button = ({
   alt,
   iconClasses,
   customClass,
-  onClick,
+  onClick
 }: IButton) => {
   let buttonClasses = 'font-jost font-size: 1rem rounded-10px active:shadow-3xl ';
 
-  switch(type) {
-    case('primary'):
+  switch (type) {
+    case 'primary':
       buttonClasses += twMerge('bg-white text-black', `${customClass}`);
 
       break;
-    case('secondary'):
+    case 'secondary':
       buttonClasses = `${customClass} active:shadow-3xl border-none bg-none`;
 
-      break
+      break;
     default:
-      buttonClasses += twMerge('bg-black text-white border-none',`${customClass}`);
+      buttonClasses += twMerge('bg-black text-white border-none', `${customClass}`);
   }
 
   return (
-    <button className={buttonClasses} onClick={onClick}>
+    <button
+      className={buttonClasses} onClick={onClick}>
       {label && <span>{label}</span>}
       {icon && <img src={icon} alt={alt} className={iconClasses} />}
     </button>
-  )
-
+  );
 };
 
 export default Button;
