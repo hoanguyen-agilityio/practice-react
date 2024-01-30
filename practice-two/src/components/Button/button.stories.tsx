@@ -115,7 +115,7 @@ export const ButtonContinue: Story = {
 export const ButtonShopNow: Story = {
   args: {
     type: 'default',
-    rightIcon: rightArrow,
+    icon: rightArrow,
     label: 'Shop Now',
     customClass: 'pt-4 pb-4 pl-5 pr-5 flex',
     iconClasses: 'w-6 ml-5',
@@ -126,7 +126,7 @@ export const ButtonShopNow: Story = {
 export const ButtonViewAllProduct: Story = {
   args: {
     type: 'default',
-    rightIcon: rightArrow,
+    icon: rightArrow,
     label: 'View All Product',
     customClass: 'pt-4 pb-4 pl-5 pr-5 flex',
     iconClasses: 'w-6 ml-5',
@@ -176,7 +176,7 @@ export const ButtonViewCart: Story = {
   args: {
     type: 'primary',
     label: 'View Cart',
-    customClass: 'pt-4 pb-4 pl-110px pr-110px border-2 border-black !border-solid',
+    customClass: 'pt-4 pb-4 pl-110px pr-110px border border-black border-solid',
   },
 };
 
@@ -184,10 +184,10 @@ export const ButtonViewCart: Story = {
 export const ButtonEdit: Story = {
   args: {
     type: 'primary',
-    leftIcon: edit,
+    icon: edit,
     iconClasses: 'w-6 mr-2',
     label: 'Edit',
-    customClass: 'bg-neutral-200 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
+    customClass: 'bg-neutral-200 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center flex-row-reverse',
   },
 };
 
@@ -195,10 +195,10 @@ export const ButtonEdit: Story = {
 export const ButtonDelete: Story = {
   args: {
     type: 'primary',
-    leftIcon: trashCan,
+    icon: trashCan,
     iconClasses: 'w-6 mr-2',
     label: 'Delete',
-    customClass: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center',
+    customClass: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center flex-row-reverse',
   },
 };
 

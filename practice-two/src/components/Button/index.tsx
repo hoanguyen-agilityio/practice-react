@@ -1,8 +1,8 @@
+import { twMerge } from 'tailwind-merge';
+
 interface IButton {
   type: 'default' | 'primary' | 'secondary';
   onClick?: () => void;
-  leftIcon?: string;
-  rightIcon?: string;
   icon?: string;
   label: string;
   alt?: string;
@@ -11,53 +11,36 @@ interface IButton {
 }
 
 const Button = ({
-  type = 'default',
+  type,
   label,
-  leftIcon,
-  rightIcon,
   icon,
   alt,
   iconClasses,
   customClass,
-  onClick,
+  onClick
 }: IButton) => {
-  let buttonClasses = `font-jost font-size: 1rem bg-black text-white border-none rounded-10px ${customClass} active:shadow-3xl`;
+  let buttonClasses = 'font-jost font-size: 1rem rounded-10px active:shadow-3xl ';
 
-  if (type === 'primary') {
-    buttonClasses += ' !bg-white !text-black';
+  switch (type) {
+    case 'primary':
+      buttonClasses += twMerge('bg-white text-black', `${customClass}`);
+
+      break;
+    case 'secondary':
+      buttonClasses = `${customClass} active:shadow-3xl border-none bg-none`;
+
+      break;
+    default:
+      buttonClasses += twMerge('bg-black text-white border-none', `${customClass}`);
   }
 
-  if (type === 'secondary') {
-    buttonClasses = `${customClass} active:shadow-3xl border-none bg-none`;
-  }
-
-  if (leftIcon) {
-    return (
-      <button className={buttonClasses} onClick={onClick}>
-        <img src={leftIcon} alt={alt} className={iconClasses} />
-        {label}
-      </button>
-    );
-  } else if (rightIcon) {
-    return (
-      <button className={buttonClasses} onClick={onClick}>
-        {label}
-        <img src={rightIcon} alt={alt} className={iconClasses} />
-      </button>
-    );
-  } else if (icon) {
-    return (
-      <button className={buttonClasses} onClick={onClick}>
-        <img src={icon} alt={alt} className={iconClasses} />
-      </button>
-    );
-  } else {
-    return (
-      <button className={buttonClasses} onClick={onClick}>
-        {label}
-      </button>
-    );
-  }
+  return (
+    <button
+      className={buttonClasses} onClick={onClick}>
+      {label && <span>{label}</span>}
+      {icon && <img src={icon} alt={alt} className={iconClasses} />}
+    </button>
+  );
 };
 
 export default Button;
