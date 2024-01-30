@@ -39,7 +39,7 @@ export const CheckboxPrimary: Story = {
   },
 };
 
-// Checkbox primary
+// Checkbox primary checked
 export const CheckboxPrimaryChecked: Story = {
   args: {
     variants: 'primary',
