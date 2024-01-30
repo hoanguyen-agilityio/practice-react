@@ -24,7 +24,6 @@ type Story = StoryObj<typeof Button>;
 // Button login
 export const ButtonLogin: Story = {
   args: {
-    type: 'default',
     label: 'Login',
     customClass: 'pt-17px pb-17px pl-204px pr-204px',
   },
@@ -33,7 +32,6 @@ export const ButtonLogin: Story = {
 // Button sign up
 export const ButtonSignUp: Story = {
   args: {
-    type: 'default',
     label: 'Sign up',
     customClass: 'pt-17px pb-17px pl-204px pr-204px',
   },
@@ -42,7 +40,6 @@ export const ButtonSignUp: Story = {
 // Button login on product page
 export const ButtonLoginOnProductPage: Story = {
   args: {
-    type: 'default',
     label: 'Login',
     customClass: 'pt-4 pb-4 pl-7 pr-7',
   },
@@ -51,7 +48,6 @@ export const ButtonLoginOnProductPage: Story = {
 // Button checkout
 export const ButtonCheckout: Story = {
   args: {
-    type: 'default',
     label: 'Checkout',
     customClass: 'pt-4 pb-4 pl-100px pr-100px',
   },
@@ -60,7 +56,6 @@ export const ButtonCheckout: Story = {
 // Button add to cart
 export const ButtonAddToCart: Story = {
   args: {
-    type: 'default',
     label: 'Add to Cart',
     customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
@@ -69,7 +64,6 @@ export const ButtonAddToCart: Story = {
 // Button deliver here
 export const ButtonDeliverHere: Story = {
   args: {
-    type: 'default',
     label: 'Deliver Here',
     customClass: 'pt-4 pb-4 pl-100px pr-100px',
   },
@@ -78,7 +72,6 @@ export const ButtonDeliverHere: Story = {
 // Button apply
 export const ButtonApply: Story = {
   args: {
-    type: 'default',
     label: 'Apply',
     customClass: 'pt-4 pb-4 pl-7 pr-7 rounded-r-10px rounded-l-none',
   },
@@ -87,7 +80,6 @@ export const ButtonApply: Story = {
 // Button add new address
 export const ButtonAddNewAddress: Story = {
   args: {
-    type: 'default',
     label: 'Add New Address',
     customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
@@ -96,7 +88,6 @@ export const ButtonAddNewAddress: Story = {
 // Button add card
 export const ButtonAddCard: Story = {
   args: {
-    type: 'default',
     label: 'Add Card',
     customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
@@ -105,7 +96,6 @@ export const ButtonAddCard: Story = {
 // Button continue
 export const ButtonContinue: Story = {
   args: {
-    type: 'default',
     label: 'Continue',
     customClass: 'pt-4 pb-4 pl-110px pr-110px',
   },
@@ -114,7 +104,6 @@ export const ButtonContinue: Story = {
 // Button shop now
 export const ButtonShopNow: Story = {
   args: {
-    type: 'default',
     icon: rightArrow,
     label: 'Shop Now',
     customClass: 'pt-4 pb-4 pl-5 pr-5 flex',
@@ -125,7 +114,6 @@ export const ButtonShopNow: Story = {
 // Button view all product
 export const ButtonViewAllProduct: Story = {
   args: {
-    type: 'default',
     icon: rightArrow,
     label: 'View All Product',
     customClass: 'pt-4 pb-4 pl-5 pr-5 flex',
@@ -136,7 +124,6 @@ export const ButtonViewAllProduct: Story = {
 // Button forward
 export const ButtonForward: Story = {
   args: {
-    type: 'default',
     icon: rightArrow,
     customClass: 'p-4',
     iconClasses: 'w-6',
@@ -146,7 +133,6 @@ export const ButtonForward: Story = {
 // Button backward
 export const ButtonBackward: Story = {
   args: {
-    type: 'default',
     icon: leftArrow,
     customClass: 'p-4 bg-neutral-200',
     iconClasses: 'w-6',
