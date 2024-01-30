@@ -198,8 +198,7 @@ export const ButtonDelete: Story = {
     icon: trashCan,
     iconClasses: 'w-6 mr-2',
     label: 'Delete',
-    customClass:
-      'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center flex-row-reverse',
+    customClass: 'bg-red-100 text-red-400 pt-2.5 pb-2.5 pl-12 pr-12 flex items-center flex-row-reverse',
   },
 };
 
