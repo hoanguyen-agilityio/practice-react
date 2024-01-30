@@ -1,5 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { cart, edit, heart, leftArrow, rightArrow, trashCan } from '../../assets/Images';
+import {
+  cart,
+  edit,
+  heart,
+  leftArrow,
+  rightArrow,
+  trashCan
+} from '../../assets/Images';
 
 // Components
 import Button from './index';
