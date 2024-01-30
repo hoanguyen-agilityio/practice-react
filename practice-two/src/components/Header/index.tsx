@@ -55,14 +55,12 @@ const Header = ({
           customClass='w-8 mr-6'
           icon={search}
           alt='search icon'
-          label='search icon'
         />
         <Button
           type='secondary'
           customClass='w-8 mr-6'
           icon={heart}
           alt='heart icon'
-          label='heart icon'
         />
         <Button
           type='secondary'
@@ -70,7 +68,6 @@ const Header = ({
           customClass='w-8 983pxScreen:mr-6'
           icon={cart}
           alt='cart icon'
-          label='cart icon'
         />
         <Button
           onClick={onClickToLoginPage}
