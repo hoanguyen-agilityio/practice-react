@@ -36,7 +36,9 @@ const Button = ({
 
   return (
     <button
-      className={buttonClasses} onClick={onClick}>
+      className={buttonClasses}
+      onClick={onClick}
+    >
       {label && <span>{label}</span>}
       {icon && <img src={icon} alt={alt} className={iconClasses} />}
     </button>
