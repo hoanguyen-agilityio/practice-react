@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 
 interface ICheckbox {
-  variants?: 'default' | 'primary';
+  variants?: 'default' | 'primary' | string;
   checked: boolean;
   customClass?: string;
   labelCheckbox: string;
