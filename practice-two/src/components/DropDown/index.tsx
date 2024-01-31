@@ -14,7 +14,12 @@ interface IDropDown {
   onChange: () => void;
 }
 
-const DropDown = ({ labelButton, isOpen, onChange, option }: IDropDown) => {
+const DropDown = ({
+  labelButton,
+  isOpen,
+  onChange,
+  option
+}: IDropDown) => {
   return (
     <div>
       <Button
@@ -26,7 +31,12 @@ const DropDown = ({ labelButton, isOpen, onChange, option }: IDropDown) => {
       />
       <ul>
         {isOpen &&
-          option.map(({ variants, checked, labelCheckbox, customClass }) => (
+          option.map(({
+            variants,
+            checked,
+            labelCheckbox,
+            customClass
+          }) => (
             <Checkbox
               variants={variants}
               checked={checked}
