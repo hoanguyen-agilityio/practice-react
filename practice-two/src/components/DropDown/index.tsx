@@ -38,6 +38,7 @@ const Dropdown = ({
             customClass
           }) => (
             <Checkbox
+              key={labelCheckbox}
               variants={variants}
               checked={checked}
               onChange={onChange}
