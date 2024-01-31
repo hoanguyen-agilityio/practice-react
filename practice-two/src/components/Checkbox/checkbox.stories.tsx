@@ -16,7 +16,8 @@ type Story = StoryObj<typeof Checkbox>;
 // Checkbox default
 export const CheckboxDefault: Story = {
   args: {
-    label: 'Men',
+    variants: 'default',
+    labelCheckbox: 'Men',
     checked: false,
   },
 };
@@ -24,7 +25,8 @@ export const CheckboxDefault: Story = {
 // Checkbox checked default
 export const CheckboxChecked: Story = {
   args: {
-    label: 'Women',
+    variants: 'default',
+    labelCheckbox: 'Women',
     checked: true,
   },
 };
@@ -33,9 +35,9 @@ export const CheckboxChecked: Story = {
 export const CheckboxPrimary: Story = {
   args: {
     variants: 'primary',
-    label: 'Red',
+    labelCheckbox: 'Red',
     checked: false,
-    customClass: 'bg-red-600 accent-red-500',
+    customClass: 'bg-red-600 accent-red-600',
   },
 };
 
@@ -43,8 +45,8 @@ export const CheckboxPrimary: Story = {
 export const CheckboxPrimaryChecked: Story = {
   args: {
     variants: 'primary',
-    label: 'Red',
+    labelCheckbox: 'Red',
     checked: true,
-    customClass: 'bg-red-600 accent-red-500',
+    customClass: 'bg-red-600 accent-red-600',
   },
 };
