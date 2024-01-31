@@ -4,7 +4,7 @@ import {
 } from '@storybook/react';
 
 // Components
-import DropDown from './index';
+import Dropdown from './index';
 import {
   DATA_PRODUCT_CATEGORIES,
   DATA_FILTER_BY_COLOR,
@@ -12,14 +12,14 @@ import {
 } from '../../constants/data';
 
 export default {
-  title: 'Components/DropDown',
-  component: DropDown,
+  title: 'Components/Dropdown',
+  component: Dropdown,
 } as Meta;
 
-type Story = StoryObj<typeof DropDown>;
+type Story = StoryObj<typeof Dropdown>;
 
 // Drop down open
-export const DropDownOpen: Story = {
+export const DropdownOpen: Story = {
   args: {
     option: DATA_PRODUCT_CATEGORIES,
     labelButton: 'Product Categories',
@@ -28,7 +28,7 @@ export const DropDownOpen: Story = {
 };
 
 // Drop down close
-export const DropDownClose: Story = {
+export const DropdownClose: Story = {
   args: {
     option: DATA_PRODUCT_CATEGORIES,
     labelButton: 'Product Categories',

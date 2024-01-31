@@ -2,7 +2,7 @@ import { arrowDropDown } from '../../assets/Images';
 import { Button } from '..';
 import Checkbox from '../Checkbox';
 
-interface IDropDown {
+interface IDropdown {
   option: {
     variants: string;
     checked: boolean;
@@ -14,12 +14,12 @@ interface IDropDown {
   onChange: () => void;
 }
 
-const DropDown = ({
+const Dropdown = ({
   labelButton,
   isOpen,
   onChange,
   option
-}: IDropDown) => {
+}: IDropdown) => {
   return (
     <div>
       <Button
@@ -50,4 +50,4 @@ const DropDown = ({
   );
 };
 
-export default DropDown;
+export default Dropdown;
