@@ -4,7 +4,7 @@ import {
   DATA_FILTER_BY_COLOR,
   DATA_FILTER_BY_SIZE,
 } from '../../constants/data';
-import Dropdown from '../Dropdown';
+import Dropdown from '../DropDown';
 
 interface ISidebar {
   checked: boolean;
@@ -39,20 +39,20 @@ const Sidebar = ({ checked }: ISidebar) => {
       <Dropdown
         className='border-b-2'
         option={DATA_PRODUCT_CATEGORIES}
-        labelButton='Product Categories'
+        buttonTitle='Product Categories'
         onClick={() => handleToggleDropdown('productCategories')}
         isOpen={dropdownStates.productCategories}
         checked={checked}
       />
 
       {/* Dropdown Filter by Price */}
-      <Dropdown className='border-b-2 pt-5' labelButton='Filter by Price' />
+      <Dropdown className='border-b-2 pt-5' buttonTitle='Filter by Price' />
 
       {/* Dropdown Filter by Color */}
       <Dropdown
         className='border-b-2 pt-5'
         option={DATA_FILTER_BY_COLOR}
-        labelButton='Filter by Color'
+        buttonTitle='Filter by Color'
         onClick={() => handleToggleDropdown('filterByColor')}
         isOpen={dropdownStates.filterByColor}
         checked={checked}
@@ -62,7 +62,7 @@ const Sidebar = ({ checked }: ISidebar) => {
       <Dropdown
         className='border-b-2 pt-5'
         option={DATA_FILTER_BY_SIZE}
-        labelButton='Filter by Size'
+        buttonTitle='Filter by Size'
         onClick={() => handleToggleDropdown('filterBySize')}
         isOpen={dropdownStates.filterBySize}
         checked={checked}

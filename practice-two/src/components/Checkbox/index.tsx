@@ -4,7 +4,7 @@ interface ICheckbox {
   variants?: 'default' | 'primary' | string;
   checked: boolean;
   customClass?: string;
-  labelCheckbox: string;
+  label: string;
   onChange?: () => void;
 }
 
@@ -12,16 +12,14 @@ const Checkbox = ({
   variants,
   checked,
   customClass,
-  labelCheckbox,
+  label,
   onChange
 }: ICheckbox) => {
+
   let checkboxClasses = 'h-4 w-4 border rounded border-black border-solid accent-black mr-3.5 ';
 
-  switch (variants) {
-    case 'primary':
-      checkboxClasses += twMerge(' items-center justify-center border-none', `${customClass}`);
-
-      break;
+  if (variants === 'primary') {
+    checkboxClasses += twMerge(' items-center justify-center border-none', `${customClass}`);
   }
 
   return (
@@ -36,7 +34,7 @@ const Checkbox = ({
               onChange={onChange}
             />
             <label htmlFor='checkbox' className='font-jost text-xl cursor-pointer'>
-              {labelCheckbox}
+              {label}
             </label>
           </>
         ) : (
@@ -63,7 +61,7 @@ const Checkbox = ({
                   </svg>
                 )}
               </div>
-              {labelCheckbox}
+              {label}
             </label>
           </>
         )}
