@@ -24,6 +24,9 @@ export default {
       width: {
         '445px': '445px',
       },
+      maxWidth: {
+        '1440px': '1440px'
+      },
       screens: {
         '983pxScreen': '983px',
         // => @media (min-width: 983px) { ... }

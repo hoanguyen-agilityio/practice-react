@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Dropdown>;
 export const DropdownOpen: Story = {
   args: {
     option: DATA_PRODUCT_CATEGORIES,
-    labelButton: 'Product Categories',
+    buttonTitle: 'Product Categories',
   },
 };
 
@@ -30,7 +30,7 @@ export const DropdownOpen: Story = {
 export const DropdownClose: Story = {
   args: {
     option: DATA_PRODUCT_CATEGORIES,
-    labelButton: 'Product Categories',
+    buttonTitle: 'Product Categories',
   },
 };
 
@@ -38,7 +38,7 @@ export const DropdownClose: Story = {
 export const FilterByColorClose: Story = {
   args: {
     option: DATA_FILTER_BY_COLOR,
-    labelButton: 'Filter by Color',
+    buttonTitle: 'Filter by Color',
   },
 };
 
@@ -46,7 +46,7 @@ export const FilterByColorClose: Story = {
 export const FilterByColorOpen: Story = {
   args: {
     option: DATA_FILTER_BY_COLOR,
-    labelButton: 'Filter by Color',
+    buttonTitle: 'Filter by Color',
   },
 };
 
@@ -54,7 +54,7 @@ export const FilterByColorOpen: Story = {
 export const FilterBySizeClose: Story = {
   args: {
     option: DATA_FILTER_BY_SIZE,
-    labelButton: 'Filter by Size',
+    buttonTitle: 'Filter by Size',
   },
 };
 
@@ -62,6 +62,6 @@ export const FilterBySizeClose: Story = {
 export const FilterBySizeOpen: Story = {
   args: {
     option: DATA_FILTER_BY_SIZE,
-    labelButton: 'Filter by Size',
+    buttonTitle: 'Filter by Size',
   },
 };

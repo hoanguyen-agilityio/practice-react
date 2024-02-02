@@ -1,41 +1,68 @@
+import { arrowDropDown } from '../assets/Images';
+
+export const NAME_MENU = [
+  {
+    className: 'mr-5',
+    href: 'javascript:void(0);',
+    name: 'Home',
+  },
+  {
+    className: 'flex mr-5',
+    href: 'javascript:void(0);',
+    name: 'Shop',
+    src: arrowDropDown,
+    alt: 'arrow drop down',
+    classImg: 'w-7',
+  },
+  {
+    className: 'mr-5',
+    href: 'javascript:void(0);',
+    name: 'Blog',
+  },
+  {
+    href: 'javascript:void(0);',
+    name: 'Contact Us',
+  },
+];
+
 // Product categories
 export const DATA_PRODUCT_CATEGORIES = [
   {
     variants: 'default',
-    labelCheckbox: 'Men',
+    label: 'Men',
   },
   {
     variants: 'default',
     checked: true,
-    labelCheckbox: 'Women',
+    label: 'Women',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Kids',
+    label: 'Kids',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Bags',
+    label: 'Bags',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Belts',
+    label: 'Belts',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Wallets',
+    label: 'Wallets',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Watches',
+    label: 'Watches',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Accessories',
+    label: 'Accessories',
   },
   {
     variants: 'default',
-    labelCheckbox: 'Winter Wear',
+    label: 'Winter Wear',
   },
 ];
 
@@ -43,32 +70,32 @@ export const DATA_PRODUCT_CATEGORIES = [
 export const DATA_FILTER_BY_COLOR = [
   {
     variants: 'primary',
-    labelCheckbox: 'Red',
+    label: 'Red',
     customClass: 'bg-red-600 accent-red-600'
   },
   {
     variants: 'primary',
-    labelCheckbox: 'Blue',
+    label: 'Blue',
     customClass: 'bg-blue-700 accent-blue-700'
   },
   {
     variants: 'primary',
-    labelCheckbox: 'Orange',
+    label: 'Orange',
     customClass: 'bg-amber-400 accent-amber-400'
   },
   {
     variants: 'primary',
-    labelCheckbox: 'Black',
+    label: 'Black',
     customClass: 'bg-black accent-black'
   },
   {
     variants: 'primary',
-    labelCheckbox: 'Green',
+    label: 'Green',
     customClass: 'bg-lime-400 accent-lime-400'
   },
   {
     variants: 'primary',
-    labelCheckbox: 'Yellow',
+    label: 'Yellow',
     customClass: 'bg-yellow-400 accent-yellow-400'
   },
 ];
@@ -77,26 +104,26 @@ export const DATA_FILTER_BY_COLOR = [
 export const DATA_FILTER_BY_SIZE = [
   {
     variants: 'default',
-    labelCheckbox: 'S',
+    label: 'S',
   },
   {
     variants: 'default',
-    labelCheckbox: 'M',
+    label: 'M',
   },
   {
     variants: 'default',
-    labelCheckbox: 'L',
+    label: 'L',
   },
   {
     variants: 'default',
-    labelCheckbox: 'XL',
+    label: 'XL',
   },
   {
     variants: 'default',
-    labelCheckbox: 'XXL',
+    label: 'XXL',
   },
   {
     variants: 'default',
-    labelCheckbox: 'XXXL',
+    label: 'XXXL',
   },
 ]
