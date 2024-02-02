@@ -42,7 +42,7 @@ const Header = ({
           alt='search icon'
         />
         <Button type='secondary' customClass='w-8 mr-6' icon={heart} alt='heart icon' />
-        <Button
+          <Button
           type='secondary'
           onClick={onClickCart}
           customClass='w-8 983pxScreen:mr-6'
