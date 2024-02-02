@@ -5,14 +5,14 @@ import { cart, heart, logo, search } from '../../assets/Images';
 interface IHeader {
   onNavigateToHomePage: () => void;
   onNavigateToLoginPage: () => void;
-  onClickSearch: () => void;
+  onSearchClick: () => void;
   onClickCart: () => void;
 }
 
 const Header = ({
   onNavigateToHomePage,
   onNavigateToLoginPage,
-  onClickSearch,
+  onSearchClick,
   onClickCart,
 }: IHeader) => {
   return (
@@ -36,7 +36,7 @@ const Header = ({
       <div className='flex pr-16 983pxScreen:pr-24'>
         <Button
           type='secondary'
-          onClick={onClickSearch}
+          onClick={onSearchClick}
           customClass='w-8 mr-6'
           icon={search}
           alt='search icon'
