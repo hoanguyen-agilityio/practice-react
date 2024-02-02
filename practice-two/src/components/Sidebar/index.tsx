@@ -23,6 +23,9 @@ const Sidebar = ({ checked }: ISidebar) => {
     filterBySize: false,
   });
 
+  /**
+   * Handle toggle dropdown
+   */
   const handleToggleDropdown = (dropdownName: keyof DropdownStates) => {
     setDropdownStates((prevState) => ({
       ...prevState,
