@@ -4,16 +4,16 @@ import { cart, heart, logo, search } from '../../assets/Images';
 
 interface IHeader {
   onNavigateToHomePage: () => void;
-  onClickToLoginPage: () => void;
-  onClickSearch: () => void;
-  onClickCart: () => void;
+  onNavigateToLoginPage: () => void;
+  onSearchClick: () => void;
+  onCartClick: () => void;
 }
 
 const Header = ({
   onNavigateToHomePage,
-  onClickToLoginPage,
-  onClickSearch,
-  onClickCart,
+  onNavigateToLoginPage,
+  onSearchClick,
+  onCartClick,
 }: IHeader) => {
   return (
     <header className='flex items-center justify-between min-w-96'>
@@ -36,7 +36,7 @@ const Header = ({
       <div className='flex pr-16 983pxScreen:pr-24'>
         <Button
           type='secondary'
-          onClick={onClickSearch}
+          onClick={onSearchClick}
           customClass='w-8 mr-6'
           icon={search}
           alt='search icon'
@@ -44,13 +44,13 @@ const Header = ({
         <Button type='secondary' customClass='w-8 mr-6' icon={heart} alt='heart icon' />
           <Button
           type='secondary'
-          onClick={onClickCart}
+          onClick={onCartClick}
           customClass='w-8 983pxScreen:mr-6'
           icon={cart}
           alt='cart icon'
         />
         <Button
-          onClick={onClickToLoginPage}
+          onClick={onNavigateToLoginPage}
           type='default'
           label='Login'
           customClass='pt-4 pb-4 pl-7 pr-7 hidden 983pxScreen:flex'
