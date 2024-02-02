@@ -4,14 +4,14 @@ import { cart, heart, logo, search } from '../../assets/Images';
 
 interface IHeader {
   onNavigateToHomePage: () => void;
-  onClickToLoginPage: () => void;
+  onNavigateToLoginPage: () => void;
   onClickSearch: () => void;
   onClickCart: () => void;
 }
 
 const Header = ({
   onNavigateToHomePage,
-  onClickToLoginPage,
+  onNavigateToLoginPage,
   onClickSearch,
   onClickCart,
 }: IHeader) => {
@@ -50,7 +50,7 @@ const Header = ({
           alt='cart icon'
         />
         <Button
-          onClick={onClickToLoginPage}
+          onClick={onNavigateToLoginPage}
           type='default'
           label='Login'
           customClass='pt-4 pb-4 pl-7 pr-7 hidden 983pxScreen:flex'
