@@ -11,11 +11,8 @@ interface ICheckbox {
 const Checkbox = ({ variants, checked, customClass, labelCheckbox, onChange }: ICheckbox) => {
   let checkboxClasses = 'h-4 w-4 border rounded border-black border-solid accent-black mr-3.5 ';
 
-  switch (variants) {
-    case 'primary':
-      checkboxClasses += twMerge(' items-center justify-center border-none', `${customClass}`);
-
-      break;
+  if (variants === 'primary') {
+    checkboxClasses += twMerge(' items-center justify-center border-none', `${customClass}`);
   }
 
   return (
