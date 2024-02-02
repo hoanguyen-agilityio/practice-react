@@ -3,14 +3,14 @@ import { Button } from '..';
 import { cart, heart, logo, search } from '../../assets/Images';
 
 interface IHeader {
-  onClickBackHomePage: () => void;
+  onNavigateToHomePage: () => void;
   onClickToLoginPage: () => void;
   onClickSearch: () => void;
   onClickCart: () => void;
 }
 
 const Header = ({
-  onClickBackHomePage,
+  onNavigateToHomePage,
   onClickToLoginPage,
   onClickSearch,
   onClickCart,
@@ -22,7 +22,7 @@ const Header = ({
         <div className='w-8 h-0.5 bg-gray-600'></div>
         <div className='w-8 h-0.5 bg-gray-600'></div>
       </div>
-      <a href='/' onClick={onClickBackHomePage} className='px-8 983pxScreen:pl-24'>
+      <a href='/' onClick={onNavigateToHomePage} className='px-8 983pxScreen:pl-24'>
         <img src={logo} alt='logo' className='max-w-36' />
       </a>
       <ul className='hidden 983pxScreen:flex'>
