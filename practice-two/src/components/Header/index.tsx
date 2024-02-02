@@ -1,11 +1,6 @@
+import { NAME_MENU } from '../../constants/data';
 import { Button } from '..';
-import {
-  arrowDropDown,
-  cart,
-  heart,
-  logo,
-  search
-} from '../../assets/Images';
+import { cart, heart, logo, search } from '../../assets/Images';
 
 interface IHeader {
   onClickBackHomePage: () => void;
@@ -18,7 +13,7 @@ const Header = ({
   onClickBackHomePage,
   onClickToLoginPage,
   onClickSearch,
-  onClickCart
+  onClickCart,
 }: IHeader) => {
   return (
     <header className='flex items-center justify-between min-w-96'>
@@ -31,22 +26,12 @@ const Header = ({
         <img src={logo} alt='logo' className='max-w-36' />
       </a>
       <ul className='hidden 983pxScreen:flex'>
-        <li className='mr-5'>
-          <a href='javascript:void(0);'>Home</a>
-        </li>
-        <li className='flex mr-5'>
-          <a href='javascript:void(0);'>Shop</a>
-          <img src={arrowDropDown} alt='arrow drop down' className='w-7' />
-        </li>
-        <li className='mr-5'>
-          <a href='javascript:void(0);'>Our Story</a>
-        </li>
-        <li className='mr-5'>
-          <a href='javascript:void(0);'>Blog</a>
-        </li>
-        <li>
-          <a href='javascript:void(0);'>Contact Us</a>
-        </li>
+        {NAME_MENU.map(({ className, href, name, src, alt, classImg }) => (
+          <li key={name} className={className}>
+            <a href={href}>{name}</a>
+            {src && <img src={src} alt={alt} className={classImg} />}
+          </li>
+        ))}
       </ul>
       <div className='flex pr-16 983pxScreen:pr-24'>
         <Button
@@ -56,12 +41,7 @@ const Header = ({
           icon={search}
           alt='search icon'
         />
-        <Button
-          type='secondary'
-          customClass='w-8 mr-6'
-          icon={heart}
-          alt='heart icon'
-        />
+        <Button type='secondary' customClass='w-8 mr-6' icon={heart} alt='heart icon' />
         <Button
           type='secondary'
           onClick={onClickCart}
