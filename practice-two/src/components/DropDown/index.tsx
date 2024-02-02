@@ -31,7 +31,7 @@ const Dropdown = ({
         label={buttonTitle}
         type='primary'
         icon={arrowDropDown}
-        customClass='flex items-center font-jost text-xl pb-4 w-60 justify-between'
+        customClass='flex items-center font-jost text-xl pb-4 w-60 justify-between font-bold'
         iconClasses='w-8'
         onClick={onClick}
       />
