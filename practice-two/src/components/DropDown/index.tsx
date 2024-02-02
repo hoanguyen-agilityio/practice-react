@@ -6,16 +6,16 @@ interface IDropdown {
   option: {
     variants: string;
     checked: boolean;
-    labelCheckbox: string;
+    label: string;
     customClass?: string;
   }[];
-  labelButton: string;
+  buttonTitle: string;
   isOpen: boolean;
   onChange: () => void;
 }
 
 const Dropdown = ({
-  labelButton,
+  buttonTitle,
   isOpen,
   onChange,
   option
@@ -23,7 +23,7 @@ const Dropdown = ({
   return (
     <div>
       <Button
-        label={labelButton}
+        label={buttonTitle}
         type='primary'
         icon={arrowDropDown}
         customClass='flex items-center font-jost text-xl mb-2.5'
@@ -34,15 +34,15 @@ const Dropdown = ({
           option.map(({
             variants,
             checked,
-            labelCheckbox,
+            label,
             customClass
           }) => (
             <Checkbox
-              key={labelCheckbox}
+              key={label}
               variants={variants}
               checked={checked}
               onChange={onChange}
-              labelCheckbox={labelCheckbox}
+              label={label}
               customClass={customClass}
             />
           ))}
