@@ -3,35 +3,41 @@ import { Button } from '..';
 import Checkbox from '../Checkbox';
 
 interface IDropdown {
-  option: {
+  option?: {
     variants: string;
     checked: boolean;
     labelCheckbox: string;
     customClass?: string;
   }[];
   labelButton: string;
-  isOpen: boolean;
-  onChange: () => void;
+  isOpen?: boolean;
+  className: string;
+  onChange?: () => void;
+  onClick?: () => void;
 }
 
 const Dropdown = ({
   labelButton,
   isOpen,
   onChange,
-  option
+  option,
+  onClick,
+  className
 }: IDropdown) => {
+  const myOption = option || [];
   return (
-    <div>
+    <div className={className}>
       <Button
         label={labelButton}
         type='primary'
         icon={arrowDropDown}
-        customClass='flex items-center font-jost text-xl mb-2.5'
-        iconClasses='w-8 ml-4'
+        customClass='flex items-center font-jost text-xl pb-4 w-60 justify-between'
+        iconClasses='w-8'
+        onClick={onClick}
       />
       <ul>
         {isOpen &&
-          option.map(({
+          myOption.map(({
             variants,
             checked,
             labelCheckbox,

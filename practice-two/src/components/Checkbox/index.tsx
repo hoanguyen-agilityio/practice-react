@@ -5,7 +5,7 @@ interface ICheckbox {
   checked: boolean;
   customClass?: string;
   labelCheckbox: string;
-  onChange: () => void;
+  onChange?: () => void;
 }
 
 const Checkbox = ({
@@ -26,7 +26,7 @@ const Checkbox = ({
 
   return (
     <ul>
-      <li>
+      <li className='pb-4'>
         {variants === 'default' ? (
           <>
             <input

@@ -23,7 +23,6 @@ export const DropdownOpen: Story = {
   args: {
     option: DATA_PRODUCT_CATEGORIES,
     labelButton: 'Product Categories',
-    isOpen: true,
   },
 };
 
@@ -32,7 +31,6 @@ export const DropdownClose: Story = {
   args: {
     option: DATA_PRODUCT_CATEGORIES,
     labelButton: 'Product Categories',
-    isOpen: false,
   },
 };
 
@@ -41,7 +39,6 @@ export const FilterByColorClose: Story = {
   args: {
     option: DATA_FILTER_BY_COLOR,
     labelButton: 'Filter by Color',
-    isOpen: false,
   },
 };
 
@@ -50,7 +47,6 @@ export const FilterByColorOpen: Story = {
   args: {
     option: DATA_FILTER_BY_COLOR,
     labelButton: 'Filter by Color',
-    isOpen: true,
   },
 };
 
@@ -59,7 +55,6 @@ export const FilterBySizeClose: Story = {
   args: {
     option: DATA_FILTER_BY_SIZE,
     labelButton: 'Filter by Size',
-    isOpen: false,
   },
 };
 
@@ -68,6 +63,5 @@ export const FilterBySizeOpen: Story = {
   args: {
     option: DATA_FILTER_BY_SIZE,
     labelButton: 'Filter by Size',
-    isOpen: true,
   },
 };
