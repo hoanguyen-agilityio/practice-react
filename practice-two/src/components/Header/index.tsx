@@ -6,14 +6,14 @@ interface IHeader {
   onNavigateToHomePage: () => void;
   onNavigateToLoginPage: () => void;
   onSearchClick: () => void;
-  onClickCart: () => void;
+  onCartClick: () => void;
 }
 
 const Header = ({
   onNavigateToHomePage,
   onNavigateToLoginPage,
   onSearchClick,
-  onClickCart,
+  onCartClick,
 }: IHeader) => {
   return (
     <header className='flex items-center justify-between min-w-96'>
@@ -44,7 +44,7 @@ const Header = ({
         <Button type='secondary' customClass='w-8 mr-6' icon={heart} alt='heart icon' />
         <Button
           type='secondary'
-          onClick={onClickCart}
+          onClick={onCartClick}
           customClass='w-8 983pxScreen:mr-6'
           icon={cart}
           alt='cart icon'
