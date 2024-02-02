@@ -4,11 +4,11 @@ interface ICheckbox {
   variants?: 'default' | 'primary';
   checked: boolean;
   customClass?: string;
-  labelCheckbox: string;
+  label: string;
   onChange: () => void;
 }
 
-const Checkbox = ({ variants, checked, customClass, labelCheckbox, onChange }: ICheckbox) => {
+const Checkbox = ({ variants, checked, customClass, label, onChange }: ICheckbox) => {
   let checkboxClasses = 'h-4 w-4 border rounded border-black border-solid accent-black mr-3.5 ';
 
   if (variants === 'primary') {
@@ -27,7 +27,7 @@ const Checkbox = ({ variants, checked, customClass, labelCheckbox, onChange }: I
               onChange={onChange}
             />
             <label htmlFor='checkbox' className='font-jost text-xl cursor-pointer'>
-              {labelCheckbox}
+              {label}
             </label>
           </>
         ) : (
@@ -54,7 +54,7 @@ const Checkbox = ({ variants, checked, customClass, labelCheckbox, onChange }: I
                   </svg>
                 )}
               </div>
-              {labelCheckbox}
+              {label}
             </label>
           </>
         )}
