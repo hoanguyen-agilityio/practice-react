@@ -2,11 +2,11 @@ import { twMerge } from 'tailwind-merge';
 
 interface IButton {
   type: 'default' | 'primary' | 'secondary';
-  onClick: () => void;
+  onClick?: () => void;
   icon?: string;
-  label: string;
+  label?: string;
   alt?: string;
-  iconClasses: string;
+  iconClasses?: string;
   customClass?: string;
 }
 
@@ -36,7 +36,9 @@ const Button = ({
 
   return (
     <button
-      className={buttonClasses} onClick={onClick}>
+      className={buttonClasses}
+      onClick={onClick}
+    >
       {label && <span>{label}</span>}
       {icon && <img src={icon} alt={alt} className={iconClasses} />}
     </button>
